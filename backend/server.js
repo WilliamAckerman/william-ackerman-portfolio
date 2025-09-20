@@ -1,19 +1,21 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+import "dotenv/config";
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import projectsRouter from "./routes/projects.js";
+import skillsRouter from "./routes/skills.js";
 
-import projectRoutes from './routes/projects.js';
-import skillRoutes from './routes/skills.js';
-
-dotenv.config();
 const app = express();
-
-app.use(cors()); // Allow frontend requests
+app.use(cors({ origin: "*" })); // Allow all for now
 app.use(express.json()); // Parse JSON requests
 
 // Routes
-app.use('/api/projects', projectRoutes);
-app.use('/api/skills', skillRoutes);
+app.use('/api/projects', projectsRouter);
+app.use('/api/skills', skillsRouter);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Backend running on port ${PORT}`);
+});

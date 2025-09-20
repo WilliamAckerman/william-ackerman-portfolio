@@ -1,16 +1,20 @@
 import express from 'express';
-import pool from '../db.js';
+import supabase from "../supabaseClient.js";
+
 const router = express.Router();
 
 // GET all skills
 router.get('/', async (req, res) => {
-    try {
-        const result = await pool.query('SELECT * FROM skills ORDER BY type_id, name');
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Failed to fetch skills' });
+    const { data, error } = await supabase
+        .from("skills")
+        .select("id, name, type_id");
+    
+    if (error) {
+        console.error(error);
+        return res.status(500).json({ error: error.message });
     }
+
+    res.json(data);
 });
 
 export default router;
