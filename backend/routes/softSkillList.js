@@ -7,8 +7,8 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const { data, error } = await supabase
         .from("skills")
-        .select("id, name, type_id, category, skill_image_link, color, icon_name")
-        .eq("category", "Backend")
+        .select("id, name, type_id, category")
+        .eq("category", "Soft Skills")
         .order("name");
     
     if (error) {

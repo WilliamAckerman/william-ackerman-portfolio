@@ -71,3 +71,73 @@ export async function fetchDatabaseSkillList() {
         throw new Error(error.response?.data?.message || "Failed to fetch database skills");
     }
 }
+
+export async function fetchProgrammingLanguageSkillList() {
+    try {
+        const res = await api.get("/programmingLanguageSkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching programming language skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch programming language skills");
+    }
+}
+
+export async function fetchToolSkillList() {
+    try {
+        const res = await api.get("/toolSkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching tool skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch tool skills");
+    }
+}
+
+export async function fetchOperatingSystemSkillList() {
+    try {
+        const res = await api.get("/operatingSystemSkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching operating system skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch operating system skills");
+    }
+}
+
+export async function fetchIDESkillList() {
+    try {
+        const res = await api.get("/IDESkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching IDE skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch IDE skills");
+    }
+}
+
+export async function fetchMiscTechnologySkillList() {
+    try {
+        const res = await api.get("/miscTechnologySkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching misc. technology skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch misc. technology skills");
+    }
+}
+
+export async function fetchOtherTechnicalSkillList() {
+    try {
+        const res = await api.get("/otherTechnicalSkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching other technical skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch other technical skills");
+    }
+}
+
+export async function fetchSoftSkillList() {
+    try {
+        const res = await api.get("/softSkillList");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching soft skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch soft skills");
+    }
+}

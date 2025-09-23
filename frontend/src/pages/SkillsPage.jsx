@@ -2,6 +2,13 @@
 import FrontendSkills from "../components/FrontendSkills";
 import BackendSkills from "../components/BackendSkills";
 import DatabaseSkills from "../components/DatabaseSkills";
+import ProgrammingLanguageSkills from "../components/ProgrammingLanguageSkills";
+import ToolSkills from "../components/ToolSkills";
+import OperatingSystemSkills from "../components/OperatingSystemSkills";
+import IDESkills from "../components/IDESkills";
+import MiscTechnologySkills from "../components/MiscTechnologySkills";
+import OtherTechnicalSkills from "../components/OtherTechnicalSkills";
+import SoftSkills from "../components/SoftSkills";
 
 function SkillsPage() {
     {/*const [skillList, setSkillList] = useState([]);
@@ -22,6 +29,20 @@ function SkillsPage() {
             <BackendSkills />
             <br />
             <DatabaseSkills />
+            <br />
+            <ProgrammingLanguageSkills />
+            <br />
+            <ToolSkills />
+            <br />
+            <OperatingSystemSkills />
+            <br />
+            <IDESkills />
+            <br />
+            <MiscTechnologySkills />
+            <br />
+            <OtherTechnicalSkills />
+            <br />
+            <SoftSkills />
         </>
     );
 }

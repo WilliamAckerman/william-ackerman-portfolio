@@ -5,6 +5,7 @@ import SkillIcon from "./SkillIcon";
 
 function FrontendSkills() {
     const [frontendSkillList, setFrontendSkillList] = useState([]);
+    const [frontendLoading, setFrontendLoading] = useState(true);
 
     useEffect(() => {
         const loadFrontendSkillList = async () => {
@@ -12,11 +13,13 @@ function FrontendSkills() {
             setFrontendSkillList(data);
         };
         loadFrontendSkillList();
+        setFrontendLoading(false)
     }, []);
 
     return (
         <>
             <h2 className="text-3xl text-center font-semibold text-gray-100">Frontend</h2><br />
+            { frontendLoading ? <p className="text-center text-gray-100">Loading frontend skills...</p> :
             <ul className="flex flex-wrap justify-center gap-6">
                 {frontendSkillList
                 .map((skill) => (
@@ -26,6 +29,7 @@ function FrontendSkills() {
                     </li>
                 ))}
             </ul>
+            }
         </>
     );
 }

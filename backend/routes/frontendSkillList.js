@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
         .from("skills")
         .select("id, name, type_id, category, skill_image_link, color, icon_name")
         .eq("category", "Frontend")
-        .order("type_id, name");
+        .order("name");
     
     if (error) {
         console.error(error);
