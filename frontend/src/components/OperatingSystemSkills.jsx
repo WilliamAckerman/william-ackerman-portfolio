@@ -24,7 +24,7 @@ function OperatingSystemSkills() {
             <ul className="flex flex-wrap justify-center gap-6">
                 {operatingSystemSkillList
                 .map((skill) => (
-                    <li key={skill.id} className={`p-3 rounded bg-gray-100 flex flex-col items-center basis-1/3 max-w-xs ${skill.icon_name ? "" : "justify-center"}`}>
+                    <li key={skill.id} className={`p-3 rounded bg-gray-100 flex flex-col items-center basis-1/3 max-w-xs justify-center`}>
                         <SkillIcon iconName={skill.icon_name} color={skill.color} />
                         <span className="font-semibold text-center">{skill.name}</span>
                     </li>

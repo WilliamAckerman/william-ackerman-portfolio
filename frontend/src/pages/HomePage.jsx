@@ -14,7 +14,6 @@ function HomePage() {
                 sx={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    maxWidth: 1200,
                     margin: "0 auto",
                     p: { xs: 4, md: 6 },
                 }}
@@ -32,10 +31,18 @@ function HomePage() {
                     <img 
                         src={Headshot} 
                         alt="William Ackerman" 
-                        className="rounded max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[225px] h-auto" 
+                        className="rounded max-w-[100px] sm:max-w-[150px] md:max-w-[300px] lg:max-w-[350px] h-auto" 
                     />
                 </Box>
             </Box>
+
+            <h2 className="text-3xl font-semibold text-neutral-50 text-center mt-2">Projects</h2>
+
+            <h2 className="text-3xl font-semibold text-neutral-50 text-center mt-2">Skills</h2>
+
+            <h2 className="text-3xl font-semibold text-neutral-50 text-center mt-2">About Me</h2>
+
+            <h2 className="text-3xl font-semibold text-neutral-50 text-center mt-2">Contact Me</h2>
         </>
     );
 }
