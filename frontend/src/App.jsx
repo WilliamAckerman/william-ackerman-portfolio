@@ -1,5 +1,4 @@
 import { Routes, Route, Link } from "react-router-dom";
-import { useEffect, useState } from 'react';
 
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -7,14 +6,14 @@ import SkillsPage from "./pages/SkillsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 
+import Footer from "./components/Footer";
+
 import ProjectList from './components/ProjectList';
 import SkillList from './components/SkillList';
 
 //import API from './services/api';
 
 function App() {
-  const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
 
   return (
     <div>
@@ -35,6 +34,8 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
+
+      <Footer />
 
     </div>
   );

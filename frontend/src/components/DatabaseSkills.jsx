@@ -11,15 +11,15 @@ function DatabaseSkills() {
         const loadDatabaseSkillList = async () => {
             const data = await fetchDatabaseSkillList();
             setDatabaseSkillList(data);
+            setDatabaseLoading(false);
         };
         loadDatabaseSkillList();
-        setDatabaseLoading(false);
     }, []);
 
     return (
         <>
-            <h2 className="text-3xl text-center font-semibold text-gray-100">Database</h2><br />
-            { databaseLoading ? <p className="text-center text-gray-100">Loading database skills...</p> :
+            <h2 className="text-3xl text-center font-semibold text-neutral-50">Database</h2><br />
+            { databaseLoading ? <p className="text-center text-neutral-50">Loading database skills...</p> :
             <ul className="flex flex-wrap justify-center gap-6">
                 {databaseSkillList
                 .map((skill) => (

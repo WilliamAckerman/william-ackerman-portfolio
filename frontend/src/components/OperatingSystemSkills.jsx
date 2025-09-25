@@ -12,15 +12,15 @@ function OperatingSystemSkills() {
         const loadOperatingSystemSkillList = async () => {
             const data = await fetchOperatingSystemSkillList();
             setOperatingSystemSkillList(data);
+            setOperatingSystemLoading(false);
         };
         loadOperatingSystemSkillList();
-        setOperatingSystemLoading(false);
     }, []);
 
     return (
         <>
-            <h2 className="text-3xl text-center font-semibold text-gray-100">Operating Systems</h2><br />
-            { operatingSystemLoading ? <p className="text-center text-gray-100">Loading operating systems...</p> :
+            <h2 className="text-3xl text-center font-semibold text-neutral-50">Operating Systems</h2><br />
+            { operatingSystemLoading ? <p className="text-center text-neutral-50">Loading operating systems...</p> :
             <ul className="flex flex-wrap justify-center gap-6">
                 {operatingSystemSkillList
                 .map((skill) => (

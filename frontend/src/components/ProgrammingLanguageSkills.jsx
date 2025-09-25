@@ -11,15 +11,15 @@ function ProgrammingLanguageSkills() {
         const loadProgrammingLanguageSkillList = async () => {
             const data = await fetchProgrammingLanguageSkillList();
             setProgrammingLanguageSkillList(data);
+            setProgrammingLanguageLoading(false);
         };
         loadProgrammingLanguageSkillList();
-        setProgrammingLanguageLoading(false);
     }, []);
 
     return (
         <>
-            <h2 className="text-3xl text-center font-semibold text-gray-100">Programming Languages</h2><br />
-            { programmingLanguageLoading ? <p className="text-center text-gray-100">Loading programming languages...</p> :
+            <h2 className="text-3xl text-center font-semibold text-neutral-50">Programming Languages</h2><br />
+            { programmingLanguageLoading ? <p className="text-center text-neutral-50">Loading programming languages...</p> :
             <ul className="flex flex-wrap justify-center gap-6">
                 {programmingLanguageSkillList
                 .map((skill) => (

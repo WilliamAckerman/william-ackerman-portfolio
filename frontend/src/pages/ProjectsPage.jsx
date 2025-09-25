@@ -24,10 +24,11 @@ function ProjectsPage() {
 
     return (
         <>
-            <h1 className="text-2xl font-bold">Projects</h1>
+            <h1 className="text-4xl font-bold text-neutral-50">Projects</h1>
+            <br />
             <div className="grid gap-4 md:grid-cols-2">
                 {projects.map((p) => (
-                    <div key={p.id} className="p-4 border rounded-lg shadow">
+                    <div key={p.id} className="p-4 border bg-neutral-50 rounded-lg shadow">
                         <h2 className="text-xl font-semibold">{p.title}</h2>
                         <p>{formatDate(p.start_date)} - {formatDate(p.end_date)}</p>
                     </div>
