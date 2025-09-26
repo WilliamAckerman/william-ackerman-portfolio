@@ -19,21 +19,23 @@ function ProjectsPage() {
         .finally(() => setLoading(false));
     }, []);
 
-    if (loading) return <p>Loading projects...</p>;
-    if (error) return <p class="text-red-500">Error: {error}</p>;
+    if (loading) return <p className="text-neutral-50">Loading projects...</p>;
+    if (error) return <p className="text-red-500">Error: {error}</p>;
 
     return (
         <>
-            <h1 className="text-4xl font-bold text-neutral-50">Projects</h1>
-            <br />
-            <div className="grid gap-4 md:grid-cols-2">
-                {projects.map((p) => (
-                    <div key={p.id} className="p-4 border bg-neutral-50 rounded-lg shadow">
-                        <h2 className="text-xl font-semibold">{p.title}</h2>
-                        <p>{formatDate(p.start_date)} - {formatDate(p.end_date)}</p>
-                    </div>
-                ))}
-            </div>
+            <section id="ProjectsPage" className="p-6">
+                <h1 className="text-4xl font-bold text-neutral-50">Projects</h1>
+                <br />
+                <div className="grid gap-4 md:grid-cols-2">
+                    {projects.map((p) => (
+                        <div key={p.id} className="p-4 border bg-neutral-50 rounded-lg shadow">
+                            <h2 className="text-xl font-semibold">{p.title}</h2>
+                            <p>{formatDate(p.start_date)} - {formatDate(p.end_date)}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
         </>
     );
 }

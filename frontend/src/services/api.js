@@ -32,6 +32,26 @@ export async function fetchSkills() {
     }
 }
 
+export async function fetchFeaturedProjects() {
+    try {
+        const res = await api.get("/featuredProjects");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching featured projects:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch featured projects");
+    }
+}
+
+export async function fetchFeaturedSkills() {
+    try {
+        const res = await api.get("/featuredSkills");
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching featured skills:", error);
+        throw new Error(error.response?.data?.message || "Failed to fetch featured skills");
+    }
+}
+
 export async function fetchSkillList() {
     try {
         const res = await api.get("/skillList");

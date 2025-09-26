@@ -18,7 +18,7 @@ function ToolSkills() {
 
     return (
         <>
-            <h2 className="text-3xl text-center font-semibold text-neutral-50">Tools</h2><br />
+            <h2 className="text-3xl text-center font-semibold text-neutral-50">Tools/Other</h2><br />
             { toolLoading ? <p className="text-center text-neutral-50">Loading tools...</p> :
             <ul className="flex flex-wrap justify-center gap-6">
                 {toolSkillList

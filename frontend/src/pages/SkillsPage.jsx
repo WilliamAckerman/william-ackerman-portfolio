@@ -6,12 +6,12 @@ import Tab from '@mui/material/Tab';
 import FrontendSkills from "../components/FrontendSkills";
 import BackendSkills from "../components/BackendSkills";
 import DatabaseSkills from "../components/DatabaseSkills";
-import ProgrammingLanguageSkills from "../components/ProgrammingLanguageSkills";
+//import ProgrammingLanguageSkills from "../components/ProgrammingLanguageSkills";
 import ToolSkills from "../components/ToolSkills";
-import OperatingSystemSkills from "../components/OperatingSystemSkills";
-import IDESkills from "../components/IDESkills";
-import MiscTechnologySkills from "../components/MiscTechnologySkills";
-import OtherTechnicalSkills from "../components/OtherTechnicalSkills";
+//import OperatingSystemSkills from "../components/OperatingSystemSkills";
+//import IDESkills from "../components/IDESkills";
+//import MiscTechnologySkills from "../components/MiscTechnologySkills";
+//import OtherTechnicalSkills from "../components/OtherTechnicalSkills";
 import SoftSkills from "../components/SoftSkills";
 
 function TabPanel({ children, value, index }) {
@@ -44,23 +44,24 @@ function SkillsPage() {
 
     return (
         <>
-            <h1 className="text-4xl text-center font-bold  text-neutral-50">Skills</h1><br />
+            <section id="SkillsPage" className="p-6">
+                <h1 className="text-4xl text-center font-bold  text-neutral-50">Skills</h1><br />
 
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
 
-                <Tabs 
-                    value={value} 
-                    onChange={handleChange} 
-                    variant="scrollable"
-                    scrollButtons="auto"
-                    sx={{
-                        "& .MuiTabs-scrollButtons": {
-                            color: "white",
-                        }
-                    }}
-                    allowScrollButtonsMobile
-                    aria-label="Tabs for Skills section"
-                >
+                    <Tabs 
+                        value={value} 
+                        onChange={handleChange}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        sx={{
+                            "& .MuiTabs-scrollButtons": {
+                                color: "white",
+                            }
+                        }}
+                        allowScrollButtonsMobile
+                        aria-label="Tabs for Skills section"
+                    >
                         <Tab 
                             label="All"
                             sx={{
@@ -89,48 +90,48 @@ function SkillsPage() {
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
                         />
-                        <Tab 
+                        {/*<Tab 
                             label="Programming Languages"
                             sx={{
                                 color: "white",
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }} 
-                        />
+                        />*/}
                         <Tab 
-                            label="Tools" 
+                            label="Tools/Other" 
                             sx={{
                                 color: "white",
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
                         />
-                        <Tab 
+                        {/*<Tab 
                             label="Operating Systems" 
                             sx={{
                                 color: "white",
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
-                        />
-                        <Tab 
+                        />*/}
+                        {/*<Tab 
                             label="IDEs" 
                             sx={{
                                 color: "white",
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
-                        />
-                        <Tab 
+                        />*/}
+                        {/*<Tab 
                             label="Misc. Technologies" 
                             sx={{
                                 color: "white",
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
-                        />
-                        <Tab 
+                        />*/}
+                        {/*<Tab 
                             label="Other Technical Skills" 
                             sx={{
                                 color: "white",
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
-                        />
+                        />*/}
                         <Tab 
                             label="Soft Skills" 
                             sx={{
@@ -138,27 +139,27 @@ function SkillsPage() {
                                 "&.Mui-selected": { color: "dodgerblue" },
                             }}
                         />
-                </Tabs>
+                    </Tabs>
 
-                <TabPanel value={value} index={0}>
+                    <TabPanel value={value} index={0}>
                         <FrontendSkills />
                         <br />
                         <BackendSkills />
                         <br />
                         <DatabaseSkills />
                         <br />
-                        <ProgrammingLanguageSkills />
-                        <br />
+                        {/*<ProgrammingLanguageSkills />
+                        <br />*/}
                         <ToolSkills />
                         <br />
-                        <OperatingSystemSkills />
+                        {/*<OperatingSystemSkills />
                         <br />
                         <IDESkills />
                         <br />
                         <MiscTechnologySkills />
                         <br />
                         <OtherTechnicalSkills />
-                        <br />
+                        <br />*/}
                         <SoftSkills />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
@@ -170,13 +171,13 @@ function SkillsPage() {
                     <TabPanel value={value} index={3}>
                         <DatabaseSkills />
                     </TabPanel>
-                    <TabPanel value={value} index={4}>
+                    {/*<TabPanel value={value} index={4}>
                         <ProgrammingLanguageSkills />
-                    </TabPanel>
-                    <TabPanel value={value} index={5}>
+                    </TabPanel>*/}
+                    <TabPanel value={value} index={4}>
                         <ToolSkills />
                     </TabPanel>
-                    <TabPanel value={value} index={6}>
+                    {/*<TabPanel value={value} index={6}>
                         <OperatingSystemSkills />
                     </TabPanel>
                     <TabPanel value={value} index={7}>
@@ -187,11 +188,11 @@ function SkillsPage() {
                     </TabPanel>
                     <TabPanel value={value} index={9}>
                         <OtherTechnicalSkills />
-                    </TabPanel>
-                    <TabPanel value={value} index={10}>
+                    </TabPanel>*/}
+                    <TabPanel value={value} index={5}>
                         <SoftSkills />
                     </TabPanel>
-            </Box>
+                </Box>
 
             {/*<CustomTabPanel value={value} index={0}>
                 <FrontendSkills />
@@ -245,6 +246,7 @@ function SkillsPage() {
                 <SoftSkills />
             </CustomTabPanel>
             */}
+            </section>
         </>
     );
 }

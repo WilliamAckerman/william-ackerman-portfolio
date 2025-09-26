@@ -8,20 +8,20 @@ export default function Footer() {
     return (
         <footer className="bg-gray-800">
             <br />
-            <h2 className="text-4xl text-center text-neutral-50 font-semibold">
+            <h2 className="text-5xl text-center text-neutral-50 font-semibold">
                 William Ackerman
             </h2>
             <br />
-            <h3 className="text-3xl text-center text-neutral-50 font-semibold">
+            <h3 className="text-4xl text-center text-neutral-50 font-semibold">
                 Contact Me
             </h3>
             <br />
-            <Box sx={{ display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center", gap: 2, color: 'white' }}>
+            <Box sx={{ display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center", gap: 2, color: "white" }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <EmailIcon /> <a href="mailto:williamjohnackerman@gmail.com" className="underline hover:no-underline">williamjohnackerman@gmail.com</a>
+                    <EmailIcon /> <a href="mailto:williamjohnackerman@gmail.com" className="underline hover:no-underline text-green-500">williamjohnackerman@gmail.com</a>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <PhoneIcon /> <a href="tel:+15162528285" className="underline hover:no-underline">(+1) 516-252-8285</a>
+                    <PhoneIcon /> <a href="tel:+15162528285" className="underline hover:no-underline text-green-500">(+1) 516-252-8285</a>
                 </Box>
             </Box>
             <br />

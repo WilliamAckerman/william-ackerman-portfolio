@@ -9,6 +9,9 @@ import projectsRouter from "./routes/projects.js";
 import skillsRouter from "./routes/skills.js";
 import skillListRouter from "./routes/skillList.js";
 
+import featuredProjectsRouter from "./routes/featuredProjects.js";
+import featuredSkillsRouter from "./routes/homePageSkills.js";
+
 import frontendSkillListRouter from "./routes/frontendSkillList.js";
 import backendSkillListRouter from "./routes/backendSkillList.js";
 import databaseSkillListRouter from "./routes/databaseSkillList.js";
@@ -27,6 +30,9 @@ app.use(express.json()); // Parse JSON requests
 // Routes
 app.use('/api/projects', projectsRouter);
 app.use('/api/skills', skillsRouter);
+
+app.use('/api/featuredProjects', featuredProjectsRouter);
+app.use('/api/featuredSkills', featuredSkillsRouter);
 
 app.use('/api/skillList', skillListRouter);
 app.use('/api/frontendSkillList', frontendSkillListRouter);
