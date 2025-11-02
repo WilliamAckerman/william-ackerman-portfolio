@@ -1,0 +1,16 @@
+Some resources I used in developing this project:
+
+"Modern Full-Stack React Projects" by Daniel Bugl
+
+Backend:
+- https://www.geeksforgeeks.org/web-tech/express-js-express-router-function/
+- https://www.geeksforgeeks.org/node-js/middleware-in-express-js/
+- https://www.geeksforgeeks.org/node-js/build-your-first-router-in-node-js-with-express/
+- https://www.geeksforgeeks.org/node-js/explain-the-concept-of-restful-apis-in-express/
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
+- https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs/Introduction
+
+- https://stackoverflow.com/questions/77973412/problem-with-hooks-and-components-error-invalid-hook-call
+
+- https://www.youtube.com/watch?v=w9r55wd2CAk
