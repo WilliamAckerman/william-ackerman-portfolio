@@ -5,7 +5,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { MongoFetchTest } from './api/api.jsx';
 import { Link } from 'react-router';
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
           </button>}
         </div>
         <Link to={"/projects"}>Link to Projects</Link>
-        <MongoFetchTest />
       </QueryClientProvider>
     </>
   )

@@ -3,7 +3,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { MongoFetchTest } from './../api/api.jsx';
+import { FetchProjects } from '../api/FetchProjects.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 
@@ -14,11 +14,11 @@ function Projects() {
     <>
       <Navbar />
         <QueryClientProvider client={queryClient}>
-          <div className="p-6 bg-blue-900">
-            <h1 className="text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+          <div className="p-6 bg-blue-900 min-h-screen">
+            <h1 className="mb-4 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Projects
             </h1>
-            <MongoFetchTest />
+            <FetchProjects />
           </div>
         </QueryClientProvider>
       <Footer />

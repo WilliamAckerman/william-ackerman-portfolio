@@ -14,3 +14,12 @@ Backend:
 - https://stackoverflow.com/questions/77973412/problem-with-hooks-and-components-error-invalid-hook-call
 
 - https://www.youtube.com/watch?v=w9r55wd2CAk
+
+Frontend:
+- https://stackoverflow.com/questions/67798540/tailswind-css-list-disc-is-not-styling-li-bullets-correctly-double-bullet
+- https://dev.to/ridhikgovind/solving-event-handling-errors-in-react-4l7d
+- https://stackoverflow.com/questions/60946963/how-to-convert-mongodb-timestamps-to-an-actual-date
+- https://dev.to/atapas/the-best-way-to-get-the-month-name-from-a-date-in-javascript-3pjn
+
+PDF Display:
+- https://www.nutrient.io/blog/how-to-build-a-reactjs-pdf-viewer-with-react-pdf/?utm_source=chatgpt.com
