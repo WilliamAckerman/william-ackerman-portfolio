@@ -1,25 +1,24 @@
 import './../App.css'
 import Box from '@mui/material/Box';
-import {
+/*import {
   QueryClient,
   QueryClientProvider,
-} from '@tanstack/react-query';
+} from '@tanstack/react-query';*/
 import { Link } from 'react-router';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import Headshot from '../assets/images/Headshot.jpg';
 
 import { FetchProjects } from './../api/FetchProjects.jsx';
-import { FetchFeaturedProjects } from './../api/FetchFeaturedProjects.jsx';
+//import { FetchFeaturedProjects } from './../api/FetchFeaturedProjects.jsx';
 import { FetchFeaturedSkills } from './../api/FetchFeaturedSkills.jsx';
 
 function Home() {
-  const queryClient = new QueryClient()
+  //const queryClient = new QueryClient()
 
   return (
     <>
       <Navbar />
-        <QueryClientProvider client={queryClient}>
           <div className="bg-blue-950 p-6">
             <h1 className="mb-2 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               William Ackerman
@@ -60,7 +59,7 @@ function Home() {
                 Projects
               </h2>
               {/*<FetchFeaturedProjects />*/}
-              <FetchProjects />
+              <FetchProjects featured="1" />
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
                 Visit the <Link to={"/projects"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">Projects</Link> page 
                 if you would like to learn more about my projects.
@@ -113,7 +112,6 @@ function Home() {
               </div>
             </section>
           </div>
-        </QueryClientProvider>
       <Footer />
     </>
   )

@@ -18,7 +18,7 @@ export const FetchFeaturedSkills = () => {
         return "Error fetching featured skills: " + error.message
     }
 
-    console.log("Featured skills:", data)
+    //console.log("Featured skills:", data)
 
     /*
     Featured Skill Display:

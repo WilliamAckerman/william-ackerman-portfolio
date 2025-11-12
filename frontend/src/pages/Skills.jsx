@@ -71,7 +71,7 @@ function a11yProps(index) {
 }
 
 function Skills() {
-  const queryClient = new QueryClient()
+  //const queryClient = new QueryClient()
   const [tabValue, setTabValue] = useState(0)
 
   const handleTabChange = (event, newTabValue) => {
@@ -81,7 +81,6 @@ function Skills() {
   return (
     <>
       <Navbar />
-        <QueryClientProvider client={queryClient}>
           <div className="p-6 bg-blue-900 min-h-screen">
             <h1 className="mb-4 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Skills
@@ -132,7 +131,6 @@ function Skills() {
               </CustomTabPanel>
             </Box>
           </div>
-        </QueryClientProvider>
       <Footer />
     </>
   )

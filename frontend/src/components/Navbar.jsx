@@ -24,7 +24,7 @@ const Navbar = () => {
                     <NavLink to={"/about"}>About</NavLink>
                     <NavLink to={"/contact"}>Contact</NavLink>
                     <NavLink to={"/viewresumecv"}>View Resume/CV</NavLink>
-                    <NavLink to={"/privacypolicy"}>Privacy Policy</NavLink>
+                    {/*<NavLink to={"/privacypolicy"}>Privacy Policy</NavLink>*/}
                 </div>
                 
             </Box>

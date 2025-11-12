@@ -21,5 +21,11 @@ Frontend:
 - https://stackoverflow.com/questions/60946963/how-to-convert-mongodb-timestamps-to-an-actual-date
 - https://dev.to/atapas/the-best-way-to-get-the-month-name-from-a-date-in-javascript-3pjn
 
+TanStack Query:
+- https://www.youtube.com/watch?v=vaUUALXu8sw
+- https://betterstack.com/community/guides/scaling-nodejs/tanstack-for-beginners/
+- https://www.dhiwise.com/post/how-to-resolve-the-no-queryclient-set-error-in-react
+
+
 PDF Display:
 - https://www.nutrient.io/blog/how-to-build-a-reactjs-pdf-viewer-with-react-pdf/?utm_source=chatgpt.com

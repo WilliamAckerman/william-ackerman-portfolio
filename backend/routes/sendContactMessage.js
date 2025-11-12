@@ -1,24 +1,52 @@
 import express from "express"
 import nodemailer from "nodemailer"
+import bodyParser from "body-parser"
 import { db } from '../mongodbClient.js';
 
 const app = express()
 const router = express.Router()
+
+// create application/json parser
+const jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+const urlencodedParser = bodyParser.urlencoded()
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
         type: "OAuth2",
         user: process.env.NODEMAILER_EMAIL_ADDRESS,
-    }
-})
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+    },
+});
 
-router.post("/:name/:email/:subject/:message", async (req, res) => {
+router.post("/", jsonParser, async (req, res) => {
     try {
-        const { name, email, subject, message } = req.params;
+        //const { name, email, subject, message } = req.params;
 
+        if (!req.body || !req.body.name || !req.body.email || !req.body.subject || !req.body.message) {
+            res.status(404).send("Invalid request body")
+        }
+
+        const info = await transporter.sendMail({
+            from: `${req.body.name} <${process.env.NODEMAILER_EMAIL_ADDRESS}>`, // '"Example User" <user@example.com>'
+            replyTo: req.body.email,
+            to: process.env.NODEMAILER_EMAIL_ADDRESS,
+            subject: req.body.subject, // "Hello world?"
+            html: `<p>${req.body.message}</p><p>Sender email: ${req.body.email}</p>`, // "<b>Hello world?</b>"
+        });
+
+        console.log("Message sent: %s", info.messageId)
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
+
+        res.status(200).send("Message sent successfully.")
 
     } catch (error) {
-        res.status(500).send("An error occurred: " + error.message)
+        res.status(500).send("An error occurred while trying to send a message: " + error.message)
     }
 })
+
+//export { router as sendContactMessage }

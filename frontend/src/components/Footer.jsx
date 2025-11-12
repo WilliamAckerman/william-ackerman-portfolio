@@ -44,6 +44,8 @@ const Footer = () => {
                     </Box>
                 </div>
             </Box>
+            {/*<p className="mt-4 mb-2 text-center"><Link to={"/privacypolicy"} className="text-center text-blue-300 hover:text-blue-400 underline hover:no-underline">Privacy Policy</Link></p>*/}
+            <p className="mt-4 text-center">2025.</p>
     </div>
     )
 }

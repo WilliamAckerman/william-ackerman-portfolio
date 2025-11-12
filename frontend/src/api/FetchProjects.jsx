@@ -31,8 +31,8 @@ export const FetchProjects = () => {
     const handleModalOpen = (id, header, description, startDate, endDate, details, technologies) => {
         setModalHeader(header)
         setModalDescription(description)
-        console.log(startDate)
-        console.log("Technologies:", technologies)
+        //console.log(startDate)
+        //console.log("Technologies:", technologies)
 
         let formattedStartDate = new Date(startDate)
         setModalStartDate(months[new Date(startDate).getMonth()] + " " + formattedStartDate.getFullYear())
@@ -95,7 +95,7 @@ export const FetchProjects = () => {
         )
     }
 
-    console.log("Projects:", data);
+    //console.log("Projects:", data);
 
     return (
         <>
@@ -201,7 +201,7 @@ export const FetchProjects = () => {
                             w-1/2
                             sm:w-1/3
                             md:w-1/4
-                            bg-neutral-50
+                            bg-blue-200
                             text-center
                             p-4
                             m-4

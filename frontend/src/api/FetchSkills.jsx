@@ -30,7 +30,7 @@ export const FetchSkills = (props) => {
         )
     }
 
-    console.log(`${type} skills: `, data)
+    //console.log(`${type} skills: `, data)
 
     return (
         <>
