@@ -215,6 +215,27 @@ function Resume() {
                         <li className="text-sm sm:text-base mb-1 sm:mb-0">Contributed to comprehensive technical documentation</li>
                     </ul>
                 </div>
+                <div className="mb-2">
+                    <h3
+                        className="
+                            text-base
+                            sm:text-lg
+                        "
+                    >
+                        <span className="font-bold text-lg md:text-xl">Developer Portfolio - Personal Project</span> | <em>Oct 2025 - Present</em>
+                    </h3>
+                    <ul className="list-disc list-inside">
+                        <li className="text-sm sm:text-base mt-1 sm:mt-0 mb-1 sm:mb-0">
+                            Incorporating a Vite/React frontend, using TailwindCSS and Material UI for responsive interfaces
+                        </li>
+                        <li className="text-sm sm:text-base mb-1 sm:mb-0">
+                            Using MongoDB to store data on projects and skills
+                        </li>
+                        <li className="text-sm sm:text-base mb-1 sm:mb-0">
+                            Implementing data retrieval through TanStack Query and a RESTful API created using Express.js
+                        </li>
+                    </ul>
+                </div>
             </section>
             <section className="mb-2">
                 <h2 

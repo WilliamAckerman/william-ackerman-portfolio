@@ -11,7 +11,7 @@ export const FetchFeaturedSkills = () => {
         ),
     })
 
-    if (isLoading) return 'Loading...'
+    if (isLoading) return '<p className="text-neutral-50 text-center">Loading...</p>'
 
     if (isError) {
         console.error("Error fetching featured skills:", error.message)
