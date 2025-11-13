@@ -226,7 +226,10 @@ function Resume() {
                     </h3>
                     <ul className="list-disc list-inside">
                         <li className="text-sm sm:text-base mt-1 sm:mt-0 mb-1 sm:mb-0">
-                            Incorporating a Vite/React frontend, using TailwindCSS and Material UI for responsive interfaces
+                            Working on developing a portfolio website that helps market my skills as a web developer
+                        </li>
+                        <li className="text-sm sm:text-base mt-1 sm:mt-0 mb-1 sm:mb-0">
+                            Implementing a Vite/React frontend, using TailwindCSS and Material UI for responsive interfaces
                         </li>
                         <li className="text-sm sm:text-base mb-1 sm:mb-0">
                             Using MongoDB to store data on projects and skills
