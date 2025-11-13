@@ -252,7 +252,7 @@ function Resume() {
                 >
                     Core Skills
                 </h2>
-                <p className="text-sm sm:text-base mb-2 sm:mb-0"><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, AJAX, jQuery, TailwindCSS, Material UI, Vercel</p>
+                <p className="text-sm sm:text-base mb-2 sm:mb-0"><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, AJAX, jQuery, TailwindCSS, Material UI, Vite, Vercel</p>
                 <p className="text-sm sm:text-base mb-2 sm:mb-0"><strong>Backend:</strong> PHP, Node.js, Express.js, Render</p>
                 <p className="text-sm sm:text-base mb-2 sm:mb-0"><strong>Database:</strong> MySQL, MongoDB, Microsoft SQL Server, Cloud Firestore</p>
                 <p className="text-sm sm:text-base mb-2 sm:mb-0"><strong>Tools:</strong> Git/Github, RESTful APIs, Figma, Agile Development, Responsive Design</p>
