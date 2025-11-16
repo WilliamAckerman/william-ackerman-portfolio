@@ -26,6 +26,13 @@ TanStack Query:
 - https://betterstack.com/community/guides/scaling-nodejs/tanstack-for-beginners/
 - https://www.dhiwise.com/post/how-to-resolve-the-no-queryclient-set-error-in-react
 
+React Icons:
+- https://stackoverflow.com/questions/73574447/dynamic-import-of-react-icons
+- https://stackoverflow.com/questions/75514632/two-errors-when-trying-to-render-icons-dynamically-with-react
+
+React-Hook-Form:
+- https://stackoverflow.com/questions/68228030/material-ui-checkbox-is-not-reset-while-using-react-hook-form-reset-function
+- https://stackoverflow.com/questions/62291962/react-hook-forms-material-ui-checkboxes
 
 PDF Display:
 - https://www.nutrient.io/blog/how-to-build-a-reactjs-pdf-viewer-with-react-pdf/?utm_source=chatgpt.com

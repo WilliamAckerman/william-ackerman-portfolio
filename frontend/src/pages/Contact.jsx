@@ -1,47 +1,29 @@
-//import { useState, useEffect, useCallback } from 'react';
-//import { useForm } from 'react-hook-form';
+import { useState, useEffect } from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { ErrorMessage } from "@hookform/error-message";
 import './../App.css'
-/*import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';*/
-//import { Link } from 'react-router';
+import { Link } from 'react-router';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
-/*import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox';*/
+import Checkbox from '@mui/material/Checkbox';
 import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-//import { sendMessage } from '../api/sendMessage.js';
+import { sendMessage } from '../api/sendMessage.js';
 
 function Contact() {
-  
+  const [disableFields, setDisableFields] = useState(false)
 
-  /*const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [subject, setSubject] = useState("")
-  const [message, setMessage] = useState("")
-  const [agree, setAgree] = useState(false) // "on" indicates the checkbox has been checked - helps if a user disables JavaScript
-
-  const { register, handleSubmit, reset, formState, formState: { isSubmitSuccessful } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "" }})
+  const { register, handleSubmit, control, reset, formState, formState: { isSubmitSuccessful, errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
   const onSubmit = data => {
+    setDisableFields(true)
     submission(data)
     reset({...data})
+    //setDisableFields(false)
   }
-
-  const resetContactForm = useCallback(async () => {
-    const result = {
-      "name": name ? name : "",
-      "email": email ? email : "",
-      "subject": subject ? subject : "",
-      "message": message ? message : ""
-    }
-    reset(result)
-  }, [reset, name, email, subject, message])
 
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
@@ -50,33 +32,38 @@ function Contact() {
   }, [formState, reset])
 
   const submission = async (data) => {
-    let error = "";
+    let error = [];
     const emailRegex = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
 
     if (data.name.trim() == "") {
-      error += "\nNo name was provided."
+      error.push("No name was provided.")
     }
 
     if (data.email.trim() == "") {
-      error += "\nNo email was provided."
+      error.push("No email was provided.")
     } else if (!emailRegex.test(data.email)) {
-      error += "\nAn invalid email adddress was entered."
+      error.push("An invalid email adddress was entered.")
     }
 
     if (data.subject.trim() == "") {
-      error += "\nNo subject was provided."
+      error.push("No subject was provided.")
     }
 
     if (data.message.trim() == "") {
-      error += "\nNo message was provided."
+      error.push("No message was provided.")
     }
 
-    if (!agree) {
-      error += "\nThe checkbox indicating agreement to this website's Privacy Policy was not checked."
+    if (!data.agree) {
+      error.push("The checkbox indicating agreement to this website's Privacy Policy was not checked.")
     }
 
-    if (error.trim() != "") {
-      alert(error)
+    if (error.length > 0) {
+      let errorMessage = "Error:";
+      for (let i = 0; i < error.length; i++) {
+        errorMessage += "\n" + error[i]
+      }
+      alert(errorMessage)
+      setDisableFields(false)
       return false;
     }
 
@@ -84,12 +71,12 @@ function Contact() {
     var messageRes = await sendMessage({...data});
     if (messageRes.ok) {
       alert("Message sent successfully!")
-      setAgree(false)
-      await resetContactForm()
     } else {
       alert("Failed to send message. Please try again.")
     }
-  }*/
+
+    setDisableFields(false)
+  }
 
   return (
     <>
@@ -241,13 +228,16 @@ function Contact() {
                 >
                   Contact Form
                 </h2>
-                <p className="mt-4 text-base">
+                {/*<p className="mt-4 text-base">
                   The contact form is currently disabled until a privacy policy has been established 
                   and reviewed. You can still reach me via the email, phone, or social links provided.
+                </p>*/}
+                <p className="mt-2 mb-4 text-base">
+                  An asterisk (<span className="text-red-700">*</span>) indicates a required field.
                 </p>
-                {/*<form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="mb-2">
-                    <label htmlFor="name" className="mb-2">Name</label><br />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <FormGroup className="mb-4">
+                    <label htmlFor="name" className="mb-2">Name<span className="text-red-700">*</span></label>
                     <TextField 
                       id="name" 
                       type="text" 
@@ -257,11 +247,13 @@ function Contact() {
                       //onChange={(e) => setName(e.target.value)}
 
                       defaultValue=""
-                      {...register("name")}
+                      {...register("name", { required: "Name is required." })}
+                      disabled={disableFields}
                     />
-                  </div>
-                  <div className="mb-2">
-                    <label htmlFor="email" className="mb-2">Email</label><br />
+                    <p className="text-red-700"><ErrorMessage errors={errors} name="name" /></p>
+                  </FormGroup>
+                  <FormGroup className="mb-4">
+                    <label htmlFor="email" className="mb-2">Email<span className="text-red-700">*</span></label>
                     <TextField 
                       id="email" 
                       type="email" 
@@ -271,11 +263,19 @@ function Contact() {
                       //onChange={(e) => setEmail(e.target.value)}
 
                       defaultValue=""
-                      {...register("email")}
+                      {...register("email", {
+                        required: "Email is required.",
+                        pattern: {
+                          value: /\S+@\S+\.\S+/,
+                          message: "Invalid email format.",
+                        },
+                      })}
+                      disabled={disableFields}
                     />
-                  </div>
-                  <div className="mb-2">
-                    <label htmlFor="subject" className="mb-2">Subject</label><br />
+                    <p className="text-red-700"><ErrorMessage errors={errors} name="email" /></p>
+                  </FormGroup>
+                  <FormGroup className="mb-4">
+                    <label htmlFor="subject" className="mb-2">Subject<span className="text-red-700">*</span></label>
                     <TextField 
                       id="subject" 
                       type="text" 
@@ -285,11 +285,15 @@ function Contact() {
                       //onChange={(e) => setSubject(e.target.value)}
 
                       defaultValue=""
-                      {...register("subject")}
+                      {...register("subject", {
+                        required: "Subject line is required."
+                      })}
+                      disabled={disableFields}
                     />
-                  </div>
-                  <div className="mb-4">
-                    <label htmlFor="message" className="mb-2">Message</label><br />
+                    <p className="text-red-700"><ErrorMessage errors={errors} name="subject" /></p>
+                  </FormGroup>
+                  <FormGroup className="mb-4">
+                    <label htmlFor="message" className="mb-2">Message<span className="text-red-700">*</span></label>
                     <TextField
                       id="message"
                       type="text"
@@ -300,21 +304,41 @@ function Contact() {
                       multiline
 
                       defaultValue=""
-                      {...register("message")}
+                      {...register("message", {
+                        required: "Message body is required."
+                      })}
+                      disabled={disableFields}
                     />
-                  </div>
+                    <p className="text-red-700"><ErrorMessage errors={errors} name="message" /></p>
+                  </FormGroup>
 
                   <FormGroup className="mb-4">
                     <p className="text-base">
                       By clicking the "SEND EMAIL" button, you agree to this website's <Link className="underline hover:no-underline text-blue-500 hover:text-blue-600" to={"/privacypolicy"}>Privacy Policy</Link>.
                     </p>
                     <FormControlLabel required control={
-                      <Checkbox id="agree" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
+
+                      <Controller
+                        control={control}
+                        //rules={{ required: true }}
+                        name="agree"
+                        render={({ field }) => (
+                          <Checkbox
+                            {...register("agree", {
+                              required: "Checkbox is required."
+                            })}
+                            {...field}
+                            checked={field['value'] ?? false}
+                            disabled={disableFields}
+                          />
+                        )}
+                      />
                     } label="I agree to this website's Privacy Policy" />
+                    <p className="text-red-700"><ErrorMessage errors={errors} name="agree" /></p>
                   </FormGroup>
 
                   
-                  <Button type="submit" variant="contained">
+                  <Button type="submit" variant="contained" disabled={disableFields}>
 
                     <span className="text-sm sm:text-base">
                       <div className="pr-2 inline-block">
@@ -323,7 +347,7 @@ function Contact() {
                       Send Email
                     </span>
                   </Button>
-                </form>*/}
+                </form>
               </div>
             </div>
           </div>

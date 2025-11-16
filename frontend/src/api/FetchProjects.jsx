@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -12,6 +13,7 @@ export const FetchProjects = () => {
     const [modalEndDate, setModalEndDate] = useState("")
     const [modalDetails, setModalDetails] = useState([])
     const [modalTechnologies, setModalTechnologies] = useState([])
+    const [modalGithubLink, setModalGithubLink] = useState(null)
 
     const months = [
         "January",
@@ -28,7 +30,7 @@ export const FetchProjects = () => {
         "December"
     ]
 
-    const handleModalOpen = (id, header, description, startDate, endDate, details, technologies) => {
+    const handleModalOpen = (id, header, description, startDate, endDate, details, technologies, githubLink) => {
         setModalHeader(header)
         setModalDescription(description)
         //console.log(startDate)
@@ -58,6 +60,12 @@ export const FetchProjects = () => {
         } else {
             const listTechnologies = technologyArray.map(technology => <li key={id + technology} className="text-sm sm:text-base mb-1 sm:mb-0">{technology}</li>)
             setModalTechnologies(listTechnologies)
+        }
+
+        if (githubLink) {
+            setModalGithubLink(githubLink)
+        } else {
+            setModalGithubLink(null)
         }
 
         setModalOpen(true)
@@ -125,7 +133,7 @@ export const FetchProjects = () => {
                         </div>
                         <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
                     </div>
-                    <div className="bg-blue-200 p-4">
+                    <div className="bg-blue-200 p-4 max-h-120 overflow-y-auto">
 
                         <h2
                             className="
@@ -153,6 +161,33 @@ export const FetchProjects = () => {
                             {modalDetails}
                         </ul>
 
+                        {modalGithubLink && 
+                        <>
+                            <h2
+                                className="
+                                uppercase
+                                font-bold
+                                text-xl sm:text-2xl
+                                "
+                            >
+                            Github Link
+                            </h2>
+                            <Link 
+                                to={modalGithubLink} 
+                                rel="noreferrer" 
+                                target="_blank"
+                                className="
+                                    text-blue-700
+                                    underline
+                                    hover:text-blue-800
+                                    hover:no-underline
+                                "
+                            >
+                                Github Link
+                            </Link>
+                        </>
+                        }
+
                         <h2
                             className="
                             uppercase
@@ -166,6 +201,8 @@ export const FetchProjects = () => {
                         <ul className="list-disc list-inside">
                             {modalTechnologies}
                         </ul>
+
+                        
                     </div>
                     <div className="bg-blue-900 p-4">
                         <Button 
@@ -196,7 +233,7 @@ export const FetchProjects = () => {
                 {data.map((project) => (
                     <div
                         key={project._id}
-                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.technologies)}
+                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.technologies, project.github_link)}
                         className="
                             w-1/2
                             sm:w-1/3

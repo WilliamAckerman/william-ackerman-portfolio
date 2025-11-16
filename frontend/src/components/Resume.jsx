@@ -44,7 +44,7 @@ function Resume() {
                 >
                     <span className="text-sm sm:text-base mb-2 sm:mb-0 mr-4">
                         <div className="pr-2 inline-block">
-                            <FaEnvelope className="text-slate-600 inline" />
+                            <FaEnvelope className="inline" />
                         </div>
                         <a 
                             href="mailto:williamjohnackerman@gmail.com"
@@ -55,7 +55,7 @@ function Resume() {
                     </span>
                     <span className="text-sm sm:text-base">
                         <div className="pr-2 inline-block">
-                            <FaPhoneAlt className="text-slate-600 inline" />
+                            <FaPhoneAlt className="inline" />
                         </div>
                         <a 
                             href="tel:+15162528285"
@@ -81,7 +81,7 @@ function Resume() {
                 >
                     <span className="text-sm sm:text-base mb-2 sm:mb-0 mr-4">
                         <div className="pr-2 inline-block">
-                            <FaLinkedin className="text-slate-600 inline" />
+                            <FaLinkedin className="inline" />
                         </div>
                         <a 
                             href="https://www.linkedin.com/in/william-ackerman-6a4005290/"
@@ -94,7 +94,7 @@ function Resume() {
                     </span>
                     <span className="text-sm sm:text-base">
                         <div className="pr-2 inline-block">
-                            <FaGithub className="text-slate-600 inline" />
+                            <FaGithub className="inline" />
                         </div>
                         <a 
                             href="https://github.com/WilliamAckerman"
@@ -202,26 +202,6 @@ function Resume() {
                             sm:text-lg
                         "
                     >
-                        <span className="font-bold text-lg md:text-xl">TeleShow - Senior Project</span> | <span className="font-bold">Farmingdale State College</span> | <em>Feb 2025 - May 2025</em>
-                    </h3>
-                    <ul className="list-disc list-inside">
-                        <li className="text-sm sm:text-base mt-1 sm:mt-0 mb-1 sm:mb-0">
-                            Collaborated as part of an Agile team of five to develop a web 
-                            application allowing users to search for and view information on movies and shows
-                        </li>
-                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Designed user-friendly interfaces through HTML, CSS, JavaScript, and React</li>
-                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Utilized RESTful API calls and Cloud Firestore for database-driven features</li>
-                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Wrote user stories and executed test plans to ensure feature functionality</li>
-                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Contributed to comprehensive technical documentation</li>
-                    </ul>
-                </div>
-                <div className="mb-2">
-                    <h3
-                        className="
-                            text-base
-                            sm:text-lg
-                        "
-                    >
                         <span className="font-bold text-lg md:text-xl">Developer Portfolio - Personal Project</span> | <em>Oct 2025 - Present</em>
                     </h3>
                     <ul className="list-disc list-inside">
@@ -237,6 +217,26 @@ function Resume() {
                         <li className="text-sm sm:text-base mb-1 sm:mb-0">
                             Implementing data retrieval through TanStack Query and a RESTful API created using Express.js
                         </li>
+                    </ul>
+                </div>
+                <div className="mb-2">
+                    <h3
+                        className="
+                            text-base
+                            sm:text-lg
+                        "
+                    >
+                        <span className="font-bold text-lg md:text-xl">TeleShow - Senior Project</span> | <span className="font-bold">Farmingdale State College</span> | <em>Feb 2025 - May 2025</em>
+                    </h3>
+                    <ul className="list-disc list-inside">
+                        <li className="text-sm sm:text-base mt-1 sm:mt-0 mb-1 sm:mb-0">
+                            Collaborated as part of an Agile team of five to develop a web 
+                            application allowing users to search for and view information on movies and shows
+                        </li>
+                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Designed user-friendly interfaces through HTML, CSS, JavaScript, and React</li>
+                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Utilized RESTful API calls and Cloud Firestore for database-driven features</li>
+                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Wrote user stories and executed test plans to ensure feature functionality</li>
+                        <li className="text-sm sm:text-base mb-1 sm:mb-0">Contributed to comprehensive technical documentation</li>
                     </ul>
                 </div>
             </section>

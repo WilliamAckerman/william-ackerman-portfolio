@@ -10,7 +10,7 @@ const Sidenav = () => {
                 <NavLink to={"/about"} className="space-y-6 hover:bg-blue-900 p-2">About</NavLink>
                 <NavLink to={"/contact"} className="space-y-6 hover:bg-blue-900 p-2">Contact</NavLink>
                 <NavLink to={"/viewresumecv"} className="space-y-6 hover:bg-blue-900 p-2">View Resume/CV</NavLink>
-                {/*<NavLink to={"/privacypolicy"} className="space-y-6 hover:bg-blue-900 p-2">Privacy Policy</NavLink>*/}
+                <NavLink to={"/privacypolicy"} className="space-y-6 hover:bg-blue-900 p-2">Privacy Policy</NavLink>
             </div>
         </div>
     )

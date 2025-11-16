@@ -36,7 +36,7 @@ router.post("/", jsonParser, async (req, res) => {
             replyTo: req.body.email,
             to: process.env.NODEMAILER_EMAIL_ADDRESS,
             subject: req.body.subject, // "Hello world?"
-            html: `<p>${req.body.message}</p><p>Sender email: ${req.body.email}</p>`, // "<b>Hello world?</b>"
+            html: `<p>${req.body.message}</p>`, // "<b>Hello world?</b>"
         });
 
         console.log("Message sent: %s", info.messageId)
@@ -49,4 +49,4 @@ router.post("/", jsonParser, async (req, res) => {
     }
 })
 
-//export { router as sendContactMessage }
+export { router as sendContactMessage }

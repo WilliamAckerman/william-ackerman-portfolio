@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import Box from '@mui/material/Box';
+import SkillIcon from '../components/SkillIcon.jsx';
 
 export const FetchSkills = (props) => {
     const type = props.type;
@@ -73,6 +74,7 @@ export const FetchSkills = (props) => {
                         "
                     >
                         {/* TODO: Favicon goes here */}
+                        {skill.icon && <SkillIcon icon={skill.icon} hexColor={skill.hexColor} />}
                         <span className="font-semibold">{skill.name}</span>
                     </div>
                 ))}

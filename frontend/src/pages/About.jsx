@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import Headshot from '../assets/images/Headshot.jpg';
 import Box from '@mui/material/Box';
+import { Link } from "react-router";
 
 function About() {
 
@@ -26,6 +27,15 @@ function About() {
             }}
           >
             <div className="p-4 m-4 bg-neutral-50 rounded-sm overflow-y-auto max-h-[60vh] sm:max-h-auto">
+              <h2
+                className="
+                  font-bold
+                  text-xl sm:text-2xl
+                  mb-2
+                  "
+                >
+                About Me
+              </h2>
               <p className="mb-2">
                 When I first started attending Farmingdale State College back in Fall 2021, I 
                 didn't really see myself as a programmer; I would often just do what was expected 
@@ -61,6 +71,55 @@ function About() {
               <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto" />
             </div>
           </Box>
+          <div className="mt-8 bg-neutral-50 rounded-sm shadow-sm p-4">
+              <h2
+                className="
+                  font-bold
+                  text-xl sm:text-2xl
+                  mb-2
+                  "
+                >
+                About This Website
+              </h2>  
+              <p className="text-base mb-2">
+                This website functions as a full-stack web application, showcasing my expertise in various technologies.
+              </p>
+              <p className="text-base mt-2 mb-2">
+                This website's frontend was created through Vite and React. Material UI was used for several elements of this website's structure. 
+                Meanwhile, TailwindCSS was used to provide styling and responsiveness to ensure a clean, user-friendly experience. TanStack query 
+                is used to fetch data on projects and skills from a backend API. This website's 
+                frontend is being deployed using Vercel.
+              </p>
+              <p className="text-base mt-2">
+                This website's backend was created using Node.js and Express.js to create a RESTful API that communicates with a MongoDB database. The contact form 
+                also makes use of Nodemailer, Google's OAuth 2.0, and the Gmail API v1 to send messages users submit through the contact form to my Gmail inbox.
+              </p>
+              <p className="text-base mt-2">
+                If you wish to use this website's contact form located on the <Link 
+                  to={"/contact"} 
+                  className="
+                    text-blue-500 
+                    underline 
+                    hover:text-blue-600 
+                    hover:no-underline
+                    "
+                  >
+                    contact page
+                  </Link> 
+                , you must agree to this website's <Link 
+                  to={"/privacypolicy"} 
+                  className="
+                    text-blue-500 
+                    underline 
+                    hover:text-blue-600 
+                    hover:no-underline
+                  "
+                >
+                  Privacy Policy
+                </Link>
+                .
+              </p>
+          </div>
         </div>
       <Footer />
     </>

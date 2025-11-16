@@ -2,6 +2,7 @@ import {
     useQuery,
 } from '@tanstack/react-query';
 import Box from '@mui/material/Box';
+import SkillIcon from '../components/SkillIcon.jsx';
 
 export const FetchFeaturedSkills = () => {
     const { isLoading, isError, error, data } = useQuery({
@@ -11,7 +12,11 @@ export const FetchFeaturedSkills = () => {
         ),
     })
 
-    if (isLoading) return '<p className="text-neutral-50 text-center">Loading...</p>'
+    if (isLoading) return (
+        <p className="text-neutral-50 text-center">
+            Loading...
+        </p>
+    )
 
     if (isError) {
         console.error("Error fetching featured skills:", error.message)
@@ -48,15 +53,21 @@ export const FetchFeaturedSkills = () => {
                                 w-1/2
                                 sm:w-1/3
                                 md:w-1/4
-                                bg-neutral-50 
-                                text-center 
-                                p-4 
-                                m-4 
-                                border-solid 
-                                border-black 
-                                rounded-md
-                                "
+                                bg-neutral-50
+                                text-center
+                                p-4
+                                m-4
+                                border-solid
+                                border-black
+                                rounded-sm
+                                shadow-sm
+                                flex
+                                flex-col
+                                items-center
+                                justify-center
+                            "
                 >
+                    {featuredSkill.icon && <SkillIcon icon={featuredSkill.icon} hexColor={featuredSkill.hexColor} />}
                     <span className="font-semibold">{featuredSkill.name}</span>
                 </div>
             ))}
