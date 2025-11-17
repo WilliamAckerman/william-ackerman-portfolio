@@ -232,7 +232,11 @@ function Contact() {
                   The contact form is currently disabled until a privacy policy has been established 
                   and reviewed. You can still reach me via the email, phone, or social links provided.
                 </p>*/}
-                <p className="mt-2 mb-4 text-base">
+                <p className="mt-4 text-base">
+                  The contact form is currently being worked on. You can still reach me via the email, phone 
+                  or social links provided.
+                </p>
+                {/*<p className="mt-2 mb-4 text-base">
                   An asterisk (<span className="text-red-700">*</span>) indicates a required field.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -347,7 +351,7 @@ function Contact() {
                       Send Email
                     </span>
                   </Button>
-                </form>
+                </form>*/}
               </div>
             </div>
           </div>
