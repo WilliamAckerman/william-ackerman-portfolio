@@ -17,7 +17,7 @@ import { sendMessage } from '../api/sendMessage.js';
 function Contact() {
   const [disableFields, setDisableFields] = useState(false)
 
-  const { register, handleSubmit, control, reset, formState, formState: { isSubmitSuccessful, errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
+  const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*/ errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
   const onSubmit = data => {
     setDisableFields(true)
     submission(data)
@@ -82,7 +82,7 @@ function Contact() {
     <>
       <Navbar />
           <div className="p-6 bg-blue-900 min-h-screen">
-            <h1 className="mb-4 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+            <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Contact
             </h1>
             <div className="flex flex-col md:flex-row">

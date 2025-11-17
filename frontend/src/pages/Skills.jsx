@@ -82,7 +82,7 @@ function Skills() {
     <>
       <Navbar />
           <div className="p-6 bg-blue-900 min-h-screen">
-            <h1 className="mb-4 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+            <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Skills
             </h1>
             <Box
@@ -108,7 +108,8 @@ function Skills() {
                   <CustomTab label="Frontend" {...a11yProps(1)} />
                   <CustomTab label="Backend" {...a11yProps(2)} />
                   <CustomTab label="Database" {...a11yProps(3)} />
-                  <CustomTab label="Tools/Other" {...a11yProps(4)} />
+                  <CustomTab label="Tools" {...a11yProps(4)} />
+                  <CustomTab label="Soft Skills" {...a11yProps(5)} />
                 </CustomTabs>
               </Box>
               <CustomTabPanel value={tabValue} index={0}>
@@ -116,6 +117,7 @@ function Skills() {
                 <FetchSkills type={"Backend"} />
                 <FetchSkills type={"Database"} />
                 <FetchSkills type={"Tools"} />
+                <FetchSkills type={"Soft Skills"} />
               </CustomTabPanel>
               <CustomTabPanel value={tabValue} index={1}>
                 <FetchSkills type={"Frontend"} />
@@ -128,6 +130,9 @@ function Skills() {
               </CustomTabPanel>
               <CustomTabPanel value={tabValue} index={4}>
                 <FetchSkills type={"Tools"} />
+              </CustomTabPanel>
+              <CustomTabPanel value={tabValue} index={5}>
+                <FetchSkills type={"Soft Skills"} />
               </CustomTabPanel>
             </Box>
           </div>

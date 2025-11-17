@@ -4,16 +4,20 @@ import { Link } from 'react-router';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import { FetchProjectSkills } from "../components/FetchProjectSkills.jsx";
+import { queryClient } from './../queryClient.js';
 
-export const FetchProjects = () => {
+export const FetchProjects = (props) => {
+    const featured = props.featured ? props.featured : 0;
     const [modalOpen, setModalOpen] = useState(false)
     const [modalHeader, setModalHeader] = useState("")
     const [modalDescription, setModalDescription] = useState("")
     const [modalStartDate, setModalStartDate] = useState("")
     const [modalEndDate, setModalEndDate] = useState("")
     const [modalDetails, setModalDetails] = useState([])
-    const [modalTechnologies, setModalTechnologies] = useState([])
+    //const [modalTechnologies, setModalTechnologies] = useState([])
     const [modalGithubLink, setModalGithubLink] = useState(null)
+    const [projectAlias, setProjectAlias] = useState("")
 
     const months = [
         "January",
@@ -30,11 +34,13 @@ export const FetchProjects = () => {
         "December"
     ]
 
-    const handleModalOpen = (id, header, description, startDate, endDate, details, technologies, githubLink) => {
+    const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, alias) => {
         setModalHeader(header)
         setModalDescription(description)
         //console.log(startDate)
         //console.log("Technologies:", technologies)
+
+        setProjectAlias(alias)
 
         let formattedStartDate = new Date(startDate)
         setModalStartDate(months[new Date(startDate).getMonth()] + " " + formattedStartDate.getFullYear())
@@ -54,13 +60,13 @@ export const FetchProjects = () => {
             setModalDetails(listDetails)
         }
 
-        const technologyArray = technologies.split(";")
+        /*const technologyArray = technologies.split(";")
         if (technologyArray.length == 0) {
             setModalTechnologies("None")
         } else {
             const listTechnologies = technologyArray.map(technology => <li key={id + technology} className="text-sm sm:text-base mb-1 sm:mb-0">{technology}</li>)
             setModalTechnologies(listTechnologies)
-        }
+        }*/
 
         if (githubLink) {
             setModalGithubLink(githubLink)
@@ -76,14 +82,15 @@ export const FetchProjects = () => {
     }
 
     const { isLoading, isError, error, data } = useQuery({
-        queryKey: ['fetchProjects'],
+        queryKey: ['fetchProjects', featured],
         queryFn: async () => {
-            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/projects`);
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/projects/${featured}`);
             if (!res.ok) {
                 throw new Error(`HTTP Error. Status: ${res.status}`)
             }
             return res.json()
         },
+        onSettled: () => queryClient.invalidateQueries({ queryKey: ['fetchProjects', featured] })
     })
 
     if (isLoading) {
@@ -188,19 +195,7 @@ export const FetchProjects = () => {
                         </>
                         }
 
-                        <h2
-                            className="
-                            uppercase
-                            font-bold
-                            text-xl sm:text-2xl
-                            "
-                        >
-                            Technologies
-                        </h2>
-
-                        <ul className="list-disc list-inside">
-                            {modalTechnologies}
-                        </ul>
+                        <FetchProjectSkills project={projectAlias} />
 
                         
                     </div>
@@ -233,7 +228,7 @@ export const FetchProjects = () => {
                 {data.map((project) => (
                     <div
                         key={project._id}
-                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.technologies, project.github_link)}
+                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.github_link, project.alias)}
                         className="
                             w-1/2
                             sm:w-1/3

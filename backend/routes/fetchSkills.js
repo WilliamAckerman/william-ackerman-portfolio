@@ -10,7 +10,7 @@ router.get("/:type", async (req, res) => { // Include route parameters in route 
 
         const skills = db.collection('skills')
 
-        const skillsQuery = await skills.find({ "type": type }).toArray()
+        const skillsQuery = await skills.find({ "type": type }).sort({place:1}).toArray()
 
         if (skillsQuery.length === 0) {
             res.status(404).send([])

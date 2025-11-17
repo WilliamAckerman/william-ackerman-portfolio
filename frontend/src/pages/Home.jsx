@@ -1,20 +1,14 @@
 import './../App.css'
 import Box from '@mui/material/Box';
-/*import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';*/
 import { Link } from 'react-router';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import Headshot from '../assets/images/Headshot.jpg';
 
 import { FetchProjects } from './../api/FetchProjects.jsx';
-//import { FetchFeaturedProjects } from './../api/FetchFeaturedProjects.jsx';
 import { FetchFeaturedSkills } from './../api/FetchFeaturedSkills.jsx';
 
 function Home() {
-  //const queryClient = new QueryClient()
 
   return (
     <>
@@ -49,23 +43,22 @@ function Home() {
                 </p>
               </div>
               <div className="lg:p-4">
-                <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[250px] lg:max-w-[300px]" />
+                <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" />
               </div>
             </Box>
           </div>
           <div className="bg-blue-900 p-6">
-            <section>
+            <section className="mb-8">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Projects
               </h2>
-              {/*<FetchFeaturedProjects />*/}
               <FetchProjects featured="1" />
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
                 Visit the <Link to={"/projects"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">Projects</Link> page 
                 if you would like to learn more about my projects.
               </p>
             </section>
-            <section>
+            <section className="mb-8">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Skills
               </h2>
@@ -73,7 +66,7 @@ function Home() {
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">Visit the <Link to={"/skills"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">Skills</Link> page 
               if you would like to see more of my skills.</p>
             </section>
-            <section>
+            <section className="mb-8">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 About Me
               </h2>
@@ -81,10 +74,10 @@ function Home() {
                 <p className="text-center mb-2">
                   I'm always ready to work with new people and learn new technologies.
                 </p>
-                <p className="text-center">Visit the <Link to={"/about"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">About</Link> page to learn more about me.</p>
+                <p className="text-center">Visit the <Link to={"/about"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">About</Link> page to learn more about me and this website.</p>
               </div>
             </section>
-            <section>
+            <section className="mb-8">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Contact
               </h2>
@@ -98,7 +91,7 @@ function Home() {
                 </p>
               </div>
             </section>
-            <section>
+            <section className="mb-8">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 View CV
               </h2>

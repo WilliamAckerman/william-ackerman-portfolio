@@ -7,7 +7,12 @@ import {
     FaPhp,
     FaGitAlt,
     FaBootstrap,
-    FaFigma
+    FaFigma,
+    FaSearchPlus,
+    FaHandsHelping,
+    FaLightbulb,
+    FaDatabase,
+    FaProjectDiagram
 } from "react-icons/fa";
 import { 
     IoLogoJavascript,
@@ -24,6 +29,24 @@ import {
     SiTailwindcss,
     SiMui
 } from "react-icons/si";
+import {
+    RiTeamFill
+} from "react-icons/ri";
+import {
+    SlSpeech
+} from "react-icons/sl";
+import {
+    GiTreeBranch
+} from "react-icons/gi";
+import {
+    FiRefreshCw
+} from "react-icons/fi";
+import {
+    MdDevices
+} from "react-icons/md";
+import {
+    TbApi
+} from "react-icons/tb";
 
 const SkillIcon = (props) => {
     const Icon = props.icon
@@ -206,6 +229,126 @@ const SkillIcon = (props) => {
                             md:text-5xl
                         " 
                         style={{color: "#F24E1E"}} 
+                    />
+        }
+        case "IoLogoFirebase": {
+            return <IoLogoFirebase 
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#FFCA28"}} 
+                    />
+        }
+        case "RiTeamFill": {
+            return <RiTeamFill 
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#4C6EF5"}} 
+                    />
+        }
+        case "SlSpeech": {
+            return <SlSpeech
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#FFB703"}} 
+                    />
+        }
+        case "FaSearchPlus": {
+            return <FaSearchPlus
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#0D9488"}} 
+                    />
+        }
+        case "FaHandsHelping": {
+            return <FaHandsHelping
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#FF6F91"}} 
+                    />
+        }
+        case "FaLightbulb": {
+            return <FaLightbulb
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#FFD700"}} 
+                    />
+        }
+        case "GiTreeBranch": {
+            return <GiTreeBranch
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#556B2F"}} 
+                    />
+        }
+        case "FiRefreshCw": {
+            return <FiRefreshCw
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#0078D4"}} 
+                    />
+        }
+        case "FaDatabase": {
+            return <FaDatabase
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#CC2927"}} 
+                    />
+        }
+        case "FaProjectDiagram": {
+            return <FaProjectDiagram
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#6A1B9A"}} 
+                    />
+        }
+        case "MdDevices": {
+            return <MdDevices
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#00C853"}} 
+                    />
+        }
+        case "TbApi": {
+            return <TbApi
+                        className="
+                            text-2xl 
+                            sm:text-3xl
+                            md:text-5xl
+                        " 
+                        style={{color: "#FF6F00"}} 
                     />
         }
         default: {

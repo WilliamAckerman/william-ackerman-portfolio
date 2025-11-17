@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 
 import { fetchSkills } from './routes/fetchSkills.js';
 import { fetchFeaturedSkills } from './routes/fetchFeaturedSkills.js';
+import { fetchProjectSkills } from './routes/fetchProjectSkills.js';
 
 import { fetchProjects } from './routes/fetchProjects.js';
 import { fetchFeaturedProjects } from './routes/fetchFeaturedProjects.js';
@@ -21,6 +22,7 @@ app.use(cors())
 // MongoDB routes
 app.use(`${apiRoute}/skills`, fetchSkills) // Exclude :param when calling route here
 app.use(`${apiRoute}/featuredskills`, fetchFeaturedSkills)
+app.use(`${apiRoute}/projectskills`, fetchProjectSkills)
 
 app.use(`${apiRoute}/projects`, fetchProjects)
 app.use(`${apiRoute}/featuredprojects`, fetchFeaturedProjects)

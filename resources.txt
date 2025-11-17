@@ -15,6 +15,9 @@ Backend:
 
 - https://www.youtube.com/watch?v=w9r55wd2CAk
 
+Express.js:
+- https://stackoverflow.com/questions/17039018/how-to-use-a-variable-as-a-field-name-in-mongodb-native-findone
+
 Frontend:
 - https://stackoverflow.com/questions/67798540/tailswind-css-list-disc-is-not-styling-li-bullets-correctly-double-bullet
 - https://dev.to/ridhikgovind/solving-event-handling-errors-in-react-4l7d

@@ -30,8 +30,8 @@ const Footer = () => {
                         flexDirection: 'column'
                     }}
                     >
-                        <span><Mail className="inline-block" /> Email: <Link to={"mailto:williamjohnackerman@gmail.com"} className="underline text-blue-300 hover:no-underline">williamjohnackerman@gmail.com</Link></span>
-                        <span><PhoneEnabled className="inline-block" /> Phone: <Link to={"tel:+15162528285"} className="underline text-blue-300 hover:no-underline">+1 (516) 252-8285</Link></span>
+                        <span><Mail className="inline-block" /> Email: <Link to={"mailto:williamjohnackerman@gmail.com"} className="underline text-blue-300 hover:text-blue-400 hover:no-underline">williamjohnackerman@gmail.com</Link></span>
+                        <span><PhoneEnabled className="inline-block" /> Phone: <Link to={"tel:+15162528285"} className="underline text-blue-300 hover:text-blue-400 hover:no-underline">+1 (516) 252-8285</Link></span>
                     </Box>
                 </div>
                 <div className="mt-4 lg:mt-0">
@@ -39,13 +39,13 @@ const Footer = () => {
                         My Socials
                     </h3>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-                        <Link to={"https://github.com/WilliamAckerman"} target="_blank" rel="noreferrer"><FaGithub className="text-3xl lg:text-4xl" /></Link>
-                        <Link to={"https://www.linkedin.com/in/william-ackerman-6a4005290/"} target="_blank" rel="noreferrer"><FaLinkedin className="text-3xl lg:text-4xl" /></Link>
+                        <Link to={"https://github.com/WilliamAckerman"} target="_blank" rel="noreferrer"><FaGithub className="text-3xl lg:text-4xl hover:text-neutral-200" /></Link>
+                        <Link to={"https://www.linkedin.com/in/william-ackerman-6a4005290/"} target="_blank" rel="noreferrer"><FaLinkedin className="text-3xl lg:text-4xl hover:text-neutral-200" /></Link>
                     </Box>
                 </div>
             </Box>
             <p className="mt-4 mb-2 text-center"><Link to={"/privacypolicy"} className="text-center text-blue-300 hover:text-blue-400 underline hover:no-underline">Privacy Policy</Link></p>
-            <p className="mt-4 text-center">William Ackerman, 2025, All Rights Reserved.</p>
+            <p className="mt-4 text-center">William Ackerman, 2025. All Rights Reserved.</p>
     </div>
     )
 }

@@ -13,7 +13,7 @@ function ViewResumeCV() {
     <>
       <Navbar />
         <div className="p-6 bg-blue-900 min-h-screen">
-          <h1 className="mb-4 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+          <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
             View Resume/CV
           </h1>
 

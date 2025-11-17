@@ -11,7 +11,7 @@ function About() {
     <>
       <Navbar />
         <div className="p-6 bg-blue-900">
-          <h1 className="mb-4 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+          <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
             About
           </h1>
           <Box
@@ -68,7 +68,7 @@ function About() {
               </p>
             </div>
             <div>
-              <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto" />
+              <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" />
             </div>
           </Box>
           <div className="mt-8 bg-neutral-50 rounded-sm shadow-sm p-4">
@@ -95,8 +95,8 @@ function About() {
                 also makes use of Nodemailer, Google's OAuth 2.0, and the Gmail API v1 to send messages users submit through the contact form to my Gmail inbox.
               </p>
               <p className="text-base mt-2">
-                If you wish to use this website's contact form located on the <Link 
-                  to={"/contact"} 
+                By using this website, you agree to this website's <Link 
+                  to={"/privacypolicy"} 
                   className="
                     text-blue-500 
                     underline 
@@ -104,20 +104,8 @@ function About() {
                     hover:no-underline
                     "
                   >
-                    contact page
-                  </Link> 
-                , you must agree to this website's <Link 
-                  to={"/privacypolicy"} 
-                  className="
-                    text-blue-500 
-                    underline 
-                    hover:text-blue-600 
-                    hover:no-underline
-                  "
-                >
-                  Privacy Policy
-                </Link>
-                .
+                    Privacy Policy
+                  </Link>.
               </p>
           </div>
         </div>
