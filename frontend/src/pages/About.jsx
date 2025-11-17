@@ -92,7 +92,8 @@ function About() {
               </p>
               <p className="text-base mt-2">
                 This website's backend was created using Node.js and Express.js to create a RESTful API that communicates with a MongoDB database. The contact form 
-                also makes use of Nodemailer, Google's OAuth 2.0, and the Gmail API v1 to send messages users submit through the contact form to my Gmail inbox.
+                also makes use of Nodemailer, Google's OAuth 2.0, and the Gmail API v1 to send messages users submit through the contact form to my Gmail inbox. 
+                This website's backend is being deployed using Render.
               </p>
               <p className="text-base mt-2">
                 By using this website, you agree to this website's <Link 
