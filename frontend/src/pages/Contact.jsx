@@ -12,12 +12,12 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox';
 import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-import { sendMessage } from '../api/sendMessage.js';
+//import { sendMessage } from '../api/sendMessage.js';
 
 function Contact() {
-  const [disableFields, setDisableFields] = useState(false)
+  /*const [disableFields, setDisableFields] = useState(false)
 
-  const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*/ errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
+  const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*//* errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
   const onSubmit = data => {
     setDisableFields(true)
     submission(data)
@@ -76,7 +76,7 @@ function Contact() {
     }
 
     setDisableFields(false)
-  }
+  }*/
 
   return (
     <>
