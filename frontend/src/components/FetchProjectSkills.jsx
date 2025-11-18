@@ -7,7 +7,7 @@ import { queryClient } from './../queryClient.js';
 
 export const FetchProjectSkills = (props) => {
     const project = props.project;
-    console.log(project)
+    //console.log(project)
 
     const { isLoading, isError, error, data } = useQuery({
         queryKey: ['fetchProjectSkills', project],
