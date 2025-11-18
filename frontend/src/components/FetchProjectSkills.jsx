@@ -60,8 +60,8 @@ export const FetchProjectSkills = (props) => {
                 <div
                     key={projectSkill._id}
                     className="
-                        w-1/2
-                        md:w-1/3
+                        
+                        w-1/3
                         bg-neutral-50
                         text-center
                         p-4
