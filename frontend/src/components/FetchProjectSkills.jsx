@@ -62,6 +62,7 @@ export const FetchProjectSkills = (props) => {
                     className="
                         w-1/2
                         sm:w-1/3
+                        md:w-1/4
                         bg-neutral-50
                         text-center
                         p-4

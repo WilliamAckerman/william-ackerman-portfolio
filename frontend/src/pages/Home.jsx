@@ -48,7 +48,8 @@ function Home() {
             </Box>
           </div>
           <div className="bg-blue-900 p-6">
-            <section className="mb-8">
+
+            <section className="mt-2 sm:mt-4 lg:mt-8 mb-8 sm:mb-12 lg:mb-16">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Projects
               </h2>
@@ -58,15 +59,24 @@ function Home() {
                 if you would like to learn more about my projects.
               </p>
             </section>
-            <section className="mb-8">
+
+            <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Skills
               </h2>
+              <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
+                As a web developer, it is important for me to be well-versed in various technologies and skills. I bring a diverse 
+                range of frontend, backend, database, tool-related, and soft skills to contribute towards efficient development.
+              </p>
+              <h3 className="mb-4 text-neutral-50 font-normal text-xl sm:text-2xl md:text-3xl xl:text-4xl text-center">
+                Featured Skills
+              </h3>
               <FetchFeaturedSkills />
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">Visit the <Link to={"/skills"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">Skills</Link> page 
               if you would like to see more of my skills.</p>
             </section>
-            <section className="mb-8">
+
+            <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 About Me
               </h2>
@@ -77,7 +87,8 @@ function Home() {
                 <p className="text-center">Visit the <Link to={"/about"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">About</Link> page to learn more about me and this website.</p>
               </div>
             </section>
-            <section className="mb-8">
+
+            <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Contact
               </h2>
@@ -91,9 +102,10 @@ function Home() {
                 </p>
               </div>
             </section>
-            <section className="mb-8">
+
+            <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
-                View CV
+                View Resume/CV
               </h2>
               <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
                 <p className="text-center mb-2">

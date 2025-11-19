@@ -16,7 +16,7 @@ function Projects() {
         <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
           Projects
         </h1>
-        <p className="text-base text-neutral-50 mb-4 text-center">
+        <p className="text-base mb-4 text-center mx-auto w-full sm:w-xl bg-neutral-50 rounded-sm p-4">
           As a developer, projects allow me to showcase my experience in various technologies. Feel free to view information on the projects 
           I have worked on.
         </p>
