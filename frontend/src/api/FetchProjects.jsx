@@ -119,6 +119,7 @@ export const FetchProjects = (props) => {
                 onClose={handleModalClose}
                 aria-labelledby="project-details-modal"
                 aria-describedby="project-details-modal"
+                className="max-h-screen"
             >
                 <Box
                     sx={{
@@ -140,7 +141,7 @@ export const FetchProjects = (props) => {
                         </div>
                         <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
                     </div>
-                    <div className="bg-blue-200 p-4 max-h-screen overflow-y-auto">
+                    <div className="bg-blue-200 p-4 overflow-y-auto">
 
                         <h2
                             className="
