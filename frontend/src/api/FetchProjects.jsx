@@ -140,7 +140,7 @@ export const FetchProjects = (props) => {
                         </div>
                         <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
                     </div>
-                    <div className="bg-blue-200 p-4 max-h-60 md:max-h-120 overflow-y-auto">
+                    <div className="bg-blue-200 p-4 max-h-60 sm:max-h-90 md:max-h-120 overflow-y-auto">
 
                         <h2
                             className="
