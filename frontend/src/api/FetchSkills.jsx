@@ -56,8 +56,8 @@ export const FetchSkills = (props) => {
                     <div
                         key={skill._id}
                         className="
-                            w-1/2
-                            sm:w-1/3
+                            
+                            w-1/3
                             md:w-1/4
                             bg-neutral-50
                             text-center
