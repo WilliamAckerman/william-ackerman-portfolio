@@ -53,6 +53,13 @@ function Home() {
               <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
                 Projects
               </h2>
+              <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
+                Projects are not only proof of my expertise in specific technologies, but also opportunities for me 
+                to learn new technologies and expand my knowledge of ones I am familiar with.
+              </p>
+              <h3 className="mb-4 text-neutral-50 font-normal text-xl sm:text-2xl md:text-3xl xl:text-4xl text-center">
+                Featured Projects
+              </h3>
               <FetchProjects featured="1" />
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
                 Visit the <Link to={"/projects"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">Projects</Link> page 
@@ -113,7 +120,7 @@ function Home() {
                   Meanwhile, a CV is a living, breathing representation of one's career, from start to present. Feel free to 
                   take a look and indulge yourself in the the milestones my resume highlights and the story my CV tells.
                 </p>
-                <p className="text-center">You can view my resume and CV <Link to={"/viewcv"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">here</Link>.</p>
+                <p className="text-center">You can view my resume and CV <Link to={"/viewresumecv"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">here</Link>.</p>
               </div>
             </section>
           </div>
