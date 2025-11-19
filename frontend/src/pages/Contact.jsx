@@ -233,7 +233,7 @@ function Contact() {
                   and reviewed. You can still reach me via the email, phone, or social links provided.
                 </p>*/}
                 <p className="mt-4 text-base">
-                  The contact form is currently undergoing maintenance. You can still reach me via the email, phone, 
+                  The contact form is not complete yet. You can still reach me via the email, phone, 
                   or social links provided.
                 </p>
                 {/*<p className="mt-2 mb-4 text-base">
