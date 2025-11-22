@@ -1,19 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
 import Box from '@mui/material/Box';
-import SkillIcon from '../components/SkillIcon.jsx';
+import SkillIcon from './SkillIcon.jsx';
+import { fetchSkills } from './../api/fetchSkills.js';
 
 export const FetchSkills = (props) => {
     const type = props.type;
 
     const { isLoading, isError, error, data } = useQuery({
         queryKey: ['fetchSkills', type], // Include query parameters in a queryKey
-        queryFn: async () => {
+        queryFn: async () => await fetchSkills(type),
+        /*queryFn: async () => {
             const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/skills/${type}`);
             if (!res.ok) { // Prevents the UI from showing undefined errors
                 throw new Error(`HTTP error: Status: ${res.status}`);
             }
             return res.json()
-        },
+        },*/
     })
 
     if (isLoading) return (
@@ -35,7 +37,13 @@ export const FetchSkills = (props) => {
 
     return (
         <>
-            <h2 className="mb-4 text-xl sm:text-3xl md:text-4xl xl:text-5xl text-center text-neutral-50 font-semibold">{type}</h2>
+            {
+                type != "featured" 
+                && 
+                <h2 className="mb-4 text-xl sm:text-3xl md:text-4xl xl:text-5xl text-center text-neutral-50 font-semibold">
+                    {type}
+                </h2>
+            }
             <Box
                 sx={{
                     display: 'flex',

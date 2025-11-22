@@ -10,7 +10,17 @@ router.get("/:type", async (req, res) => { // Include route parameters in route 
 
         const skills = db.collection('skills')
 
-        const skillsQuery = await skills.find({ "type": type }).sort({place:1}).toArray()
+        const skillsQuery = (type == "featured") ? 
+            await skills.find({featured:"1"}).toArray() 
+            : 
+            await skills.find({"type":type}).sort({place:1}).toArray()
+
+        /*if (type == "featured") {
+            skillsQuery = await skills.find({featured:"1"}).toArray()
+        }
+        else {
+            skillsQuery = await skills.find({ "type": type }).sort({place:1}).toArray()
+        }*/
 
         if (skillsQuery.length === 0) {
             res.status(404).send([])

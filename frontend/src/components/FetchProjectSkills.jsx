@@ -2,7 +2,7 @@ import {
     useQuery
 } from "@tanstack/react-query";
 import SkillIcon from "./SkillIcon.jsx";
-import { apiFetchProjectSkills } from "../api/apiFetchProjectSkills.js";
+import { fetchProjectSkills } from "./../api/fetchProjectSkills.js";
 import { queryClient } from './../queryClient.js';
 
 export const FetchProjectSkills = (props) => {
@@ -12,7 +12,7 @@ export const FetchProjectSkills = (props) => {
     const { isLoading, isError, error, data } = useQuery({
         queryKey: ['fetchProjectSkills', project],
         queryFn: async () => {
-            const res = await apiFetchProjectSkills(project)
+            const res = await fetchProjectSkills(project)
             console.log(res)
             return await res.json()
         },

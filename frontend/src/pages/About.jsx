@@ -26,7 +26,7 @@ function About() {
               margin: '0 auto',
             }}
           >
-            <div className="p-4 m-4 bg-neutral-50 rounded-sm overflow-y-auto max-h-[60vh] sm:max-h-auto">
+            <div className="w-full p-4 m-4 bg-neutral-50 rounded-sm overflow-y-auto max-h-[60vh] sm:max-h-auto">
               <h2
                 className="
                   font-bold

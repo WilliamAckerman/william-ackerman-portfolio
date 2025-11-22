@@ -12,12 +12,12 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Checkbox from '@mui/material/Checkbox';
 import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-//import { sendMessage } from '../api/sendMessage.js';
+import { sendMessage } from '../api/sendMessage.js';
 
 function Contact() {
-  /*const [disableFields, setDisableFields] = useState(false)
+  const [disableFields, setDisableFields] = useState(false)
 
-  const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*//* errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
+  const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*/ errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
   const onSubmit = data => {
     setDisableFields(true)
     submission(data)
@@ -76,7 +76,7 @@ function Contact() {
     }
 
     setDisableFields(false)
-  }*/
+  }
 
   return (
     <>
@@ -85,7 +85,7 @@ function Contact() {
             <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Contact
             </h1>
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col lg:flex-row">
 
               {/* Email/Phone/Socials */}
               <div className="mb-4 md:mb-0 ml-0 mr-0 md:ml-2 md:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full md:min-w-[48%]"> {/* Originally 48% */}
@@ -232,11 +232,11 @@ function Contact() {
                   The contact form is currently disabled until a privacy policy has been established 
                   and reviewed. You can still reach me via the email, phone, or social links provided.
                 </p>*/}
-                <p className="mt-4 text-base">
+                {/*<p className="mt-4 text-base">
                   The contact form is not complete yet. You can still reach me via the email, phone, 
                   or social links provided.
-                </p>
-                {/*<p className="mt-2 mb-4 text-base">
+                </p>*/}
+                <p className="mt-2 mb-4 text-base">
                   An asterisk (<span className="text-red-700">*</span>) indicates a required field.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -351,7 +351,7 @@ function Contact() {
                       Send Email
                     </span>
                   </Button>
-                </form>*/}
+                </form>
               </div>
             </div>
           </div>

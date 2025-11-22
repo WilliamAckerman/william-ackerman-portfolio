@@ -3,7 +3,7 @@ import './../App.css'
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';*/
-import { FetchProjects } from '../api/FetchProjects.jsx';
+import { FetchProjects } from '../components/FetchProjects.jsx';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 
