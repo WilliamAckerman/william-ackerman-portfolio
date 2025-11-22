@@ -1,12 +1,12 @@
 import './../App.css'
 import Box from '@mui/material/Box';
 import { Link } from 'react-router';
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
-import Headshot from '../assets/images/Headshot.jpg';
+import Navbar from './../components/Navbar.jsx';
+import Footer from './../components/Footer.jsx';
+import Headshot from './../assets/images/Headshot.jpg';
 
-import { FetchProjects } from './../api/FetchProjects.jsx';
-import { FetchFeaturedSkills } from './../api/FetchFeaturedSkills.jsx';
+import { FetchProjects } from './../components/FetchProjects.jsx';
+import { FetchSkills } from './../components/FetchSkills.jsx';
 
 function Home() {
 
@@ -78,7 +78,7 @@ function Home() {
               <h3 className="mb-4 text-neutral-50 font-normal text-xl sm:text-2xl md:text-3xl xl:text-4xl text-center">
                 Featured Skills
               </h3>
-              <FetchFeaturedSkills />
+              <FetchSkills type="featured" />
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">Visit the <Link to={"/skills"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">Skills</Link> page 
               if you would like to see more of my skills.</p>
             </section>

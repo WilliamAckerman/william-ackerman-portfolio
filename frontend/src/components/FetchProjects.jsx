@@ -4,7 +4,8 @@ import { Link } from 'react-router';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import { FetchProjectSkills } from "../components/FetchProjectSkills.jsx";
+import { FetchProjectSkills } from "./FetchProjectSkills.jsx";
+import { fetchProjects } from '../api/fetchProjects.js';
 import { queryClient } from './../queryClient.js';
 
 export const FetchProjects = (props) => {
@@ -15,7 +16,6 @@ export const FetchProjects = (props) => {
     const [modalStartDate, setModalStartDate] = useState("")
     const [modalEndDate, setModalEndDate] = useState("")
     const [modalDetails, setModalDetails] = useState([])
-    //const [modalTechnologies, setModalTechnologies] = useState([])
     const [modalGithubLink, setModalGithubLink] = useState(null)
     const [projectAlias, setProjectAlias] = useState("")
 
@@ -37,8 +37,6 @@ export const FetchProjects = (props) => {
     const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, alias) => {
         setModalHeader(header)
         setModalDescription(description)
-        //console.log(startDate)
-        //console.log("Technologies:", technologies)
 
         setProjectAlias(alias)
 
@@ -56,17 +54,9 @@ export const FetchProjects = (props) => {
         if (detailArray.length == 0) {
             setModalDetails("None")
         } else {
-            const listDetails = detailArray.map(detail => <li key={id + detail} className="text-sm sm:text-base mb-1 sm:mb-0">{detail}</li>)
+            const listDetails = detailArray.map(detail => <li key={id + detail} className="text-base mb-1 sm:mb-0">{detail}</li>)
             setModalDetails(listDetails)
         }
-
-        /*const technologyArray = technologies.split(";")
-        if (technologyArray.length == 0) {
-            setModalTechnologies("None")
-        } else {
-            const listTechnologies = technologyArray.map(technology => <li key={id + technology} className="text-sm sm:text-base mb-1 sm:mb-0">{technology}</li>)
-            setModalTechnologies(listTechnologies)
-        }*/
 
         if (githubLink) {
             setModalGithubLink(githubLink)
@@ -83,13 +73,14 @@ export const FetchProjects = (props) => {
 
     const { isLoading, isError, error, data } = useQuery({
         queryKey: ['fetchProjects', featured],
-        queryFn: async () => {
+        queryFn: async () => await fetchProjects(featured),
+        /*queryFn: async () => {
             const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/projects/${featured}`);
             if (!res.ok) {
                 throw new Error(`HTTP Error. Status: ${res.status}`)
             }
             return res.json()
-        },
+        },*/
         onSettled: () => queryClient.invalidateQueries({ queryKey: ['fetchProjects', featured] })
     })
 
@@ -109,8 +100,6 @@ export const FetchProjects = (props) => {
             </p>
         )
     }
-
-    //console.log("Projects:", data);
 
     return (
         <>
@@ -136,12 +125,12 @@ export const FetchProjects = (props) => {
                 >
                     <div className="bg-blue-900 p-4">
                         <div className="mb-2 flex flex-row justify-between">
-                            <h1 className="text-neutral-50 text-2xl sm:text-4xl">{modalHeader}</h1>
-                            <h1 className="text-neutral-50 text-2xl sm:text-4xl cursor-pointer" onClick={handleModalClose}>&times;</h1>
+                            <h1 className="text-neutral-50 text-xl md:text-2xl lg:text-4xl">{modalHeader}</h1>
+                            <h1 className="text-neutral-50 text-xl md:text-2xl lg:text-4xl cursor-pointer" onClick={handleModalClose}>&times;</h1>
                         </div>
                         <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
                     </div>
-                    <div className="bg-blue-200 p-4 max-h-60 sm:max-h-90 md:max-h-120 overflow-y-auto">
+                    <div className="bg-blue-200 p-4 overflow-y-auto" style={{height:"70vh"}}>
 
                         <h2
                             className="

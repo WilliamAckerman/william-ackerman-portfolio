@@ -13,7 +13,7 @@ import Tab from '@mui/material/Tab';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 
-import { FetchSkills } from '../api/FetchSkills.jsx';
+import { FetchSkills } from '../components/FetchSkills.jsx';
 
 const CustomTabs = styled(Tabs)({
   margin: '0 auto',
