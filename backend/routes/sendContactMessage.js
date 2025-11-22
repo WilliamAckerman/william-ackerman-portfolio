@@ -45,4 +45,4 @@ router.post("/", jsonParser, async (req, res) => {
     }
 })
 
-export { router as sendContactMessage }
+//export { router as sendContactMessage }

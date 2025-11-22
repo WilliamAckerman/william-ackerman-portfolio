@@ -1,4 +1,4 @@
-export const sendMessage = async ({ name, email, subject, message }) => {
+/*export const sendMessage = async ({ name, email, subject, message }) => {
     const messageData = {
         'name': name, 
         'email': email, 
@@ -16,4 +16,4 @@ export const sendMessage = async ({ name, email, subject, message }) => {
         throw new Error("HTTP Error. Status: " + res.error)
     }
     return res
-}
+}*/
