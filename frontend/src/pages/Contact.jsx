@@ -85,7 +85,7 @@ function Contact() {
             <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Contact
             </h1>
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col lg:flex-row">
 
               {/* Email/Phone/Socials */}
               <div className="mb-4 md:mb-0 ml-0 mr-0 md:ml-2 md:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full md:min-w-[48%]"> {/* Originally 48% */}
