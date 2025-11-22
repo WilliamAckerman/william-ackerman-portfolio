@@ -1,7 +1,6 @@
 import express from "express"
 import nodemailer from "nodemailer"
 import bodyParser from "body-parser"
-import { db } from '../mongodbClient.js';
 
 const app = express()
 const router = express.Router()
@@ -40,8 +39,8 @@ router.post("/", jsonParser, async (req, res) => {
             html: `<p>${req.body.message}</p>`, // "<b>Hello world?</b>"
         });
 
-        console.log("Message sent: %s", info.messageId)
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
+        //console.log("Message sent: %s", info.messageId)
+        //console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
 
         res.status(200).send("Message sent successfully.")
 
@@ -50,4 +49,4 @@ router.post("/", jsonParser, async (req, res) => {
     }
 })
 
-//export { router as sendContactMessage }
+export { router as sendContactMessage }
