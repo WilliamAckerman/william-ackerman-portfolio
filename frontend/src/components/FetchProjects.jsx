@@ -120,7 +120,8 @@ export const FetchProjects = (props) => {
                         maxHeight: '100vh',
                         border: '2px solid #000',
                         boxShadow: 24,
-                        backgroundColor: "#6b90ffff"
+                        backgroundColor: "#6b90ffff",
+                        borderRadius: '6'
                     }}
                 >
                     <div className="bg-blue-900 p-4">
@@ -130,7 +131,7 @@ export const FetchProjects = (props) => {
                         </div>
                         <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
                     </div>
-                    <div className="bg-blue-200 p-4 overflow-y-auto" style={{height:"70vh"}}>
+                    <div className="bg-blue-200 p-4 overflow-y-auto modalBody">
 
                         <h2
                             className="
@@ -189,7 +190,7 @@ export const FetchProjects = (props) => {
 
                         
                     </div>
-                    <div className="bg-blue-900 p-4">
+                    <div className="bg-blue-900 p-4 flex justify-end">
                         <Button 
                             variant="contained" 
                             onClick={handleModalClose}

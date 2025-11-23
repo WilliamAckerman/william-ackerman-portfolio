@@ -14,19 +14,18 @@ function About() {
           <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
             About
           </h1>
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: {
-                xs: 'column',
-                md: 'row',
-              },
-              justifyContent: 'space-evenly',
-              margin: '0 auto',
-            }}
+          <div
+            className="
+              flex
+              items-center
+              flex-col
+              lg:flex-row
+              justify-evenly
+              mx-auto
+              w-full
+            "
           >
-            <div className="w-full p-4 m-4 bg-neutral-50 rounded-sm overflow-y-auto max-h-[60vh] sm:max-h-auto">
+            <div className="w-full p-4 m-4 lg:ml-0 bg-neutral-50 rounded-sm overflow-y-auto max-h-[60vh] lg:max-h-auto">
               <h2
                 className="
                   font-bold
@@ -46,7 +45,7 @@ function About() {
               </p>
               <p className="mb-2 mt-2">
                 As I progressed through my quest to earn a Bachelor of Science in Computer Programming & Information 
-                Systems, I learned committment, connection, and above all, dedication. As I became acquainted with new technologies, 
+                Systems, I learned committment, connection, and above all, dedication. As I became acquainted with new technologies and undergoing new experiences, 
                 I felt my passion constantly growing.
               </p>
               <p className="mb-2 mt-2">
@@ -70,7 +69,7 @@ function About() {
             <div>
               <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" />
             </div>
-          </Box>
+          </div>
           <div className="mt-8 bg-neutral-50 rounded-sm shadow-sm p-4">
               <h2
                 className="
@@ -87,13 +86,14 @@ function About() {
               <p className="text-base mt-2 mb-2">
                 This website's frontend was created through Vite and React. Material UI was used for several elements of this website's structure. 
                 Meanwhile, TailwindCSS was used to provide styling and responsiveness to ensure a clean, user-friendly experience. TanStack query 
-                is used to fetch data on projects and skills from a backend API. This website's 
-                frontend is being deployed using Vercel.
+                is used to fetch data on projects and skills from a backend API.
               </p>
               <p className="text-base mt-2">
                 This website's backend was created using Node.js and Express.js to create a RESTful API that communicates with a MongoDB database. The contact form 
-                also makes use of Nodemailer and Gmail to send messages users submit through the contact form to my Gmail inbox. 
-                This website's backend is being deployed using Vercel.
+                also makes use of Nodemailer and Gmail to send messages users submit through the contact form to my Gmail inbox.
+              </p>
+              <p className="text-base mt-2">
+                Vercel is used in deploying both this website's frontend and backend.
               </p>
               <p className="text-base mt-2">
                 By using this website, you agree to this website's <Link 

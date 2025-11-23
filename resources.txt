@@ -39,3 +39,9 @@ React-Hook-Form:
 
 PDF Display:
 - https://www.nutrient.io/blog/how-to-build-a-reactjs-pdf-viewer-with-react-pdf/?utm_source=chatgpt.com
+
+React-to-Print:
+- https://www.npmjs.com/package/react-to-print
+- https://medium.com/@massoud-sharifi/reacttoprint-8f9d35b3e2d7
+- https://buaiscia.github.io/blog/tips/printing-developer-journey-react-to-print
+- https://stackoverflow.com/questions/79318468/problems-with-using-reacttoprint-to-print-a-react-component

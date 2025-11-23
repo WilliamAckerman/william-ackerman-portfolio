@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+/* Modal CSS */
+@media (width > 991px) {
+    .modalBody {
+        max-height: 70vh;
+    }
+}
+
+@media (width > 768px) and (width <= 991px) {
+    .modalBody {
+        max-height: 65vh;
+    }
+}
+
+@media (width > 600px) and (width <= 768px) {
+    .modalBody {
+        max-height: 55vh;
+    }
+}
+
+@media (width <= 600px) {
+    .modalBody {
+        max-height: 50vh;
+    }
+}
+
+/* React-to-print CSS */
+.printContent {
+    display: none;
+
+    @media print {
+        display: block;
+
+        html, body {
+            height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden;
+        }
+    }
+}

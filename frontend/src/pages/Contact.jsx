@@ -85,10 +85,16 @@ function Contact() {
             <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
               Contact
             </h1>
-            <div className="flex flex-col lg:flex-row">
+
+            <p className="text-base mb-8 text-center mx-auto lg:min-w-[98%] lg:max-w-[98%] bg-neutral-50 rounded-sm p-4">
+              I'm always open to working with new people, or simply just having a casual discussion! Feel free to contact me using either 
+              the contact links provided or the contact form.
+            </p>
+
+            <div className="flex flex-col lg:flex-row lg:justify-around">
 
               {/* Email/Phone/Socials */}
-              <div className="mb-4 md:mb-0 ml-0 mr-0 md:ml-2 md:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full md:min-w-[48%]"> {/* Originally 48% */}
+              <div className="mb-4 lg:mb-0 ml-0 mr-0 lg:ml-2 lg:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full lg:min-w-[48%]"> {/* Originally 48% */}
                 <h2
                   className="
                     mb-4
@@ -216,7 +222,7 @@ function Contact() {
               </div>
 
               {/* Contact Form */}
-              <div className="mt-4 md:mt-0 ml-0 mr-0 md:ml-2 md:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full md:min-w-[48%]">
+              <div className="mt-4 lg:mt-0 ml-0 mr-0 lg:ml-2 lg:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full lg:min-w-[48%]">
                 <h2
                   className="
                     mb-4

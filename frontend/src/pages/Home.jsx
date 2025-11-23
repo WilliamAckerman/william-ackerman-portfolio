@@ -118,7 +118,7 @@ function Home() {
                 <p className="text-center mb-2">
                   Resumes and CVs aren't just documents. A resume allows one to highlight their greatest accomplishments.
                   Meanwhile, a CV is a living, breathing representation of one's career, from start to present. Feel free to 
-                  take a look and indulge yourself in the the milestones my resume highlights and the story my CV tells.
+                  take a look at and indulge yourself in the the milestones my resume highlights and the story my CV tells.
                 </p>
                 <p className="text-center">You can view my resume and CV <Link to={"/viewresumecv"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">here</Link>.</p>
               </div>

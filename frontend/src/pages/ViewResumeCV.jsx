@@ -1,14 +1,13 @@
 import { Link } from 'react-router';
 import './../App.css'
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import Box from "@mui/material/Box";
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import Resume from '../components/Resume.jsx';
 
 function ViewResumeCV() {
-  const pdfLink = `${import.meta.env.VITE_FRONTEND_URL}/William_Ackerman_CV.pdf`
-
+  const cvLink = `${import.meta.env.VITE_FRONTEND_URL}/William_Ackerman_CV.pdf`
+  const resumeLink = `${import.meta.env.VITE_FRONTEND_URL}/William_Ackerman_Resume.pdf`
+  
   return (
     <>
       <Navbar />
@@ -17,8 +16,9 @@ function ViewResumeCV() {
             View Resume/CV
           </h1>
 
-          <h2
-            className="
+          <section className="mb-8">
+            <h2
+              className="
                 text-neutral-50
                 text-center
                 mb-4
@@ -26,12 +26,25 @@ function ViewResumeCV() {
                 sm:text-3xl 
                 md:text-4xl 
                 xl:text-5xl
-            "
-          >
-            Resume
-          </h2>
+              "
+            >
+              Resume
+            </h2>
 
-          <Resume />
+            <Resume />
+
+            <p 
+              className="
+                bg-neutral-50
+                text-center mb-4
+                rounded-sm
+                p-4
+                mt-4
+              "
+            >
+              To view a 1-page version of my resume, please visit <Link to={resumeLink} className="text-blue-600 hover:text-blue-700 underline hover:no-underline" target="_blank" rel="noreferrer">here</Link>.
+            </p>
+          </section>
           
           <h2
             className="
@@ -55,7 +68,7 @@ function ViewResumeCV() {
                 p-4
                 "
             >
-            To view my CV, please visit <Link to={pdfLink} className="text-blue-600 hover:text-blue-700 underline hover:no-underline" target="_blank" rel="noreferrer">here</Link>.
+            To view my CV, please visit <Link to={cvLink} className="text-blue-600 hover:text-blue-700 underline hover:no-underline" target="_blank" rel="noreferrer">here</Link>.
           </p>
         </div>
       <Footer />
