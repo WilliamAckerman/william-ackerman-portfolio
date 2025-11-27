@@ -45,3 +45,4 @@ React-to-Print:
 - https://medium.com/@massoud-sharifi/reacttoprint-8f9d35b3e2d7
 - https://buaiscia.github.io/blog/tips/printing-developer-journey-react-to-print
 - https://stackoverflow.com/questions/79318468/problems-with-using-reacttoprint-to-print-a-react-component
+- https://gist.github.com/ulises-jeremias/39d7a50ce7d00a9c7984a4ba9e348a45

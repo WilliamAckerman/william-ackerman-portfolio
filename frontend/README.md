@@ -8,11 +8,11 @@ This website uses a Vite/React frontend deployed using Vercel. Also, TailwindCSS
 
 On the other hand, the backend is a RESTful API created using Node.js and Express.js. Data is queried from a MongoDB database. Just like the frontend, the backend is deployed using Vercel.
 
-# Pages
+## Pages
 
 Here is an overview of the different pages of my portfolio website.
 
-## Home
+### Home
 
 This page provides an overview of what to expect regarding my website. There is a hero section designed to catch users' attention.
 
@@ -22,13 +22,13 @@ The "Skills" section of the homepage displays five of my "featured" skills, or s
 
 The "About Me", "Contact", and "View Resume/CV" sections of the homepage are in similar formats; a short blurb and a link to their respective pages.
 
-## Projects
+### Projects
 
 The "Projects" page displays all of my projects. The user can click on one of the boxes to display a modal that provides extra details regarding a project, including its title, month/year started, month/year ended (if ended), description, details, link to the project's Github repository, and technologies used.
 
 Data on projects and project skills is stored in a MongoDB database and fetched from the Node.js/Express.js backend API through TanStack Query.
 
-## Skills
+### Skills
 
 The "Skills" page has skills grouped into five categories: "Frontend", "Backend", "Database", "Tools", and "Soft Skills". The page features six tabs. 
 
@@ -38,13 +38,13 @@ There is also a tab for each category of skills; clicking one of these tabs only
 
 Data on skills is stored in a MongoDB database and is retrieved from the Node.js/Express.js backend API through TanStack Query.
 
-## About
+### About
 
 The About page provides some information on me, including some of my past experiences.
 
 This page also features a section detailing my website, including any technologies used.
 
-## Contact
+### Contact
 
 The Contact page provides links to my email address, phone number, Github profile, and LinkedIn profile.
 
@@ -60,7 +60,7 @@ The user can send a message by clicking the "SEND EMAIL" button on the form. Rea
 
 A request to the Node.js/Express.js backend API is made if the user's input passes input validation. Nodemailer is used to compose an email message based on the information the user entered. The email message is sent to my Gmail inbox through Nodemailer and Gmail.
 
-## View Resume/CV
+### View Resume/CV
 
 This page has three main features:
 
@@ -70,19 +70,27 @@ This page has three main features:
 
 3. The user can view my CV by clicking on a link to the CV.
 
-## Privacy Policy
+### Privacy Policy
 
 This page provides my website's Privacy Policy. By using my website, you agree to the terms of my website's Privacy Policy.
 
-# Other Components
+## Other Components
 
-## Navbar
+### Navbar
 
 The navbar provides an easy way for the user to navigate my website. On larger screen sizes, the navbar displays links to pages; the user can click a link to visit that link's respective page. On smaller screen sizes, a hamburger menu icon is shown in the navbar instead; clicking on it reveals a side menu that contains any links that were present in the navbar.
 
-## Footer
+### Footer
 
 The footer provides links to my email address, phone numbers, Github profile, and LinkedIn profile. A link to my website's Privacy Policy is also included.
+
+# Contact Me
+
+I'm more than happy to get in touch with you! You can reach me through the following methods:
+- Email: williamjohnackerman@gmail.com
+- Phone: (+1) 516-252-8285
+- Github: https://github.com/WilliamAckerman
+- LinkedIn: https://www.linkedin.com/in/william-ackerman-6a4005290/
 
 # React + Vite
 

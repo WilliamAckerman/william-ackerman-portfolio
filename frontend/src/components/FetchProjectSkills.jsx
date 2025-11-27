@@ -1,3 +1,4 @@
+import './../styles/Skills.css';
 import {
     useQuery
 } from "@tanstack/react-query";
@@ -59,23 +60,7 @@ export const FetchProjectSkills = (props) => {
             {data.map((projectSkill) => (
                 <div
                     key={projectSkill._id}
-                    className="
-                        w-1/2
-                        sm:w-1/3
-                        md:w-1/4
-                        bg-neutral-50
-                        text-center
-                        p-4
-                        m-4
-                        border-solid
-                        border-black
-                        rounded-sm
-                        shadow-sm
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                    "
+                    className="skillCard"
                 >
                     {projectSkill.icon && <SkillIcon icon={projectSkill.icon} hexColor={projectSkill.hexColor} />}
                     <span className="font-semibold">{projectSkill.name}</span>

@@ -10,7 +10,10 @@ function Resume() {
     const printResume = useReactToPrint({
         contentRef: resumeRef,
         documentTitle: 'William_Ackerman_Resume',
-        pageStyle: `@page { size: 'letter'; }`
+        pageStyle: `@page { 
+                        size: 'letter'; 
+                        margin: 25.4mm;
+                    }`
     });
 
     return (
@@ -41,9 +44,9 @@ function Resume() {
             </div>
         </div>
 
-        <div className="flex items-center justify-center mx-auto">
-              <Button variant="contained" onClick={printResume}><FaPrint className="mr-2" /> Print</Button>
-            </div>
+        <div className="flex items-center justify-center mx-auto mt-4">
+            <Button variant="contained" color="success" onClick={printResume}><FaPrint className="mr-2" /> Print Resume/Save as PDF</Button>
+        </div>
         </>
     )
 }

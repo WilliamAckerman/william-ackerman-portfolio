@@ -1,3 +1,4 @@
+import './../styles/Navbar.css';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Menu, Close } from '@material-symbols-svg/react-sharp';
@@ -18,13 +19,13 @@ const Navbar = () => {
                     }
                 </div>
                 <div className="hidden lg:block space-x-6">
-                    <NavLink to={"/"}>Home</NavLink>
-                    <NavLink to={"/projects"}>Projects</NavLink>
-                    <NavLink to={"/skills"}>Skills</NavLink>
-                    <NavLink to={"/about"}>About</NavLink>
-                    <NavLink to={"/contact"}>Contact</NavLink>
-                    <NavLink to={"/viewresumecv"}>View Resume/CV</NavLink>
-                    <NavLink to={"/privacypolicy"}>Privacy Policy</NavLink>
+                    <NavLink to={"/"} className="nav-link">Home</NavLink>
+                    <NavLink to={"/projects"} className="nav-link">Projects</NavLink>
+                    <NavLink to={"/skills"} className="nav-link">Skills</NavLink>
+                    <NavLink to={"/about"} className="nav-link">About</NavLink>
+                    <NavLink to={"/contact"} className="nav-link">Contact</NavLink>
+                    <NavLink to={"/viewresumecv"} className="nav-link">View Resume/CV</NavLink>
+                    <NavLink to={"/privacypolicy"} className="nav-link">Privacy Policy</NavLink>
                 </div>
                 
             </Box>

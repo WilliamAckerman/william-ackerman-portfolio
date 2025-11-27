@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Privacy Policy */
+    .privacy-policy {
+        @apply bg-neutral-50 rounded-sm shadow-sm p-4;
+
+        & section:not(:first-of-type) {
+            @apply mt-4;
+        }
+        
+        & section {
+            @apply mb-4;
+
+            & h2 {
+                @apply font-bold text-xl sm:text-2xl mb-2;
+            }
+
+            & p {
+                @apply text-base;
+            }
+
+            & p:not(:last-of-type) {
+                @apply mb-2;
+            }
+
+            & p:not(:first-of-type) {
+                @apply mt-2;
+            }
+
+            & ul {
+                @apply list-disc list-inside;
+
+                & li {
+                    @apply text-base mb-1 sm:mb-0;
+                }
+            }
+        }
+    }
+}

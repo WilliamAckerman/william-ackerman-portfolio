@@ -192,7 +192,7 @@ export const FetchProjects = (props) => {
                     </div>
                     <div className="bg-blue-900 p-4 flex justify-end">
                         <Button 
-                            variant="contained" 
+                            variant="contained"
                             onClick={handleModalClose}
                         >
                             Close

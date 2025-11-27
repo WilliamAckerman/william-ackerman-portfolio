@@ -1,3 +1,5 @@
+import './../index.css';
+import './../styles/Skills.css';
 import { useQuery } from '@tanstack/react-query';
 import Box from '@mui/material/Box';
 import SkillIcon from './SkillIcon.jsx';
@@ -40,7 +42,7 @@ export const FetchSkills = (props) => {
             {
                 type != "featured" 
                 && 
-                <h2 className="mb-4 text-xl sm:text-3xl md:text-4xl xl:text-5xl text-center text-neutral-50 font-semibold">
+                <h2 className="secondary-header">
                     {type}
                 </h2>
             }
@@ -63,23 +65,7 @@ export const FetchSkills = (props) => {
                 {data.map((skill) => (
                     <div
                         key={skill._id}
-                        className="
-                            w-1/2
-                            sm:w-1/3
-                            md:w-1/4
-                            bg-neutral-50
-                            text-center
-                            p-4
-                            m-4
-                            border-solid
-                            border-black
-                            rounded-sm
-                            shadow-sm
-                            flex
-                            flex-col
-                            items-center
-                            justify-center
-                        "
+                        className="skillCard"
                     >
                         {/* TODO: Favicon goes here */}
                         {skill.icon && <SkillIcon icon={skill.icon} hexColor={skill.hexColor} />}
