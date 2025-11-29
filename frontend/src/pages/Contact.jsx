@@ -1,6 +1,7 @@
 import './../App.css'
 import './../styles/Contact.css';
-import { useState, useEffect } from 'react';
+import 'altcha';
+import { useState, useEffect, useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
 import { Link } from 'react-router';
@@ -15,8 +16,11 @@ import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import { sendMessage } from '../api/sendMessage.js';
 
+import Altcha from './../components/Altcha';
+
 function Contact() {
   const [disableFields, setDisableFields] = useState(false)
+  const altchaRef = useRef(null)
 
   const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*/ errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
   const onSubmit = data => {
@@ -69,7 +73,7 @@ function Contact() {
     }
 
     // TODO: Send the message
-    var messageRes = await sendMessage({...data});
+    var messageRes = await sendMessage({...data}, altchaRef.current?.value);
     if (messageRes.ok) {
       alert("Message sent successfully!")
     } else {
@@ -286,7 +290,11 @@ function Contact() {
                     <p className="text-red-700"><ErrorMessage errors={errors} name="message" /></p>
                   </FormGroup>
 
-                  <FormGroup className="mb-4">
+                  {/* ALTCHA WebComponent */}
+                  {/*<altcha-widget challengeurl={`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/altcha`}></altcha-widget>*/}
+                  <Altcha ref={altchaRef} />
+
+                  <FormGroup className="mb-4 mt-4">
                     <p className="text-base">
                       By clicking the "SEND EMAIL" button, you agree to this website's <Link className="general-link" to={"/privacypolicy"}>Privacy Policy</Link>.
                     </p>

@@ -123,6 +123,20 @@ function Home() {
                 <p className="text-center">You can view my resume and CV <Link to={"/viewresumecv"} className="text-blue-600 hover:text-blue-700 underline hover:no-underline">here</Link>.</p>
               </div>
             </section>
+
+            <section className="mt-8 sm:mt-12 lg:mt-16">
+              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+                Privacy Notice
+              </h2>
+              <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
+                <p className="text-center mb-2">
+                  I've updated my privacy policy. Please check <Link to={"/privacypolicy"} className="general-link">here</Link> for more information.
+                </p>
+                <p className="text-center">
+                  <strong>Effective Date:</strong> December 1, 2025
+                </p>
+              </div>
+            </section>
           </div>
       <Footer />
     </>
