@@ -12,8 +12,8 @@ function Projects() {
   return (
     <>
       <Navbar />
-      <div className="p-6 bg-blue-900 min-h-screen">
-        <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+      <div className="page-main">
+        <h1 className="main-header">
           Projects
         </h1>
         <p className="text-base mb-4 text-center mx-auto w-full sm:w-xl bg-neutral-50 rounded-sm p-4">

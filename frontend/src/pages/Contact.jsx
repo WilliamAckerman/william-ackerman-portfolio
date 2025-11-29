@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import './../App.css'
+import './../styles/Contact.css';
+import 'altcha';
+import { useState, useEffect, useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { ErrorMessage } from "@hookform/error-message";
-import './../App.css'
 import { Link } from 'react-router';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
@@ -14,8 +16,11 @@ import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import { sendMessage } from '../api/sendMessage.js';
 
+import Altcha from './../components/Altcha';
+
 function Contact() {
   const [disableFields, setDisableFields] = useState(false)
+  const altchaRef = useRef(null)
 
   const { register, handleSubmit, control, reset, formState, formState: { /*isSubmitSuccessful,*/ errors } } = useForm({ defaultValues: { name: "", email: "", subject: "", message: "", agree: false }})
   const onSubmit = data => {
@@ -68,7 +73,7 @@ function Contact() {
     }
 
     // TODO: Send the message
-    var messageRes = await sendMessage({...data});
+    var messageRes = await sendMessage({...data}, altchaRef.current?.value);
     if (messageRes.ok) {
       alert("Message sent successfully!")
     } else {
@@ -81,23 +86,21 @@ function Contact() {
   return (
     <>
       <Navbar />
-          <div className="p-6 bg-blue-900 min-h-screen">
-            <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+          <div className="page-main">
+            <h1 className="main-header">
               Contact
             </h1>
-            <div className="flex flex-col lg:flex-row">
+
+            <p className="text-base mb-8 text-center mx-auto lg:min-w-[98%] lg:max-w-[98%] bg-neutral-50 rounded-sm p-4">
+              I'm always open to working with new people, or simply just having a casual discussion! Feel free to contact me using either 
+              the contact links provided or the contact form.
+            </p>
+
+            <div className="flex flex-col lg:flex-row lg:justify-around">
 
               {/* Email/Phone/Socials */}
-              <div className="mb-4 md:mb-0 ml-0 mr-0 md:ml-2 md:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full md:min-w-[48%]"> {/* Originally 48% */}
-                <h2
-                  className="
-                    mb-4
-                    text-xl
-                    sm:text-2xl
-                    lg:text-3xl
-                    font-bold
-                  "
-                >
+              <div className="contact-section mb-4 lg:mb-0"> {/* Originally 48% */}
+                <h2>
                   Contact Me
                 </h2>
                 <div className="mb-2">
@@ -112,10 +115,7 @@ function Contact() {
                     <a
                       href="mailto:williamjohnackerman@gmail.com"
                       className="
-                        underline 
-                        hover:no-underline 
-                        text-blue-500 
-                        hover:text-blue-600
+                        general-link
                         break-all
                         "
                     >
@@ -136,10 +136,7 @@ function Contact() {
                     <a
                       href="tel:+15162528285"
                       className="
-                        underline
-                        hover:no-underline
-                        text-blue-500
-                        hover:text-blue-600
+                        general-link
                         break-all
                       "
                     >
@@ -149,16 +146,7 @@ function Contact() {
                 </div>
                 <hr />
 
-                <h2
-                  className="
-                    mt-2
-                    mb-4
-                    text-xl
-                    sm:text-2xl
-                    lg:text-3xl
-                    font-bold
-                  "
-                >
+                <h2 className="mt-2">
                   My Socials
                 </h2>
 
@@ -176,10 +164,7 @@ function Contact() {
                       target="_blank"
                       rel="noreferrer"
                       className="
-                        underline
-                        hover:no-underline
-                        text-blue-500
-                        hover:text-blue-600
+                        general-link
                       "
                     >
                       LinkedIn
@@ -201,10 +186,7 @@ function Contact() {
                       target="_blank"
                       rel="noreferrer"
                       className="
-                        underline
-                        hover:no-underline
-                        text-blue-500
-                        hover:text-blue-600
+                        general-link
                       "
                     >
                       Github
@@ -216,16 +198,8 @@ function Contact() {
               </div>
 
               {/* Contact Form */}
-              <div className="mt-4 md:mt-0 ml-0 mr-0 md:ml-2 md:mr-2 bg-neutral-50 p-4 rounded-sm shadow-sm min-w-full md:min-w-[48%]">
-                <h2
-                  className="
-                    mb-4
-                    text-xl
-                    sm:text-2xl
-                    lg:text-3xl
-                    font-bold
-                  "
-                >
+              <div className="contact-section mt-4 lg:mt-0">
+                <h2>
                   Contact Form
                 </h2>
                 {/*<p className="mt-4 text-base">
@@ -237,11 +211,11 @@ function Contact() {
                   or social links provided.
                 </p>*/}
                 <p className="mt-2 mb-4 text-base">
-                  An asterisk (<span className="text-red-700">*</span>) indicates a required field.
+                  An asterisk (<span className="required">*</span>) indicates a required field.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <FormGroup className="mb-4">
-                    <label htmlFor="name" className="mb-2">Name<span className="text-red-700">*</span></label>
+                    <label htmlFor="name" className="mb-2">Name<span className="required">*</span></label>
                     <TextField 
                       id="name" 
                       type="text" 
@@ -257,7 +231,7 @@ function Contact() {
                     <p className="text-red-700"><ErrorMessage errors={errors} name="name" /></p>
                   </FormGroup>
                   <FormGroup className="mb-4">
-                    <label htmlFor="email" className="mb-2">Email<span className="text-red-700">*</span></label>
+                    <label htmlFor="email" className="mb-2">Email<span className="required">*</span></label>
                     <TextField 
                       id="email" 
                       type="email" 
@@ -279,7 +253,7 @@ function Contact() {
                     <p className="text-red-700"><ErrorMessage errors={errors} name="email" /></p>
                   </FormGroup>
                   <FormGroup className="mb-4">
-                    <label htmlFor="subject" className="mb-2">Subject<span className="text-red-700">*</span></label>
+                    <label htmlFor="subject" className="mb-2">Subject<span className="required">*</span></label>
                     <TextField 
                       id="subject" 
                       type="text" 
@@ -297,7 +271,7 @@ function Contact() {
                     <p className="text-red-700"><ErrorMessage errors={errors} name="subject" /></p>
                   </FormGroup>
                   <FormGroup className="mb-4">
-                    <label htmlFor="message" className="mb-2">Message<span className="text-red-700">*</span></label>
+                    <label htmlFor="message" className="mb-2">Message<span className="required">*</span></label>
                     <TextField
                       id="message"
                       type="text"
@@ -316,9 +290,13 @@ function Contact() {
                     <p className="text-red-700"><ErrorMessage errors={errors} name="message" /></p>
                   </FormGroup>
 
-                  <FormGroup className="mb-4">
+                  {/* ALTCHA WebComponent */}
+                  {/*<altcha-widget challengeurl={`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/altcha`}></altcha-widget>*/}
+                  <Altcha ref={altchaRef} />
+
+                  <FormGroup className="mb-4 mt-4">
                     <p className="text-base">
-                      By clicking the "SEND EMAIL" button, you agree to this website's <Link className="underline hover:no-underline text-blue-500 hover:text-blue-600" to={"/privacypolicy"}>Privacy Policy</Link>.
+                      By clicking the "SEND EMAIL" button, you agree to this website's <Link className="general-link" to={"/privacypolicy"}>Privacy Policy</Link>.
                     </p>
                     <FormControlLabel required control={
 
@@ -338,7 +316,7 @@ function Contact() {
                         )}
                       />
                     } label="I agree to this website's Privacy Policy" />
-                    <p className="text-red-700"><ErrorMessage errors={errors} name="agree" /></p>
+                    <p className="required"><ErrorMessage errors={errors} name="agree" /></p>
                   </FormGroup>
 
                   

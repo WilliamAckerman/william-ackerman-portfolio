@@ -81,10 +81,18 @@ function Skills() {
   return (
     <>
       <Navbar />
-          <div className="p-6 bg-blue-900 min-h-screen">
-            <h1 className="mb-4 md:mb-8 text-neutral-50 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center">
+          <div className="page-main">
+            <h1 className="main-header">
               Skills
             </h1>
+
+            <div className="main-caption">
+              <p>
+                As a developer, I know that it is necessary to be well-versed in various 
+                technologies and skills. Whether it be a framework, database, or soft skill, 
+                I ensure that my skillset keeps developing as technological trends evolve.
+              </p>
+            </div>
             <Box
               sx={{
                 width: '100%'

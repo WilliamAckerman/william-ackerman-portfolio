@@ -1,3 +1,4 @@
+import './../styles/Footer.css';
 import { Link } from 'react-router';
 import Box from '@mui/material/Box';
 import { Mail, PhoneEnabled } from '@material-symbols-svg/react-sharp';
@@ -19,7 +20,7 @@ const Footer = () => {
                 justifyContent: 'space-evenly',
             }}>
                 <div>
-                    <h3 className="text-center mb-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl">
+                    <h3 className="footer-sub-header">
                         Contact Me
                     </h3>
                     <Box
@@ -30,22 +31,22 @@ const Footer = () => {
                         flexDirection: 'column'
                     }}
                     >
-                        <span><Mail className="inline-block" /> Email: <Link to={"mailto:williamjohnackerman@gmail.com"} className="underline text-blue-300 hover:text-blue-400 hover:no-underline">williamjohnackerman@gmail.com</Link></span>
-                        <span><PhoneEnabled className="inline-block" /> Phone: <Link to={"tel:+15162528285"} className="underline text-blue-300 hover:text-blue-400 hover:no-underline">+1 (516) 252-8285</Link></span>
+                        <span><Mail className="inline-block" /> Email: <Link to={"mailto:williamjohnackerman@gmail.com"} className="footer-link">williamjohnackerman@gmail.com</Link></span>
+                        <span><PhoneEnabled className="inline-block" /> Phone: <Link to={"tel:+15162528285"} className="footer-link">+1 (516) 252-8285</Link></span>
                     </Box>
                 </div>
                 <div className="mt-4 lg:mt-0">
-                    <h3 className="text-center mb-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl">
+                    <h3 className="footer-sub-header">
                         My Socials
                     </h3>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-                        <Link to={"https://github.com/WilliamAckerman"} target="_blank" rel="noreferrer"><FaGithub className="text-3xl lg:text-4xl hover:text-neutral-200" /></Link>
-                        <Link to={"https://www.linkedin.com/in/william-ackerman-6a4005290/"} target="_blank" rel="noreferrer"><FaLinkedin className="text-3xl lg:text-4xl hover:text-neutral-200" /></Link>
+                        <Link to={"https://github.com/WilliamAckerman"} target="_blank" rel="noreferrer"><FaGithub className="footer-social-icon" /></Link>
+                        <Link to={"https://www.linkedin.com/in/william-ackerman-6a4005290/"} target="_blank" rel="noreferrer"><FaLinkedin className="footer-social-icon" /></Link>
                     </Box>
                 </div>
             </Box>
-            <p className="mt-4 mb-2 text-center"><Link to={"/privacypolicy"} className="text-center text-blue-300 hover:text-blue-400 underline hover:no-underline">Privacy Policy</Link></p>
-            <p className="mt-4 text-center">William Ackerman, 2025. All Rights Reserved.</p>
+            <p className="mt-4 text-center"><Link to={"/privacypolicy"} className="footer-link text-center">Privacy Policy</Link></p>
+            <p className="mt-2 text-center">William Ackerman, 2025. All Rights Reserved.</p>
     </div>
     )
 }

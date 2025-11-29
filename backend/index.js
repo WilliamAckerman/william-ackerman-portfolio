@@ -9,6 +9,8 @@ import { fetchProjects } from './routes/fetchProjects.js';
 
 import { sendContactMessage } from './routes/sendContactMessage.js';
 
+import { altchaChallenge } from './routes/altchaChallenge.js';
+
 dotenv.config()
 const app = express()
 const port = process.env.PORT
@@ -24,6 +26,8 @@ app.use(`${apiRoute}/projectskills`, fetchProjectSkills)
 app.use(`${apiRoute}/projects`, fetchProjects)
 
 app.use(`${apiRoute}/send-contact-message`, sendContactMessage)
+
+app.use(`${apiRoute}/altcha-challenge`, altchaChallenge)
 
 app.get('/', async (req, res) => {
     res.send('Hello World!')

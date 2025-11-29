@@ -1,6 +1,7 @@
 import express from "express"
 import nodemailer from "nodemailer"
 import bodyParser from "body-parser"
+import { verifySolution } from 'altcha-lib';
 
 const app = express()
 const router = express.Router()
@@ -25,6 +26,25 @@ router.post("/", jsonParser, async (req, res) => {
 
         if (!req.body || !req.body.name || !req.body.email || !req.body.subject || !req.body.message) {
             res.status(404).send("Invalid request body")
+        }
+
+        if (!req.body.altcha) {
+            res.status(404).send("No altcha provided.")
+        }
+
+        //console.log("Altcha")
+        //console.log(req.body.altcha)
+        //console.log(process.env.HMAC_KEY)
+
+        const ok = await verifySolution(
+            req.body.altcha,
+            process.env.HMAC_KEY,
+        )
+        //console.log("OK")
+        //console.log(ok)
+        if (!ok) {
+            //return res.status(400).json({ success: false, message: "Captcha challenge failed" })
+            res.status(400).send("Captcha challenge failed.")
         }
 
         const info = await transporter.sendMail({
