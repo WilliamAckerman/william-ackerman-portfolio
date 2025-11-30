@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <nav className="bg-blue-800 w-100% text-neutral-50 p-4">
-            <Box sx={{ flexGrow: 1, display: 'flex' }}>
+            <Box sx={{ flexGrow: 1, display: 'flex', maxWidth: '1680px', margin: '0 auto' }}>
                 <div className="lg:hidden">
                     { showSidenav ?
                     <Close className="cursor-pointer hover:text-neutral-200" onClick={() => setShowSidenav(false)} />

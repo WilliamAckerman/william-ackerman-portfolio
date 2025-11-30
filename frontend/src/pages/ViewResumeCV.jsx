@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import './../App.css'
+import './../index.css'
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import Resume from '../components/Resume.jsx';
@@ -44,10 +45,10 @@ function ViewResumeCV() {
 
             <div className="bg-neutral-50 text-center mt-8 mb-4 p-4 mx-auto w-full sm:w-xl rounded-sm">
               <p className="mb-4">
-                To view a PDF of this resume, please visit <Link to={resumePDFLink} className="text-blue-600 hover:text-blue-700 underline hover:no-underline" target="_blank" rel="noreferrer">here</Link>.
+                To view a PDF of this resume, please visit <Link to={resumePDFLink} className="general-link" target="_blank" rel="noreferrer">here</Link>.
               </p>
               <p>
-                To view a 1-page version of my resume, please visit <Link to={onePageResumeLink} className="text-blue-600 hover:text-blue-700 underline hover:no-underline" target="_blank" rel="noreferrer">here</Link>.
+                To view a 1-page version of my resume, please visit <Link to={onePageResumeLink} className="general-link" target="_blank" rel="noreferrer">here</Link>.
               </p>
             </div>
           </section>
@@ -68,7 +69,7 @@ function ViewResumeCV() {
 
           <div className="bg-neutral-50 text-center mt-4 mb-4 p-4 mx-auto w-full sm:w-xl rounded-sm">
             <p>
-              To view my CV, please visit <Link to={cvLink} className="text-blue-600 hover:text-blue-700 underline hover:no-underline" target="_blank" rel="noreferrer">here</Link>.
+              To view my CV, please visit <Link to={cvLink} className="general-link" target="_blank" rel="noreferrer">here</Link>.
             </p>
           </div>
         </div>

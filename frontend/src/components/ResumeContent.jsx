@@ -187,7 +187,7 @@ export default function ResumeContent(props) {
                             Work on developing a portfolio website that helps market my skills as a web developer
                         </li>
                         <li>
-                            Implement a Vite/React frontend, using TailwindCSS and Material UI for responsive interfaces
+                            Implement a Vite/React frontend, including TailwindCSS and Material UI for interface design
                         </li>
                         <li>
                             Use MongoDB to store data on projects and skills
@@ -196,7 +196,7 @@ export default function ResumeContent(props) {
                             Perform seamless data retrieval through TanStack Query and an Express.js RESTful API
                         </li>
                         <li>
-                            Integrate Nodemailer with Gmail to create an easy-to-use messaging system
+                            Implement a contact form using Gmail and Nodemailer for messaging and Altcha for bot protection
                         </li>
                     </ul>
                 </div>
@@ -238,7 +238,7 @@ export default function ResumeContent(props) {
                 </h2>
                 }
                 <p className="text-base mb-0"><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, AJAX, jQuery, TailwindCSS, Material UI, Vite, Vercel</p>
-                <p className="text-base mb-0"><strong>Backend:</strong> PHP, Node.js, Express.js, Render</p>
+                <p className="text-base mb-0"><strong>Backend:</strong> PHP, Node.js, Express.js</p>
                 <p className="text-base mb-0"><strong>Database:</strong> MySQL, MongoDB, Cloud Firestore, Microsoft SQL Server</p>
                 <p className="text-base mb-0"><strong>Tools:</strong> Responsive Design, RESTful APIs, Git/Github, Agile Development, Figma</p>
                 <p className="text-base mb-0"><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication Skills, Leadership</p>

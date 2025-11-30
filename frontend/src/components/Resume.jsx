@@ -32,6 +32,7 @@ function Resume() {
                 md:w-[80%]
                 rounded-sm
                 shadow-sm
+                xl:max-w-[1400px]
             "
         >
             <ResumeContent />

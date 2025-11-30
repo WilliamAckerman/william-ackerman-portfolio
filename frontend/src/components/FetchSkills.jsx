@@ -59,7 +59,8 @@ export const FetchSkills = (props) => {
                     width: {
                         "xs": "100%",
                         "md": "80%",
-                    }
+                    },
+                    maxWidth: '1400px',
                 }}
             >
                 {data.map((skill) => (

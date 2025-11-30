@@ -18,6 +18,8 @@ const Footer = () => {
                 },
                 alignItems: 'center',
                 justifyContent: 'space-evenly',
+                maxWidth: '1400px',
+                margin: '0 auto'
             }}>
                 <div>
                     <h3 className="footer-sub-header">
