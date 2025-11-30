@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .section-header {
+        @apply mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center;
+    }
+}

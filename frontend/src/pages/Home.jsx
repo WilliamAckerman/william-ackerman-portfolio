@@ -1,5 +1,5 @@
 import './../App.css'
-import Box from '@mui/material/Box';
+import './../styles/Home.css'
 import { Link } from 'react-router';
 import Navbar from './../components/Navbar.jsx';
 import Footer from './../components/Footer.jsx';
@@ -20,20 +20,8 @@ function Home() {
             <h2 className="mb-4 text-neutral-50 text-xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
               Full-Stack Web Developer
             </h2>
-            <Box sx={{ 
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-evenly',
-              flexDirection: {
-                xs: 'column',
-                lg: 'row',
-              },
-              maxWidth: {
-                xs: '90%',
-                lg: '80%',
-              },
-              margin: '0 auto',
-             }}>
+            
+            <div className="flex items-center justify-evenly flex-col lg:flex-row max-w-[90%] lg:max-w-[80%] mx-auto">
               <div className="lg:p-4">
                 <p className="text-base sm:text-lg md:text-xl text-neutral-50 text-center mb-4 lg:mb-0">
                   As a SUNY Farmingdale alumnus having earned a Bachelor of Science in Computer Programming & 
@@ -45,12 +33,12 @@ function Home() {
               <div className="lg:p-4">
                 <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" />
               </div>
-            </Box>
+            </div>
           </div>
           <div className="bg-blue-900 p-6">
 
             <section className="mt-2 sm:mt-4 lg:mt-8 mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+              <h2 className="section-header">
                 Projects
               </h2>
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
@@ -68,7 +56,7 @@ function Home() {
             </section>
 
             <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+              <h2 className="section-header">
                 Skills
               </h2>
               <p className="mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm">
@@ -84,7 +72,7 @@ function Home() {
             </section>
 
             <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+              <h2 className="section-header">
                 About Me
               </h2>
               <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
@@ -96,7 +84,7 @@ function Home() {
             </section>
 
             <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+              <h2 className="section-header">
                 Contact
               </h2>
               <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
@@ -111,7 +99,7 @@ function Home() {
             </section>
 
             <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
-              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+              <h2 className="section-header">
                 View Resume/CV
               </h2>
               <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
@@ -125,15 +113,15 @@ function Home() {
             </section>
 
             <section className="mt-8 sm:mt-12 lg:mt-16">
-              <h2 className="mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center">
+              <h2 className="section-header">
                 Privacy Notice
               </h2>
               <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
                 <p className="text-center mb-2">
-                  I've updated my privacy policy. Please check <Link to={"/privacypolicy"} className="general-link">here</Link> for more information.
+                  I've updated this website's privacy policy. Please check <Link to={"/privacypolicy"} className="general-link">here</Link> for more information.
                 </p>
                 <p className="text-center">
-                  <strong>Effective Date:</strong> December 1, 2025
+                  <strong>Effective Date:</strong> November 29, 2025
                 </p>
               </div>
             </section>
