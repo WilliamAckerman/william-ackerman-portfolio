@@ -21,7 +21,7 @@ function Home() {
               Full-Stack Web Developer
             </h2>
             
-            <div className="flex items-center justify-evenly flex-col lg:flex-row max-w-[90%] lg:max-w-[80%] mx-auto">
+            <div className="flex items-center justify-evenly flex-col lg:flex-row max-w-[90%] lg:max-w-[80%] mx-auto xl:max-w-[1400px]">
               <div className="lg:p-4">
                 <p className="text-base sm:text-lg md:text-xl text-neutral-50 text-center mb-4 lg:mb-0">
                   As a SUNY Farmingdale alumnus having earned a Bachelor of Science in Computer Programming & 
@@ -73,7 +73,7 @@ function Home() {
 
             <section className="mt-8 sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
               <h2 className="section-header">
-                About Me
+                About
               </h2>
               <div className="mx-auto w-full sm:w-lg bg-neutral-50 p-4 rounded-sm mb-4">
                 <p className="text-center mb-2">

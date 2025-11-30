@@ -18,6 +18,7 @@ export const FetchProjects = (props) => {
     const [modalDetails, setModalDetails] = useState([])
     const [modalGithubLink, setModalGithubLink] = useState(null)
     const [projectAlias, setProjectAlias] = useState("")
+    const [modalImage, setModalImage] = useState(null)
 
     const months = [
         "January",
@@ -34,7 +35,7 @@ export const FetchProjects = (props) => {
         "December"
     ]
 
-    const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, alias) => {
+    const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, alias, imageLink) => {
         setModalHeader(header)
         setModalDescription(description)
 
@@ -62,6 +63,12 @@ export const FetchProjects = (props) => {
             setModalGithubLink(githubLink)
         } else {
             setModalGithubLink(null)
+        }
+
+        if (imageLink) {
+            setModalImage(imageLink)
+        } else {
+            setModalImage(null)
         }
 
         setModalOpen(true)
@@ -115,7 +122,8 @@ export const FetchProjects = (props) => {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        width: '80%',
+                        width: '90%',
+                        maxWidth: '1680px',
                         height: 'auto',
                         maxHeight: '100vh',
                         border: '2px solid #000',
@@ -131,6 +139,63 @@ export const FetchProjects = (props) => {
                         </div>
                         <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
                     </div>
+                    { modalImage ? 
+                    <div className="bg-blue-200 p-4 overflow-y-auto modalBody">
+                    <div className="flex flex-col lg:flex-row w-full lg:justify-evenly">
+                        <div className="lg:flex-initial lg:w-[50%] lg:h-auto mb-4 lg:mb-0 lg:pr-2">
+                            <Link to={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} rel="noreferrer" target="_blank">
+                                <img src={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} alt={modalHeader} />
+                            </Link>
+                        </div>
+                        <div className="lg:flex-initial lg:w-[50%] lg:h-auto lg:pl-2">
+                            <h2 className="uppercase font-bold text-xl sm:text-2xl">
+                                Description
+                            </h2>
+
+                            <p className="mb-2">{modalDescription}</p>
+
+                            <h2 className="uppercase font-bold text-xl sm:text-2xl">
+                                Details
+                            </h2>
+
+                            <ul className="mb-2 list-disc list-inside">
+                                {modalDetails}
+                            </ul>
+
+                            {modalGithubLink && 
+                            <>
+                                <h2
+                                    className="
+                                    uppercase
+                                    font-bold
+                                    text-xl sm:text-2xl
+                                    "
+                                >
+                                    Github Link
+                                </h2>
+                                <Link 
+                                    to={modalGithubLink} 
+                                    rel="noreferrer" 
+                                    target="_blank"
+                                    className="
+                                        text-blue-700
+                                        underline
+                                        hover:text-blue-800
+                                        hover:no-underline
+                                    "
+                                >
+                                    Github Link
+                                </Link>
+                            </>
+                            }
+
+                        </div>
+                    </div>
+                    <div>
+                        <FetchProjectSkills project={projectAlias} />
+                    </div>
+                    </div>
+                    :
                     <div className="bg-blue-200 p-4 overflow-y-auto modalBody">
 
                         <h2
@@ -190,6 +255,7 @@ export const FetchProjects = (props) => {
 
                         
                     </div>
+                    }
                     <div className="bg-blue-900 p-4 flex justify-end">
                         <Button 
                             variant="contained"
@@ -212,18 +278,20 @@ export const FetchProjects = (props) => {
                     mr: 'auto',
                     width: {
                         "xs": "100%",
-                        "md": "80%",
-                    }
+                        "md": "90%",
+                    },
+                    maxWidth: '1680px',
                 }}
             >
                 {data.map((project) => (
                     <div
                         key={project._id}
-                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.github_link, project.alias)}
+                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.github_link, project.alias, project.image_link)}
                         className="
                             w-1/2
                             sm:w-1/3
                             md:w-1/4
+                            xl:max-w-[360px]
                             bg-blue-200
                             text-center
                             p-4

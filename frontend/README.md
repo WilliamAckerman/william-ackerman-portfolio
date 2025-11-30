@@ -1,12 +1,14 @@
 # About this Project
 
+Privacy Policy effective date: November 29, 2025.
+
 Hello, thank you for your interest in my portfolio website! There's a fair amount of features and technologies to cover.
 
 ## Technology Stack
 
-This website uses a Vite/React frontend deployed using Vercel. Also, TailwindCSS and Material UI are used for responsive, user-friendly interfaces. TanStack query is used to fetch data from the website's backend.
+This website uses a Vite/React frontend deployed using Vercel. Also, TailwindCSS and Material UI are used to design responsive, user-friendly interfaces. TanStack query is used to fetch data from the website's backend.
 
-On the other hand, the backend is a RESTful API created using Node.js and Express.js. Data is queried from a MongoDB database. Just like the frontend, the backend is deployed using Vercel.
+On the other hand, the backend is a RESTful API created using Node.js and Express.js. Data is fetched from a MongoDB database. Just like the frontend, the backend is deployed using Vercel.
 
 ## Pages
 
@@ -21,6 +23,8 @@ Featured projects are also displayed. The user can click on one of the boxes to 
 The "Skills" section of the homepage displays five of my "featured" skills, or skills that I am notably proficient in. A link to the skills page is also provided.
 
 The "About Me", "Contact", and "View Resume/CV" sections of the homepage are in similar formats; a short blurb and a link to their respective pages.
+
+Finally, the end of the page features a section stating the effective date of this website's Privacy Policy.
 
 ### Projects
 
