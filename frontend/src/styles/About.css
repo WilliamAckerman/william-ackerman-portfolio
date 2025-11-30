@@ -6,7 +6,7 @@
 @layer components {
     .about-section {
         & h2 {
-            @apply font-bold text-xl sm:text-2xl mb-2;
+            @apply font-bold text-xl sm:text-2xl lg:text-3xl mb-4;
         }
 
         & p {

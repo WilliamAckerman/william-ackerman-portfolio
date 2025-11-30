@@ -33,7 +33,7 @@ function About() {
               justify-evenly
               mx-auto
               w-full
-              xl:max-w-[1680px]
+              xl:max-w-[1400px]
             "
           >
             <div className="about-section w-full p-4 m-4 lg:ml-0 bg-neutral-50 rounded-sm overflow-y-auto max-h-[60vh] lg:max-h-auto">
@@ -76,7 +76,7 @@ function About() {
               <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" />
             </div>
           </div>
-          <div className="about-section mt-8 bg-neutral-50 rounded-sm shadow-sm p-4 xl:max-w-[1680px] mx-auto">
+          <div className="about-section mt-8 bg-neutral-50 rounded-sm shadow-sm p-4 xl:max-w-[1400px] mx-auto">
               <h2>
                 About This Website
               </h2>  
