@@ -90,9 +90,9 @@ export default function ResumeContent(props) {
                 </div>
                 <hr className="mt-2 mb-2" />
                 <p className="text-base">
-                    Entry-level full-stack web developer skilled in JavaScript, PHP, and SQL. 
-                    Experienced in developing responsive, database-driven web applications with 
-                    a strong focus on usability, problem-solving, and attention to detail.
+                    Entry-level full-stack web developer skilled in React, JavaScript, and SQL. 
+                    Experienced in developing responsive, user-focused web applications with 
+                    strong problem-solving skills and attention to detail.
                 </p>
             </section>
             <section>
@@ -144,7 +144,7 @@ export default function ResumeContent(props) {
                     <p><span className="sub-header">Kelm Media Group</span>, Farmingdale, NY</p>
                     <ul>
                         <li>Develop responsive, user-friendly websites using HTML, CSS, JavaScript, and Bootstrap</li>
-                        <li>Improve UX through layout enhancements and accessibility considerations</li>
+                        <li>Improve user experience through layout enhancements and accessibility considerations</li>
                         <li>Implement database-driven server-side features using MySQL and MongoDB operations</li>
                         <li>Troubleshoot and resolve website issues to ensure functionality and accessibility</li>
                         <li>Communicate with project leads to discuss feature progress and deliverables</li>
@@ -162,7 +162,8 @@ export default function ResumeContent(props) {
                     <ul>
                         <li>Collaborated with team members to design and develop five responsive websites</li>
                         <li>Built user-friendly web pages using HTML, CSS, JavaScript, and Bootstrap</li>
-                        <li>Implemented database-driven features using PHP and SQL</li>
+                        <li>Implemented database-driven features using MySQL and PHP</li>
+                        <li>Regularly communicated with colleagues to discuss project and feature progress</li>
                     </ul>
                 </div>
             </section>
@@ -196,7 +197,7 @@ export default function ResumeContent(props) {
                             Perform seamless data retrieval through TanStack Query and an Express.js RESTful API
                         </li>
                         <li>
-                            Implement a contact form using Gmail and Nodemailer for messaging and Altcha for bot protection
+                            Implement a contact form using Gmail, Nodemailer, and Altcha
                         </li>
                     </ul>
                 </div>
@@ -217,7 +218,7 @@ export default function ResumeContent(props) {
                         <li>Designed user-friendly interfaces through HTML, CSS, JavaScript, and React</li>
                         <li>Utilized RESTful API calls and Cloud Firestore for database-driven features</li>
                         <li>Wrote user stories and executed test plans to ensure feature functionality</li>
-                        <li>Participated in documenting system features and information</li>
+                        <li>Contributed to comprehensive technical documentation</li>
                     </ul>
                 </div>
             </section>
@@ -241,7 +242,7 @@ export default function ResumeContent(props) {
                 <p className="text-base mb-0"><strong>Backend:</strong> PHP, Node.js, Express.js</p>
                 <p className="text-base mb-0"><strong>Database:</strong> MySQL, MongoDB, Cloud Firestore, Microsoft SQL Server</p>
                 <p className="text-base mb-0"><strong>Tools:</strong> Responsive Design, RESTful APIs, Git/Github, Agile Development, Figma</p>
-                <p className="text-base mb-0"><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication Skills, Leadership</p>
+                <p className="text-base mb-0"><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication, Leadership</p>
             </section>
         </div>
     )
