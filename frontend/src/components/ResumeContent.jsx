@@ -90,7 +90,7 @@ export default function ResumeContent(props) {
                 </div>
                 <hr className="mt-2 mb-2" />
                 <p className="text-base">
-                    Entry-level full-stack web developer skilled in React, JavaScript, and SQL. 
+                    Entry-level full-stack web developer skilled in JavaScript and SQL. 
                     Experienced in developing responsive, user-focused web applications with 
                     strong problem-solving skills and attention to detail.
                 </p>
@@ -144,8 +144,8 @@ export default function ResumeContent(props) {
                     <p><span className="sub-header">Kelm Media Group</span>, Farmingdale, NY</p>
                     <ul>
                         <li>Develop responsive, user-friendly websites using HTML, CSS, JavaScript, and Bootstrap</li>
-                        <li>Improve user experience through layout enhancements and accessibility considerations</li>
-                        <li>Implement database-driven server-side features using MySQL and MongoDB operations</li>
+                        <li>Enhance user experience through layout improvements and accessibility considerations</li>
+                        <li>Implement database-driven features using MySQL, MongoDB, and PHP</li>
                         <li>Troubleshoot and resolve website issues to ensure functionality and accessibility</li>
                         <li>Communicate with project leads to discuss feature progress and deliverables</li>
                     </ul>
@@ -163,7 +163,7 @@ export default function ResumeContent(props) {
                         <li>Collaborated with team members to design and develop five responsive websites</li>
                         <li>Built user-friendly web pages using HTML, CSS, JavaScript, and Bootstrap</li>
                         <li>Implemented database-driven features using MySQL and PHP</li>
-                        <li>Regularly communicated with colleagues to discuss project and feature progress</li>
+                        <li>Communicated regularly with colleagues to discuss project and feature progress</li>
                     </ul>
                 </div>
             </section>
@@ -215,10 +215,10 @@ export default function ResumeContent(props) {
                             Collaborated as part of an Agile team of five to develop a web 
                             application allowing users to search for and view information on movies and shows
                         </li>
-                        <li>Designed user-friendly interfaces through HTML, CSS, JavaScript, and React</li>
+                        <li>Designed user-friendly interfaces using HTML, CSS, JavaScript, and React</li>
                         <li>Utilized RESTful API calls and Cloud Firestore for database-driven features</li>
                         <li>Wrote user stories and executed test plans to ensure feature functionality</li>
-                        <li>Contributed to comprehensive technical documentation</li>
+                        <li>Contributed to technical documentation and project planning</li>
                     </ul>
                 </div>
             </section>
