@@ -135,10 +135,10 @@ export default function ResumeContent(props) {
                 }
                 <div className="mb-2">
                     { type == "print" ? 
-                    <p className="text-lg"><span className="font-bold ">Technologist Intern</span> | <em>Aug 2025 — Present</em></p> 
+                    <p className="text-lg"><span className="font-bold ">Technologist</span> | <em>Aug 2025 — Present</em></p> 
                     :
                     <h3>
-                        <span className="non-print-header">Technologist Intern</span> | <em>Aug 2025 — Present</em>
+                        <span className="non-print-header">Technologist</span> | <em>Aug 2025 — Present</em>
                     </h3>
                     }
                     <p><span className="sub-header">Kelm Media Group</span>, Farmingdale, NY</p>
