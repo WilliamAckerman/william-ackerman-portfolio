@@ -61,7 +61,7 @@ export function DisplayModeHook() {
         secondaryText: `displayModeTransition ${darkMode ? darkSecondaryText : lightSecondaryText}`,
         boxBg: `displayModeTransition ${darkMode ? darkBoxBg : lightBoxBg}`,
         boxText: `displayModeTransition ${darkMode ? darkBoxText : lightBoxText}`,
-        link: `underline hover:no-underline ${darkMode ? darkLink : lightLink}`,
+        link: `displayModeTransition underline hover:no-underline ${darkMode ? darkLink : lightLink}`,
         boxLink: `underline hover:no-underline ${darkMode ? darkBoxLink : lightBoxLink}`,
         border: `area-border ${darkMode ? darkBorder : lightBorder}`,
         required: `displayModeTransition ${darkMode ? darkRequired : lightRequired}`,
