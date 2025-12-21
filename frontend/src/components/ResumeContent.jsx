@@ -225,7 +225,7 @@ export default function ResumeContent(props) {
                             Collaborated as part of an Agile team of five to develop a web 
                             application allowing users to search for and view information on movies and shows
                         </li>
-                        <li className={`${resumeText}`}>Designed user-friendly interfaces using HTML, CSS, JavaScript, and React</li>
+                        <li className={`${resumeText}`}>Designed user-friendly interfaces using React, JavaScript, and CSS</li>
                         <li className={`${resumeText}`}>Utilized RESTful API calls and Cloud Firestore for database-driven features</li>
                         <li className={`${resumeText}`}>Wrote user stories and executed test plans to ensure feature functionality</li>
                         <li className={`${resumeText}`}>Contributed to technical documentation and project planning</li>
