@@ -5,7 +5,14 @@ import { useReactToPrint } from 'react-to-print';
 import Button from '@mui/material/Button';
 import ResumeContent from './ResumeContent.jsx';
 
+import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 function Resume() {
+    const prefersContrastMore = useMediaQuery('(prefers-contrast: more)')
+    const prefersContrastLess = useMediaQuery('(prefers-contrast: less)')
+    const prefersContrast = prefersContrastMore || prefersContrastLess
+
     const resumeRef = useRef(null)
     const printResume = useReactToPrint({
         contentRef: resumeRef,
@@ -16,13 +23,14 @@ function Resume() {
                     }`
     });
 
+    const { boxBg, border } = DisplayModeHook()
+
     return (
         <>
         {/* The resume that is displayed */}
         <div
-            className="
-                bg-neutral-50
-                border-gray-100
+            className={`
+                ${boxBg}
                 p-4
                 mx-auto
                 overflow-y-auto
@@ -33,7 +41,8 @@ function Resume() {
                 rounded-sm
                 shadow-sm
                 xl:max-w-[1400px]
-            "
+                ${border}
+            `}
         >
             <ResumeContent />
         </div>
@@ -46,7 +55,7 @@ function Resume() {
         </div>
 
         <div className="flex items-center justify-center mx-auto mt-4">
-            <Button variant="contained" color="success" onClick={printResume}><FaPrint className="mr-2" /> Print Resume/Save as PDF</Button>
+            <Button variant="contained" color={`success`} onClick={printResume}><FaPrint className="mr-2" /> Print Resume/Save as PDF</Button>
         </div>
         </>
     )

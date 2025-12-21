@@ -8,6 +8,11 @@
         @apply no-underline;
     }
     .nav-link:hover {
-        @apply underline;
+        /*@apply underline;*/
+        @apply opacity-90;
+    }
+
+    .mode-icon {
+        @apply cursor-pointer;
     }
 }

@@ -84,6 +84,8 @@ This page provides my website's Privacy Policy. By using my website, you agree t
 
 The navbar provides an easy way for the user to navigate my website. On larger screen sizes, the navbar displays links to pages; the user can click a link to visit that link's respective page. On smaller screen sizes, a hamburger menu icon is shown in the navbar instead; clicking on it reveals a side menu that contains any links that were present in the navbar.
 
+The navbar also has a display mode toggle, indicated by a sun icon and a moon icon. When the sun icon is clicked, the display mode switches to light mode (enabled by default). Meanwhile, clicking the moon icon will switch the display mode to dark mode.
+
 ### Footer
 
 The footer provides links to my email address, phone numbers, Github profile, and LinkedIn profile. A link to my website's Privacy Policy is also included.

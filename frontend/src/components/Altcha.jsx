@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react'
+import { useEffect, useRef, useState, useContext, forwardRef, useImperativeHandle } from 'react'
 import 'altcha'
+import { DisplayModeContext } from '../DisplayModeContext.js';
 
 const Altcha = forwardRef(({ onStateChange }, ref) => {
     const widgetRef = useRef(null)
     const [value, setValue] = useState(null)
-
+    
+    const { darkMode } = useContext(DisplayModeContext)
     useImperativeHandle(ref, () => {
         return {
             get value() {
@@ -34,6 +36,7 @@ const Altcha = forwardRef(({ onStateChange }, ref) => {
             ref={widgetRef}
             style={{
                 '--altcha-max-width': '100%',
+                '--altcha-color-text': darkMode ? "white" : "black",
             }}
             challengeurl={`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/altcha-challenge`}
         ></altcha-widget>

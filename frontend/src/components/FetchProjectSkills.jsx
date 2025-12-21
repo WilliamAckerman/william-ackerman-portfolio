@@ -1,4 +1,6 @@
+import './../index.css';
 import './../styles/Skills.css';
+import { useContext } from 'react';
 import {
     useQuery
 } from "@tanstack/react-query";
@@ -6,9 +8,13 @@ import SkillIcon from "./SkillIcon.jsx";
 import { fetchProjectSkills } from "./../api/fetchProjectSkills.js";
 import { queryClient } from './../queryClient.js';
 
+import { DisplayModeContext } from '../DisplayModeContext.js';
+import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
+
 export const FetchProjectSkills = (props) => {
     const project = props.project;
-    //console.log(project)
+    const { darkMode } = useContext(DisplayModeContext)
+    const { text, boxBg, border } = DisplayModeHook()
 
     const { isLoading, isError, error, data } = useQuery({
         queryKey: ['fetchProjectSkills', project],
@@ -21,7 +27,7 @@ export const FetchProjectSkills = (props) => {
     })
 
     if (isLoading) return (
-        <p className="text-center">
+        <p className={`text-center ${text}`}>
             Loading project skills...
         </p>
     )
@@ -29,7 +35,7 @@ export const FetchProjectSkills = (props) => {
     if (isError) {
         console.error("Error fetching project skills: ", error.message);
         return (
-            <p className="text-center">
+            <p className={`text-center ${text}`}>
                 Error fetching project skills: {error.message}
             </p>
         )
@@ -37,14 +43,15 @@ export const FetchProjectSkills = (props) => {
 
     return (
         <>
-            <h2 className="
+            <h2 className={`
                 uppercase
                 font-bold
                 text-xl sm:text-2xl
                 mt-4
                 mb-4
-            ">
-                Technologies
+                ${text}
+            `}>
+                Technologies/Skills
             </h2>
 
             <div className="
@@ -60,10 +67,10 @@ export const FetchProjectSkills = (props) => {
             {data.map((projectSkill) => (
                 <div
                     key={projectSkill._id}
-                    className="skillCard"
+                    className={`skillCard ${boxBg} ${border}`}
                 >
-                    {projectSkill.icon && <SkillIcon icon={projectSkill.icon} hexColor={projectSkill.hexColor} />}
-                    <span className="font-semibold">{projectSkill.name}</span>
+                    {projectSkill.icon && <SkillIcon icon={projectSkill.icon} color={`#${darkMode ? projectSkill.darkColor : projectSkill.lightColor}`} name={projectSkill.name} />}
+                    <span className={`mt-1 ${text}`}>{projectSkill.name}</span>
                 </div>
             ))}
             </div>

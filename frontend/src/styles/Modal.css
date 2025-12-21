@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@tailwind components;
+
+@layer components {
+    .modalSurrounding {
+        @apply bg-blue-950 p-4;
+    }
+
+    .modalHeaderText {
+        @apply text-neutral-50 text-xl md:text-2xl lg:text-4xl
+    }
+
+    .modalFooter {
+        @apply rounded-b-lg flex justify-end;
+    }
+
+    .modalX {
+        @apply cursor-pointer hover:text-neutral-200;
+    }
+}
