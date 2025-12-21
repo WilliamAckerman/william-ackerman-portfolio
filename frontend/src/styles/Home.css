@@ -5,6 +5,10 @@
 
 @layer components {
     .section-header {
-        @apply mb-4 text-neutral-50 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center;
+        @apply mb-4 text-gray-950 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center;
+    }
+
+    .text-area {
+        @apply mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm shadow-sm;
     }
 }

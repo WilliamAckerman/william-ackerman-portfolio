@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import './../App.css'
 import {
   QueryClient,
@@ -15,19 +15,23 @@ import Footer from '../components/Footer.jsx';
 
 import { FetchSkills } from '../components/FetchSkills.jsx';
 
+import { DisplayModeContext } from '../DisplayModeContext.js';
+import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 const CustomTabs = styled(Tabs)({
   margin: '0 auto',
-  '& .MuiTabs-indicator': {
-    backgroundColor: '#9ad1ffff',
+  /*'& .MuiTabs-indicator': {
+    backgroundColor: '#4169e1', // Formerly #9ad1ffff
     margin: '0 auto',
   },
   // Styling for arrow buttons
   '& .MuiSvgIcon-root': {
-    color: 'white',
-  }
+    color: '#000000', // Formerly white
+  }*/
 });
 
-const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
+const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }, { darkMode } = useContext(DisplayModeContext)) => ({
   //textTransform: 'none',
   textAlign: 'center',
   minWidth: 0,
@@ -36,16 +40,80 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }
   },
   fontWeight: theme.typography.fontWeightRegular,
   marginRight: theme.spacing(1),
-  color: '#FFFFFF',
+  color: darkMode ? "#FFFFFF" : '#000000', // Formerly #FFFFFF
+  /*transition: 'ease-in-out',
+  transitionDuration: '0.2s',*/
   '&:hover': {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    color: '#9ad1ffff',
-    opacity: 1,
+    backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : 'rgba(0, 0, 0, 0.1)', // Formerly rgba(255, 255, 255, 0.1)
+    color: darkMode ? "#9ad1ffff" : '#4169e1', // Formerly #9ad1ffff
+    opacity: 1
   },
   '&.Mui-selected': {
-    color: '#9ad1ffff',
+    color: darkMode ? "#9ad1ffff" : '#4169e1', // Formerly #9ad1ffff
   },
 }));
+
+// Provides a custom transition
+const customTransition = {
+  transition: 'ease-in-out',
+  transitionDuration: '0.2s'
+}
+
+// Provides styling for the tab indicator
+const customTabStyles = {
+  '& .MuiTabs-indicator': {
+    margin: '0 auto',
+  }
+}
+
+// Removes the sliding effect of the tab indicator
+// (Used if the user prefers reduced motion)
+const reducedMotionIndicator = {
+  '& .MuiTabs-indicator': {
+    transition: 'none'
+  }
+}
+
+// Provides transition effects if the user does not prefer 
+// reduced motion
+const customTabTransitions = {
+  '& .MuiSvgIcon-root': {
+    customTransition
+  },
+  '& .MuiTabScrollButton-root:hover': {
+    customTransition
+  }
+}
+
+const lightCustomTabs = {
+  '& .MuiTabs-indicator': {
+    backgroundColor: "#4169e1"
+  },
+
+  // Styling for arrow buttons (light mode)
+  '& .MuiSvgIcon-root': {
+    color: '#000000'
+  },
+
+  '& .MuiTabScrollButton-root:hover': {
+    backgroundColor: "rgba(0,0,0,0.1)"
+  }
+}
+
+const darkCustomTabs = {
+  '& .MuiTabs-indicator': {
+    backgroundColor: "#9ad1ffff"
+  },
+
+  // Styling for arrow buttons (dark mode)
+  '& .MuiSvgIcon-root': {
+    color: '#FFFFFF'
+  },
+
+  '& .MuiTabScrollButton-root:hover': {
+    backgroundColor: "rgba(255,255,255,0.1)"
+  }
+}
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -71,6 +139,7 @@ function a11yProps(index) {
 }
 
 function Skills() {
+  const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
   //const queryClient = new QueryClient()
   const [tabValue, setTabValue] = useState(0)
 
@@ -78,16 +147,19 @@ function Skills() {
     setTabValue(newTabValue);
   };
 
+  const { darkMode } = useContext(DisplayModeContext)
+  const { bg, text, boxBg, border } = DisplayModeHook()
+
   return (
     <>
-      <Navbar />
-          <div className="page-main">
-            <h1 className="main-header">
+      <Navbar activeLink="Skills" />
+          <div className={`page-main ${bg}`}>
+            <h1 className={`${text} main-header`}>
               Skills
             </h1>
 
-            <div className="main-caption">
-              <p>
+            <div className={`displayModeTransition main-caption ${boxBg} ${border}`}>
+              <p className={`${text}`}>
                 As a developer, I know that it is necessary to be well-versed in various 
                 technologies and skills. Whether it be a framework, database, or soft skill, 
                 I ensure that my skillset keeps developing as technological trends evolve.
@@ -103,7 +175,7 @@ function Skills() {
               <Box
                 sx={{
                   borderBottom: 1,
-                  borderColor: 'divider'
+                  borderColor: darkMode ? "#FFFFFF" : 'divider'
                 }}
               >
                 <CustomTabs 
@@ -113,13 +185,78 @@ function Skills() {
                   variant="scrollable"
                   scrollButtons
                   allowScrollButtonsMobile
+                  sx={
+                    [
+                      darkMode ? darkCustomTabs : lightCustomTabs,
+                      !prefersReducedMotion ? customTabTransitions : reducedMotionIndicator,
+                      customTabStyles
+                    ]
+                  }
+                  /*sx={{
+                    '& .MuiTabs-indicator': {
+                      backgroundColor: darkMode ? "#9ad1ffff" : '#4169e1', // Formerly #9ad1ffff
+                      margin: '0 auto',
+                    },
+                    // Styling for arrow buttons
+                    '& .MuiSvgIcon-root': {
+                      color: darkMode ? "#FFFFFF" : '#000000', // Formerly white
+                      transition: 'ease-in-out',
+                      transitionDuration: '0.2s',
+                    },
+                    '& .MuiTabScrollButton-root:hover': {
+                      backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
+                      transition: 'ease-in-out',
+                      transitionDuration: '0.2s'
+                    }
+                  }}*/
                 >
-                  <CustomTab label="All Skills" {...a11yProps(0)} />
-                  <CustomTab label="Frontend" {...a11yProps(1)} />
-                  <CustomTab label="Backend" {...a11yProps(2)} />
-                  <CustomTab label="Database" {...a11yProps(3)} />
-                  <CustomTab label="Tools" {...a11yProps(4)} />
-                  <CustomTab label="Soft Skills" {...a11yProps(5)} />
+                  <CustomTab 
+                    label="All Skills" 
+                    {...a11yProps(0)} 
+                    sx={
+                      [!prefersReducedMotion ? customTransition : ""]
+                    }
+                  />
+
+                  <CustomTab 
+                    label="Frontend" 
+                    {...a11yProps(1)} 
+                    sx={
+                      [!prefersReducedMotion ? customTransition : ""]
+                    }
+                  />
+
+                  <CustomTab 
+                    label="Backend" 
+                    {...a11yProps(2)} 
+                    sx={
+                      [!prefersReducedMotion ? customTransition : ""]
+                    }
+                  />
+
+                  <CustomTab 
+                    label="Database" 
+                    {...a11yProps(3)} 
+                    sx={
+                      [!prefersReducedMotion ? customTransition : ""]
+                    }
+                  />
+
+                  <CustomTab 
+                    label="Tools" 
+                    {...a11yProps(4)} 
+                    sx={
+                      [!prefersReducedMotion ? customTransition : ""]
+                    }
+                  />
+
+                  <CustomTab 
+                    label="Soft Skills" 
+                    {...a11yProps(5)} 
+                    sx={
+                      [!prefersReducedMotion ? customTransition : ""]
+                    }
+                  />
                 </CustomTabs>
               </Box>
               <CustomTabPanel value={tabValue} index={0}>

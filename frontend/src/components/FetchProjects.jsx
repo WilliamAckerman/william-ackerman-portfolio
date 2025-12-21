@@ -2,13 +2,20 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import Fade from '@mui/material/Fade';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { FetchProjectSkills } from "./FetchProjectSkills.jsx";
 import { fetchProjects } from '../api/fetchProjects.js';
 import { queryClient } from './../queryClient.js';
 
+import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
+import ModalFooter from './ModalFooter.jsx'
+import ProjectModalInformation from './ProjectModalInformation.jsx'
+import '../styles/Modal.css'
+
 export const FetchProjects = (props) => {
+    const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
     const featured = props.featured ? props.featured : 0;
     const [modalOpen, setModalOpen] = useState(false)
     const [modalHeader, setModalHeader] = useState("")
@@ -19,6 +26,9 @@ export const FetchProjects = (props) => {
     const [modalGithubLink, setModalGithubLink] = useState(null)
     const [projectAlias, setProjectAlias] = useState("")
     const [modalImage, setModalImage] = useState(null)
+
+    const { bg, text, link, border, projectBg, projectText, projectBorder } = DisplayModeHook()
+    const modalH2 = `${text} uppercase font-bold text-xl sm:text-2xl`
 
     const months = [
         "January",
@@ -55,21 +65,12 @@ export const FetchProjects = (props) => {
         if (detailArray.length == 0) {
             setModalDetails("None")
         } else {
-            const listDetails = detailArray.map(detail => <li key={id + detail} className="text-base mb-1 sm:mb-0">{detail}</li>)
+            const listDetails = detailArray.map(detail => <li key={id + detail} className={`${text} text-base mb-1 sm:mb-0`}>{detail}</li>)
             setModalDetails(listDetails)
         }
 
-        if (githubLink) {
-            setModalGithubLink(githubLink)
-        } else {
-            setModalGithubLink(null)
-        }
-
-        if (imageLink) {
-            setModalImage(imageLink)
-        } else {
-            setModalImage(null)
-        }
+        setModalGithubLink(githubLink ? githubLink : null)
+        setModalImage(imageLink ? imageLink : null)
 
         setModalOpen(true)
     }
@@ -81,19 +82,12 @@ export const FetchProjects = (props) => {
     const { isLoading, isError, error, data } = useQuery({
         queryKey: ['fetchProjects', featured],
         queryFn: async () => await fetchProjects(featured),
-        /*queryFn: async () => {
-            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/projects/${featured}`);
-            if (!res.ok) {
-                throw new Error(`HTTP Error. Status: ${res.status}`)
-            }
-            return res.json()
-        },*/
         onSettled: () => queryClient.invalidateQueries({ queryKey: ['fetchProjects', featured] })
     })
 
     if (isLoading) {
         return (
-            <p className="text-neutral-50 text-center">
+            <p className={`${text} text-center`}>
                 Loading projects...
             </p>
         )
@@ -102,7 +96,7 @@ export const FetchProjects = (props) => {
     if (isError) {
         console.error("Error:", error.message)
         return (
-            <p className="text-neutral-50 text-center">
+            <p className={`${text} text-center`}>
                 Error fetching projects: {error.message}
             </p>
         )
@@ -114,8 +108,11 @@ export const FetchProjects = (props) => {
                 open={modalOpen}
                 onClose={handleModalClose}
                 aria-labelledby="project-details-modal"
-                aria-describedby="project-details-modal"
+                aria-describedby="modal-that-shows-details-about-a-project"
+                aria-hidden={`${!modalOpen}`}
+                //closeAfterTransition={!prefersReducedMotion}
             >
+                {/*<Fade in={modalOpen}>*/}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -126,145 +123,72 @@ export const FetchProjects = (props) => {
                         maxWidth: '1680px',
                         height: 'auto',
                         maxHeight: '100vh',
-                        border: '2px solid #000',
+                        border: `0px solid #000939ff`,
                         boxShadow: 24,
-                        backgroundColor: "#6b90ffff",
-                        borderRadius: '6'
+                        /*backgroundColor: "#6b90ffff",*/
+                        borderRadius: '8px',
+                        transition: 'ease-in-out',
+                        transitionDuration: prefersReducedMotion ? '0s' : '0.2s'
                     }}
                 >
-                    <div className="bg-blue-900 p-4">
+                    <div className={`modalSurrounding rounded-t-lg`}>
                         <div className="mb-2 flex flex-row justify-between">
-                            <h1 className="text-neutral-50 text-xl md:text-2xl lg:text-4xl">{modalHeader}</h1>
-                            <h1 className="text-neutral-50 text-xl md:text-2xl lg:text-4xl cursor-pointer" onClick={handleModalClose}>&times;</h1>
+                            <h1 className={`modalHeaderText`}>{modalHeader}</h1>
+                            <h1 className={`modalHeaderText modalX`} onClick={handleModalClose}>&times;</h1>
                         </div>
-                        <em className="text-neutral-50">{modalStartDate} - {modalEndDate}</em>
+                        <em className={`text-neutral-50`}>{modalStartDate} - {modalEndDate}</em>
                     </div>
-                    { modalImage ? 
-                    <div className="bg-blue-200 p-4 overflow-y-auto modalBody">
-                    <div className="flex flex-col lg:flex-row w-full lg:justify-evenly">
-                        <div className="lg:flex-initial lg:w-[50%] lg:h-auto mb-4 lg:mb-0 lg:pr-2">
-                            <Link to={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} rel="noreferrer" target="_blank">
-                                <img src={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} alt={modalHeader} />
-                            </Link>
-                        </div>
-                        <div className="lg:flex-initial lg:w-[50%] lg:h-auto lg:pl-2">
-                            <h2 className="uppercase font-bold text-xl sm:text-2xl">
-                                Description
-                            </h2>
 
-                            <p className="mb-2">{modalDescription}</p>
-
-                            <h2 className="uppercase font-bold text-xl sm:text-2xl">
-                                Details
-                            </h2>
-
-                            <ul className="mb-2 list-disc list-inside">
-                                {modalDetails}
-                            </ul>
-
-                            {modalGithubLink && 
+                    <div className={`p-4 overflow-y-auto modalBody ${bg}`}>
+                        {
+                            modalImage ?
                             <>
-                                <h2
-                                    className="
-                                    uppercase
-                                    font-bold
-                                    text-xl sm:text-2xl
-                                    "
-                                >
-                                    Github Link
-                                </h2>
-                                <Link 
-                                    to={modalGithubLink} 
-                                    rel="noreferrer" 
-                                    target="_blank"
-                                    className="
-                                        text-blue-700
-                                        underline
-                                        hover:text-blue-800
-                                        hover:no-underline
-                                    "
-                                >
-                                    Github Link
-                                </Link>
+                                <div className="flex flex-col lg:flex-row w-full lg:justify-evenly">
+                                    <div className="lg:flex-initial lg:w-[50%] lg:h-auto mb-4 lg:mb-0 lg:pr-2">
+                                        <Link to={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} rel="noreferrer" target="_blank">
+                                            <img src={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} alt={modalHeader} className={`${border}`} />
+                                        </Link>
+                                    </div>
+                                    <div className="lg:flex-initial lg:w-[50%] lg:h-auto lg:pl-2">
+                                        <ProjectModalInformation
+                                            text={text}
+                                            link={link}
+                                            modalH2={modalH2}
+                                            description={modalDescription}
+                                            details={modalDetails}
+                                            githubLink={modalGithubLink}
+                                        />
+                                    </div>
+                                </div>
+                                <div>
+                                    <FetchProjectSkills
+                                        project={projectAlias}
+                                    />
+                                </div>
                             </>
-                            }
+                            :
+                            <>
+                                <ProjectModalInformation
+                                    text={text}
+                                    link={link}
+                                    modalH2={modalH2}
+                                    description={modalDescription}
+                                    details={modalDetails}
+                                    githubLink={modalGithubLink}
+                                />
 
-                        </div>
-                    </div>
-                    <div>
-                        <FetchProjectSkills project={projectAlias} />
-                    </div>
-                    </div>
-                    :
-                    <div className="bg-blue-200 p-4 overflow-y-auto modalBody">
-
-                        <h2
-                            className="
-                                uppercase
-                                font-bold
-                                text-xl sm:text-2xl
-                                "
-                        >
-                            Description
-                        </h2>
-                        
-                        <p className="mb-2">{modalDescription}</p>
-
-                        <h2
-                            className="
-                                uppercase
-                                font-bold
-                                text-xl sm:text-2xl
-                                "
-                        >
-                            Details
-                        </h2>
-
-                        <ul className="mb-2 list-disc list-inside">
-                            {modalDetails}
-                        </ul>
-
-                        {modalGithubLink && 
-                        <>
-                            <h2
-                                className="
-                                uppercase
-                                font-bold
-                                text-xl sm:text-2xl
-                                "
-                            >
-                            Github Link
-                            </h2>
-                            <Link 
-                                to={modalGithubLink} 
-                                rel="noreferrer" 
-                                target="_blank"
-                                className="
-                                    text-blue-700
-                                    underline
-                                    hover:text-blue-800
-                                    hover:no-underline
-                                "
-                            >
-                                Github Link
-                            </Link>
-                        </>
+                                <FetchProjectSkills
+                                    project={projectAlias}
+                                />
+                            </>
                         }
-
-                        <FetchProjectSkills project={projectAlias} />
-
-                        
                     </div>
-                    }
-                    <div className="bg-blue-900 p-4 flex justify-end">
-                        <Button 
-                            variant="contained"
-                            onClick={handleModalClose}
-                        >
-                            Close
-                        </Button>
-                    </div>
+
+                    <ModalFooter 
+                        operation={handleModalClose} 
+                    />
                 </Box>
+                {/*</Fade>*/}
             </Modal>
             <Box
                 sx={{
@@ -284,30 +208,44 @@ export const FetchProjects = (props) => {
                 }}
             >
                 {data.map((project) => (
-                    <div
+                    <button
                         key={project._id}
-                        onClick={() => handleModalOpen(project._id, project.title, project.description, new Date(project.start_date), new Date(project.end_date), project.details, project.github_link, project.alias, project.image_link)}
-                        className="
+                        onClick={() => handleModalOpen(
+                            project._id, 
+                            project.title, 
+                            project.description, 
+                            new Date(project.start_date), 
+                            new Date(project.end_date), 
+                            project.details, 
+                            project.github_link, 
+                            project.alias, 
+                            project.image_link
+                        )}
+                        className={`
                             w-1/2
                             sm:w-1/3
                             md:w-1/4
                             xl:max-w-[360px]
-                            bg-blue-200
+                            text-neutral-50
                             text-center
                             p-4
                             m-4
-                            border-solid
-                            border-black
+                            area-border
+                            ${projectBorder}
+                            
+                            border-cyan-900
                             rounded-sm
                             shadow-sm
                             cursor-pointer
-                        "
+                            
+                            ${projectBg}
+                        `}
                     >
-                        <p className="font-semibold">{project.title}</p>
-                        <em>
+                        <p className={`font-semibold ${projectText}`}>{project.title}</p>
+                        <em className={`${projectText}`}>
                             {months[new Date(project.start_date).getMonth()]} {new Date(project.start_date).getFullYear()} - {project.end_date ? months[new Date(project.end_date).getMonth()] : "Present"} {project.end_date && new Date(project.end_date).getFullYear()}
                         </em>
-                    </div>
+                    </button>
                 ))}
             </Box>
         </>

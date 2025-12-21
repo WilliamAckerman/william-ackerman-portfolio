@@ -49,3 +49,11 @@ React-to-Print:
 
 Altcha:
 - https://levelup.gitconnected.com/how-to-protect-your-react-forms-from-bots-for-free-with-altcha-cf439cf0188c
+
+Context:
+- https://www.youtube.com/watch?v=ShrYJA6tRho
+- https://www.youtube.com/watch?v=5LrDIWkK_Bc&t=346s
+- https://medium.com/lets-make-something-up/creating-light-dark-mode-on-a-react-app-with-context-589a5465f639
+
+Misc.:
+- https://stackoverflow.com/questions/50228108/change-textfield-font-color-in-material-ui

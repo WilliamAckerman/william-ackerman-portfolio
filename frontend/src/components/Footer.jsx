@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <div className="bg-slate-800 text-neutral-50 p-6 w-100%">
+        <div className="bg-slate-900 text-neutral-50 p-6 w-100%">
             <h2 className="text-center font-semibold text-2xl sm:text-3xl md:text-4xl xl:text-5xl mb-2 lg:mb-4">
                 William Ackerman
             </h2>
@@ -42,8 +42,8 @@ const Footer = () => {
                         My Socials
                     </h3>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-                        <Link to={"https://github.com/WilliamAckerman"} target="_blank" rel="noreferrer"><FaGithub className="footer-social-icon" /></Link>
-                        <Link to={"https://www.linkedin.com/in/william-ackerman-6a4005290/"} target="_blank" rel="noreferrer"><FaLinkedin className="footer-social-icon" /></Link>
+                        <Link to={"https://github.com/WilliamAckerman"} target="_blank" rel="noreferrer"><FaGithub className="footer-social-icon" /><span className="sr-only" aria-hidden="true">Github</span></Link>
+                        <Link to={"https://www.linkedin.com/in/william-ackerman-6a4005290/"} target="_blank" rel="noreferrer"><FaLinkedin className="footer-social-icon" /><span className="sr-only" aria-hidden="true">LinkedIn</span></Link>
                     </Box>
                 </div>
             </Box>
