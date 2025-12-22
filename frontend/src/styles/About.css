@@ -23,10 +23,14 @@
     }
 
     .aboutBox {
-        @apply flex items-center justify-evenly mx-auto w-xl lg:w-full xl:max-w-[1400px] rounded-sm shadow-sm;
+        @apply flex items-center justify-evenly mx-auto w-xl lg:w-full max-w-[100%] xl:max-w-[1400px] rounded-sm shadow-sm;
     }
 
     .textBox {
         @apply w-full p-4 m-4 overflow-y-auto min-h-[30vh] max-h-[30vh] sm:min-h-[40vh] sm:max-h-[40vh] md:min-h-[50vh] md:max-h-[50vh];
+    }
+
+    .aboutIcon {
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
     }
 }

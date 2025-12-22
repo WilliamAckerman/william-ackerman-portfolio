@@ -174,23 +174,23 @@ function About() {
             ">
               <div className="flex flex-row lg:flex-col items-center justify-evenly lg:justify-center p-2 lg:p-0 mt-2 lg:mt-0">
                 <div className="lg:items-left">
-                  <IoLogoJavascript style={{color: `#${darkMode ? "FFE971" : "F7DF1E" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <IoLogoJavascript style={{color: `#${darkMode ? "FFE971" : "F7DF1E" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:items-right">
-                  <FaPhp style={{color: `#${darkMode ? "B8BBFF" : "777BB4" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <FaPhp style={{color: `#${darkMode ? "B8BBFF" : "777BB4" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:items-left">
-                  <SiMysql style={{color: `#${darkMode ? "73C1FF" : "4479A1" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <SiMysql style={{color: `#${darkMode ? "73C1FF" : "4479A1" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:items-right">
-                  <MdDevices style={{color: `#${darkMode ? "6CFFAA" : "00C853" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <MdDevices style={{color: `#${darkMode ? "6CFFAA" : "00C853" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:items-left">
-                  <FaSearchPlus style={{color: `#${darkMode ? "4FE9D1" : "0D9488" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <FaSearchPlus style={{color: `#${darkMode ? "4FE9D1" : "0D9488" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
               </div>
               <hr className={`${text} lg:hidden mt-2 lg:mt-0 w-[95%] mx-auto`} />
@@ -208,23 +208,23 @@ function About() {
             <div className="lg:max-h-auto min-w-full lg:min-w-[19%]">
               <div className="flex flex-row lg:flex-col items-center justify-evenly lg:justify-center p-2 lg:p-0 mt-2 lg:mt-0">
                 <div className="lg:flex lg:justify-start">
-                  <FaReact style={{color: `#${darkMode ? "8CEFFF" : "61DAFB" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <FaReact style={{color: `#${darkMode ? "8CEFFF" : "61DAFB" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:flex lg:justify-end">
-                  <FaNodeJs style={{color: `#${darkMode ? "7FFF82" : "339933" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <FaNodeJs style={{color: `#${darkMode ? "7FFF82" : "339933" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:flex lg:justify-start">
-                  <SiExpress style={{color: `#${darkMode ? "E5E7EB" : "000000" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <SiExpress style={{color: `#${darkMode ? "E5E7EB" : "000000" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:flex lg:justify-end">
-                  <SiMongodb style={{color: `#${darkMode ? "92FF9D" : "47A248" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <SiMongodb style={{color: `#${darkMode ? "92FF9D" : "47A248" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
 
                 <div className="lg:flex lg:justify-start">
-                  <SiTailwindcss style={{color: `#${darkMode ? "66EDFF" : "06B6D4" }`}} className="text-5xl md:text-6xl displayModeTransition" role="img" />
+                  <SiTailwindcss style={{color: `#${darkMode ? "66EDFF" : "06B6D4" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
               </div>
               <hr className={`${text} lg:hidden mt-2 lg:mt-0 w-[95%] mx-auto`} />
