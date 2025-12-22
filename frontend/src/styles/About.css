@@ -5,6 +5,8 @@
 
 @layer components {
     .about-section {
+        @apply p-4 overflow-y-auto min-h-[30vh] max-h-[30vh] sm:min-h-[40vh] sm:max-h-[40vh] md:min-h-[50vh] md:max-h-[50vh];
+
         & h2 {
             @apply font-bold text-xl sm:text-2xl lg:text-3xl mb-4;
         }
@@ -31,6 +33,10 @@
     }
 
     .aboutIcon {
-        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+        @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+    }
+
+    .divider {
+        @apply lg:hidden mt-2 lg:mt-0 w-[95%] mx-auto;
     }
 }

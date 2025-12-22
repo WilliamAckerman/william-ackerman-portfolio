@@ -65,19 +65,11 @@ function About() {
             <div className={`
               about-section 
               w-full 
-              p-4
               pt-0
               pb-0
               m-4 
               lg:ml-0 
               lg:mt-0
-              overflow-y-auto 
-              min-h-[30vh] 
-              max-h-[30vh] 
-              sm:min-h-[40vh] 
-              sm:max-h-[40vh] 
-              md:min-h-[50vh] 
-              md:max-h-[50vh] 
               lg:max-h-[60vh]
             `}>
               <h2 className={`${boxText}`}>
@@ -115,7 +107,7 @@ function About() {
                 And with that, I can only wonder where my future will take me next.
               </p>
             </div>
-            <hr className={`${text} lg:hidden mt-2 lg:mt-0 w-[95%] mx-auto`} />
+            <hr className={`${text} divider`} />
             <div className="mb-4 lg:mb-0 mt-4 lg:mt-0 lg:p-4">
               <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" />
             </div>
@@ -131,18 +123,11 @@ function About() {
           `}>
             <div className={`
               about-section 
-              p-4 mb-4 
+              mb-4 
               lg:mt-0 
               lg:mb-0 
               min-w-full 
-              lg:min-w-[74%] 
-              overflow-y-auto 
-              min-h-[30vh] 
-              max-h-[30vh] 
-              sm:min-h-[40vh] 
-              sm:max-h-[40vh] 
-              md:min-h-[50vh] 
-              md:max-h-[50vh] 
+              lg:min-w-[79%] 
               lg:max-h-auto
               
             `}>
@@ -170,7 +155,7 @@ function About() {
             <div className="
               lg:max-h-auto 
               min-w-full 
-              lg:min-w-[24%]
+              lg:min-w-[19%]
             ">
               <div className="flex flex-row lg:flex-col items-center justify-evenly lg:justify-center p-2 lg:p-0 mt-2 lg:mt-0">
                 <div className="lg:items-left">
@@ -193,7 +178,7 @@ function About() {
                   <FaSearchPlus style={{color: `#${darkMode ? "4FE9D1" : "0D9488" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
               </div>
-              <hr className={`${text} lg:hidden mt-2 lg:mt-0 w-[95%] mx-auto`} />
+              <hr className={`${text} divider`} />
             </div>
           </div>
 
@@ -227,9 +212,16 @@ function About() {
                   <SiTailwindcss style={{color: `#${darkMode ? "66EDFF" : "06B6D4" }`}} className="aboutIcon displayModeTransition" role="img" />
                 </div>
               </div>
-              <hr className={`${text} lg:hidden mt-2 lg:mt-0 w-[95%] mx-auto`} />
+              <hr className={`${text} divider`} />
             </div>
-            <div className={`about-section p-4 overflow-y-auto min-h-[30vh] max-h-[30vh] sm:min-h-[40vh] sm:max-h-[40vh] md:min-h-[50vh] md:max-h-[50vh] lg:max-h-auto min-w-full lg:min-w-[79%]`}>
+            <div 
+              className={`
+                about-section  
+                lg:max-h-auto 
+                min-w-full 
+                lg:min-w-[79%]
+              `}
+            >
               <h2 className={`${boxText}`}>
                 About This Website
               </h2>  

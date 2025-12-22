@@ -127,7 +127,7 @@ function Home() {
                   I've updated this website's privacy policy. Please check this website's <Link to={"/privacypolicy"} className={`${link} general-link`}>Privacy Policy</Link> for more information.
                 </p>
                 <p className={`${homeBoxText}`}>
-                  <strong>Effective Date:</strong> December 21, 2025
+                  <strong>Effective Date:</strong> December 22, 2025
                 </p>
               </div>
             </section>

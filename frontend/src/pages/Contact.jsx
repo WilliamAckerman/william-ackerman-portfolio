@@ -50,11 +50,11 @@ const textFieldTransition = {
     transition: 'ease-in-out',
     transitionDuration: '0.2s',
   },
-  '& .MuiOutlinedInput-root': {
+  /*'& .MuiOutlinedInput-root': {
     '& fieldset': { // Field on its own
       transition: 'ease-in-out',
       transitionDuration: '0.2s',
-    },
+  },
   '&:hover fieldset': { // When field is hovered over
     transition: 'ease-in-out',
     transitionDuration: '0.2s',
@@ -63,7 +63,7 @@ const textFieldTransition = {
     transition: 'ease-in-out',
     transitionDuration: '0.2s',
    }
-  },
+  },*/
 }
 
 function Contact() {

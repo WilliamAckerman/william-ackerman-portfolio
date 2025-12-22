@@ -147,7 +147,7 @@ export default function ResumeContent(props) {
                     { type == "print" ? 
                     <p className="text-lg"><span className="font-bold ">Technologist</span> | <em>Aug 2025 — Present</em></p> 
                     :
-                    <h3>
+                    <h3 className={`${resumeText}`}>
                         <span className="non-print-header">Technologist</span> | <em>Aug 2025 — Present</em>
                     </h3>
                     }

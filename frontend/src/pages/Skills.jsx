@@ -1,9 +1,5 @@
-import { useState, useContext } from 'react'
 import './../App.css'
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
+import { useState, useContext } from 'react'
 
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -20,15 +16,7 @@ import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const CustomTabs = styled(Tabs)({
-  margin: '0 auto',
-  /*'& .MuiTabs-indicator': {
-    backgroundColor: '#4169e1', // Formerly #9ad1ffff
-    margin: '0 auto',
-  },
-  // Styling for arrow buttons
-  '& .MuiSvgIcon-root': {
-    color: '#000000', // Formerly white
-  }*/
+  margin: '0 auto'
 });
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }, { darkMode } = useContext(DisplayModeContext)) => ({
