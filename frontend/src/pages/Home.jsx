@@ -70,7 +70,12 @@ function Home() {
 
             {/* Picture */}
             <div className="lg:p-4">
-              <picture>
+              <img 
+                  src={"/Headshot.jpg"} 
+                  alt="Headshot" 
+                  className="block w-full max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" 
+              />
+              {/*<picture>
                 <source srcSet="/Headshot.avif" type="image/avif" />
                 <source srcSet="/Headshot.webp" type="image/webp" />
                 <img 
@@ -81,7 +86,7 @@ function Home() {
                   className="block w-full max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" 
                   style={{ contain: "layout paint" }}
                 />
-              </picture>
+              </picture>*/}
             </div>
           </div>
         </div>
