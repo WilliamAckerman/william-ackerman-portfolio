@@ -15,7 +15,7 @@ import { FetchProjects } from './../components/FetchProjects.jsx';
 import { FetchSkills } from './../components/FetchSkills.jsx';
 
 // Image import
-import Headshot from './../assets/images/Headshot.jpg';
+import Headshot from './../assets/images/Headshot.avif';
 
 // Display mode-related imports
 import { DisplayModeHook } from './../hooks/DisplayModeHook.jsx';
