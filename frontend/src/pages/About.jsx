@@ -140,7 +140,8 @@ function About() {
                 alt="Headshot" 
                 width={300} 
                 height={300} 
-                className="w-full max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" 
+                className="block w-full max-w-[175px] md:max-w-[300px] h-auto rounded-sm" 
+                style={{ contain: "layout paint" }}
               />
             </picture>
           </div>
