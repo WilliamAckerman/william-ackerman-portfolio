@@ -73,6 +73,8 @@ function Home() {
               <img 
                   src={"/Headshot.jpg"} 
                   alt="Headshot" 
+                  width={300}
+                  height={300}
                   className="block w-full max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" 
               />
               {/*<picture>
