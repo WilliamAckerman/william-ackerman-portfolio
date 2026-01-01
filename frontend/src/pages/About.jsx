@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { Link } from "react-router";
 
 // Image import
-//import Headshot from 'Headshot.avif';
+import Headshot from './../assets/images/Headshot.avif';
 
 // Component imports
 import Navbar from './../components/Navbar.jsx';
@@ -132,18 +132,7 @@ function About() {
 
           {/* Photo section */}
           <div className="mb-4 lg:mb-0 mt-4 lg:mt-0 lg:p-4">
-            <picture>
-              <source srcSet="/Headshot.avif" type="image/avif" />
-              <source srcSet="/Headshot.webp" type="image/webp" />
-              <img 
-                src={"/Headshot.jpg"} 
-                alt="Headshot" 
-                width={300} 
-                height={300} 
-                className="block w-full max-w-[175px] md:max-w-[300px] h-auto rounded-sm" 
-                style={{ contain: "layout paint" }}
-              />
-            </picture>
+            <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" />
           </div>
         </div>
 
