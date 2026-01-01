@@ -5,7 +5,7 @@
 
 @layer components {
     .skillCard {
-        @apply w-1/2 sm:w-1/3 md:w-1/4 bg-neutral-50 text-center p-4 m-4 border border-solid border-neutral-300 rounded-sm shadow-sm flex flex-col items-center justify-center;
+        @apply w-full sm:w-1/3 md:w-1/4 bg-neutral-50 text-center p-4 m-4 border border-solid border-neutral-300 rounded-sm shadow-sm flex flex-col items-center justify-center;
 
         span {
             @apply font-semibold text-gray-950;

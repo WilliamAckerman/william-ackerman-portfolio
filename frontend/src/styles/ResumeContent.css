@@ -9,9 +9,6 @@
             @apply mb-2;
 
             & div {
-                /*& h3 {
-                    @apply text-base sm:text-lg;
-                }*/
 
                 & ul {
                     @apply list-disc list-inside;
@@ -45,13 +42,6 @@
                     uppercase
                 ;
             }
-
-            /*& h3 {
-                @apply
-                    text-base
-                    sm:text-lg
-                ;
-            }*/
         }
     }
 
@@ -73,5 +63,9 @@
 
     .icon-div {
         @apply pr-2 inline-block;
+    }
+
+    .skillCategory {
+        @apply text-base mb-0;
     }
 }

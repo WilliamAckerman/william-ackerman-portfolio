@@ -8,17 +8,17 @@
         @apply text-center mb-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl;
     }
 
-    .footer-link {
-        @apply underline text-blue-200 transition ease-in-out;
-    }
-    .footer-link:hover {
-        @apply no-underline text-blue-300;
-    }
-
     .footer-social-icon {
         @apply text-3xl lg:text-4xl;
     }
-    .footer-social-icon:hover {
-        @apply text-neutral-200;
+
+    @media (width <= 360px) {
+        .emailSpan {
+            @apply block text-center;
+        }
+
+        .phoneSeparator {
+            @apply mt-2;
+        }
     }
 }

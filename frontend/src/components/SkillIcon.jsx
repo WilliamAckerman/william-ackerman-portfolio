@@ -1,5 +1,8 @@
-import '../index.css'
-import '../styles/SkillIcon.css';
+// CSS imports
+import './../index.css'
+import './../styles/SkillIcon.css';
+
+// Icon imports
 import { 
     FaHtml5,
     FaCss3Alt,
@@ -50,10 +53,11 @@ import {
 } from "react-icons/tb";
 
 const SkillIcon = (props) => {
-    const Icon = props.icon
-    const color = props.color
-    const name = props.name
+    const Icon = props.icon // What icon to display
+    const color = props.color // The icon's color
+    const name = props.name // The icon's name
 
+    // Stores the different icons
     const ICON_MAP = {
         FaHtml5: FaHtml5,
         FaCss3Alt: FaCss3Alt,
@@ -87,6 +91,8 @@ const SkillIcon = (props) => {
         TbApi: TbApi
     }
 
+    // Determines what icon to render
+    // Example: ICON_MAP[FaHtml5] for FaHtml5
     const IconComponent = ICON_MAP[Icon]
 
     return (
@@ -96,7 +102,7 @@ const SkillIcon = (props) => {
                 style={{color: color}}
                 role="img"
             />
-            <span className="sr-only">{name}</span>
+            <span className="sr-only">{name}</span> {/* For screen readers (improves accessibility) */}
         </>
     )
 }

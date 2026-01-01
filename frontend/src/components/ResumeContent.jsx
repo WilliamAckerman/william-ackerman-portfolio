@@ -1,12 +1,20 @@
+// CSS imports
 import './../index.css';
 import './../styles/ResumeContent.css';
+
+// React icon imports
 import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub, FaLink } from "react-icons/fa";
 
+// Display mode-related imports
 import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
 
 export default function ResumeContent(props) {
-    const type = props.type
+
+    const type = props.type // We use this to determine if the resume is for display or for printing
+
     const { text, link } = DisplayModeHook()
+
+    // Only apply display mode styling if resume is for displaying, not for printing
     const resumeText = type == "print" ? "" : `${text}`
     const resumeLink = type == "print" ? "" : `${link}`
 
@@ -100,11 +108,13 @@ export default function ResumeContent(props) {
                 </div>
                 <hr className={`mt-2 mb-2 ${resumeText}`} />
                 <p className={`text-base ${resumeText}`}>
-                    Entry-level full-stack web developer skilled in JavaScript and SQL. 
+                    Web developer skilled in JavaScript and SQL. 
                     Experienced in developing responsive, user-focused web applications with 
                     strong problem-solving skills and attention to detail.
                 </p>
             </section>
+
+            {/* "Education" section */}
             <section>
                 { type == "print" ? 
                 <p className="print-section-header">Education</p>
@@ -135,6 +145,8 @@ export default function ResumeContent(props) {
                     GPA: 3.83
                 </p>
             </section>
+
+            {/* "Professional Experience" section */}
             <section>
                 { type == "print" ? 
                 <p className="print-section-header">Professional Experience</p>
@@ -177,6 +189,8 @@ export default function ResumeContent(props) {
                     </ul>
                 </div>
             </section>
+
+            {/* "Projects" section */}
             <section>
                 { type == "print" ? 
                 <p className="text-xl font-bold uppercase">Projects</p>
@@ -187,27 +201,27 @@ export default function ResumeContent(props) {
                 }
                 <div className="mb-2">
                     { type == "print" ? 
-                    <p className="text-lg"><span className="font-bold ">Developer Portfolio - Personal Project</span> | <em>Oct 2025 — Present</em></p> 
+                    <p className="text-lg"><span className="font-bold ">Developer Portfolio - Personal Project</span> | <em>Oct 2025 — Jan 2026</em></p> 
                     :
                     <h3 className={`${resumeText}`}>
-                        <span className="non-print-header">Developer Portfolio - Personal Project</span> | <em>Oct 2025 — Present</em>
+                        <span className="non-print-header">Developer Portfolio - Personal Project</span> | <em>Oct 2025 — Jan 2026</em>
                     </h3>
                     }
                     <ul>
                         <li className={`${resumeText}`}>
-                            Work on developing a portfolio website that helps market my skills as a web developer
+                            Worked on developing a portfolio website that helps market my skills as a web developer
                         </li>
                         <li className={`${resumeText}`}>
-                            Implement a Vite/React frontend, including TailwindCSS and Material UI for interface design
+                            Implemented a Vite/React frontend, including TailwindCSS and Material UI for interface design
                         </li>
                         <li className={`${resumeText}`}>
-                            Use MongoDB to store data on projects and skills
+                            Used MongoDB to store data on projects and skills
                         </li>
                         <li className={`${resumeText}`}>
-                            Perform seamless data retrieval through TanStack Query and an Express.js RESTful API
+                            Performed seamless data retrieval through TanStack Query and an Express.js RESTful API
                         </li>
                         <li className={`${resumeText}`}>
-                            Implement a contact form using Gmail, Nodemailer, and Altcha
+                            Implemented a contact form using Gmail, Nodemailer, and Altcha
                         </li>
                     </ul>
                 </div>
@@ -232,6 +246,8 @@ export default function ResumeContent(props) {
                     </ul>
                 </div>
             </section>
+
+            {/* "Core Skills" section */}
             <section>
                 { type == "print" ? 
                 <p className="text-xl font-bold uppercase">Core Skills</p>
@@ -249,11 +265,11 @@ export default function ResumeContent(props) {
                     Core Skills
                 </h2>
                 }
-                <p className={`${resumeText} text-base mb-0`}><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, AJAX, jQuery, TailwindCSS, Material UI, Vite, Vercel</p>
-                <p className={`${resumeText} text-base mb-0`}><strong>Backend:</strong> PHP, Node.js, Express.js</p>
-                <p className={`${resumeText} text-base mb-0`}><strong>Database:</strong> MySQL, MongoDB, Cloud Firestore, Microsoft SQL Server</p>
-                <p className={`${resumeText} text-base mb-0`}><strong>Tools:</strong> Responsive Design, RESTful APIs, Git/Github, Agile Development, Figma</p>
-                <p className={`${resumeText} text-base mb-0`}><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication, Leadership</p>
+                <p className={`${resumeText} skillCategory`}><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, AJAX, jQuery, TailwindCSS, Material UI, Vite, Vercel</p>
+                <p className={`${resumeText} skillCategory`}><strong>Backend:</strong> PHP, Node.js, Express.js</p>
+                <p className={`${resumeText} skillCategory`}><strong>Database:</strong> MySQL, MongoDB, Cloud Firestore, Microsoft SQL Server</p>
+                <p className={`${resumeText} skillCategory`}><strong>Tools:</strong> Responsive Design, RESTful APIs, Git/Github, Agile Development, Figma</p>
+                <p className={`${resumeText} skillCategory`}><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication, Leadership</p>
             </section>
         </div>
     )

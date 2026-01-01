@@ -40,4 +40,10 @@
             }
         }
     }
+
+    @media (width < 360px) {
+        .breakWord {
+            @apply break-all;
+        }
+    }
 }

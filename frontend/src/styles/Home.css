@@ -11,4 +11,16 @@
     .text-area {
         @apply mx-auto w-full sm:w-lg text-center mb-4 bg-neutral-50 p-4 rounded-sm shadow-sm;
     }
+
+    .section-margin-top {
+        @apply mt-8 sm:mt-12 lg:mt-16;
+    }
+
+    .section-margin-bottom {
+        @apply mb-8 sm:mb-12 lg:mb-16;
+    }
+
+    .description-box {
+        @apply mx-auto w-full sm:w-lg p-4 rounded-sm shadow-sm mb-4;
+    }
 }

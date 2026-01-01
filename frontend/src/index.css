@@ -3,12 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/*@custom-variant dark (&:where(.dark, .dark *));*/
-
 @media (prefers-reduced-motion: reduce) {
     * {
-        animation: none;
-        transition: none;
+        animation: none !important;
+        transition: none !important;
     }
 }
 
@@ -24,28 +22,21 @@
         transition-duration: 0.2s;
     }
 
-    .page-light {
-        @apply bg-neutral-100;
-        background-color: "#F5F5F5";
-    }
-
-    .page-dark {
-        @apply bg-neutral-950;
-        background-color: "#121212";
-    }
-
     .main-header {
-        @apply text-gray-950 mb-4 md:mb-8 text-2xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center;
+        @apply text-gray-950 mb-4 md:mb-8 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-center;
     }
     .main-caption {
         @apply text-base mb-8 text-center mx-auto w-full sm:w-xl bg-neutral-50 border border-solid rounded-sm shadow-sm p-4;
     }
 
-
     .secondary-header {
-        @apply text-gray-950 mb-4 text-xl sm:text-3xl md:text-4xl xl:text-5xl text-center font-semibold;
+        @apply mb-4 text-2xl sm:text-3xl md:text-4xl xl:text-5xl text-center font-semibold;
         transition: ease-in-out;
         transition-duration: 0.2s;
+    }
+
+    .tertiary-header {
+        @apply mt-2 mb-2 font-normal text-xl sm:text-2xl md:text-3xl xl:text-4xl text-center;
     }
 
     .general-link {
@@ -56,7 +47,7 @@
     }
 
     .area-border {
-        @apply border /*border-neutral-300*/ border-solid;
+        @apply border border-solid;
     }
 }
 

@@ -1,35 +1,52 @@
+// CSS imports
+import './../styles/Modal.css'
+
+// React-related imports
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { FetchProjectSkills } from "./FetchProjectSkills.jsx";
+
+// API/Tanstack Query-related imports
 import { fetchProjects } from '../api/fetchProjects.js';
 import { queryClient } from './../queryClient.js';
+import { useQuery } from '@tanstack/react-query';
 
+// Material UI imports
+import Box from '@mui/material/Box';
+import Fade from '@mui/material/Fade';
+import Modal from '@mui/material/Modal';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+// Component imports
+import ProjectModalBox from './ProjectModalBox.jsx';
+
+// Display mode-related imports
 import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
-import ModalFooter from './ModalFooter.jsx'
-import ProjectModalInformation from './ProjectModalInformation.jsx'
-import '../styles/Modal.css'
 
 export const FetchProjects = (props) => {
-    const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
-    const featured = props.featured ? props.featured : 0;
-    const [modalOpen, setModalOpen] = useState(false)
-    const [modalHeader, setModalHeader] = useState("")
-    const [modalDescription, setModalDescription] = useState("")
-    const [modalStartDate, setModalStartDate] = useState("")
-    const [modalEndDate, setModalEndDate] = useState("")
-    const [modalDetails, setModalDetails] = useState([])
-    const [modalGithubLink, setModalGithubLink] = useState(null)
-    const [projectAlias, setProjectAlias] = useState("")
-    const [modalImage, setModalImage] = useState(null)
 
-    const { bg, text, link, border, projectBg, projectText, projectBorder } = DisplayModeHook()
+    // Determines if the user prefers reduced motion
+    const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
+
+    // Determine if only featured projects are being queried
+    const featured = props.featured ? props.featured : 0;
+
+    // Determines whether the modal is displayed or not
+    // True: modal is displayed
+    // False: modal is hidden
+    const [modalOpen, setModalOpen] = useState(false)
+
+    const [modalHeader, setModalHeader] = useState("") // Determines the project title to display in the modal's header
+    const [modalDescription, setModalDescription] = useState("") // Determines the project description in the modal
+    const [modalStartDate, setModalStartDate] = useState("") // Determines the start date to display in the modal's header
+    const [modalEndDate, setModalEndDate] = useState("") // Determines the end date to display in the modal's header. If there is none, display "Present" instead
+    const [modalDetails, setModalDetails] = useState([]) // Determines the project details to display in the modal
+    const [modalGithubLink, setModalGithubLink] = useState(null) // Determines the Github link to display in the modal, if there is one
+    const [projectAlias, setProjectAlias] = useState("") // Determines the project alias - this is used to fetch skills relevant to a project
+    const [modalImage, setModalImage] = useState(null) // Determines the image to be displayed in the modal, if any
+
+    const { text, projectBg, projectText, projectBorder } = DisplayModeHook()
     const modalH2 = `${text} uppercase font-bold text-xl sm:text-2xl`
 
+    // Used to determine months to display for start and end date
     const months = [
         "January",
         "February",
@@ -45,36 +62,41 @@ export const FetchProjects = (props) => {
         "December"
     ]
 
+    // Handles opening the modal
     const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, alias, imageLink) => {
         setModalHeader(header)
         setModalDescription(description)
 
-        setProjectAlias(alias)
+        setProjectAlias(alias) // Used to query project skills
 
         let formattedStartDate = new Date(startDate)
         setModalStartDate(months[new Date(startDate).getMonth()] + " " + formattedStartDate.getFullYear())
 
         let formattedEndDate = new Date(endDate)
         if (!months[new Date(formattedEndDate).getMonth()]) {
-            setModalEndDate("Present")
+            setModalEndDate("Present") // Indicates the project is ongoing
         } else {
             setModalEndDate(months[new Date(formattedEndDate).getMonth()] + " " + formattedEndDate.getFullYear())
         }
 
-        const detailArray = details.split(";");
+        const detailArray = details.split(";"); // Details make up a comma-separated list
         if (detailArray.length == 0) {
             setModalDetails("None")
         } else {
+
+            // If there are details, display them as <li> elements
             const listDetails = detailArray.map(detail => <li key={id + detail} className={`${text} text-base mb-1 sm:mb-0`}>{detail}</li>)
+
             setModalDetails(listDetails)
         }
 
         setModalGithubLink(githubLink ? githubLink : null)
         setModalImage(imageLink ? imageLink : null)
 
-        setModalOpen(true)
+        setModalOpen(true) // Finally, open the modal
     }
 
+    // Handles closing the modal
     const handleModalClose = () => {
         setModalOpen(false)
     }
@@ -85,6 +107,7 @@ export const FetchProjects = (props) => {
         onSettled: () => queryClient.invalidateQueries({ queryKey: ['fetchProjects', featured] })
     })
 
+    // Indicates projects are being loaded
     if (isLoading) {
         return (
             <p className={`${text} text-center`}>
@@ -93,6 +116,7 @@ export const FetchProjects = (props) => {
         )
     }
 
+    // If there is an error quering projects
     if (isError) {
         console.error("Error:", error.message)
         return (
@@ -110,85 +134,42 @@ export const FetchProjects = (props) => {
                 aria-labelledby="project-details-modal"
                 aria-describedby="modal-that-shows-details-about-a-project"
                 aria-hidden={`${!modalOpen}`}
-                //closeAfterTransition={!prefersReducedMotion}
             >
-                {/*<Fade in={modalOpen}>*/}
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '90%',
-                        maxWidth: '1680px',
-                        height: 'auto',
-                        maxHeight: '100vh',
-                        border: `0px solid #000939ff`,
-                        boxShadow: 24,
-                        /*backgroundColor: "#6b90ffff",*/
-                        borderRadius: '8px',
-                        transition: 'ease-in-out',
-                        transitionDuration: prefersReducedMotion ? '0s' : '0.2s'
-                    }}
-                >
-                    <div className={`modalSurrounding rounded-t-lg`}>
-                        <div className="mb-2 flex flex-row justify-between">
-                            <h1 className={`modalHeaderText`}>{modalHeader}</h1>
-                            <h1 className={`modalHeaderText modalX`} onClick={handleModalClose}>&times;</h1>
-                        </div>
-                        <em className={`text-neutral-50`}>{modalStartDate} - {modalEndDate}</em>
-                    </div>
-
-                    <div className={`p-4 overflow-y-auto modalBody ${bg}`}>
-                        {
-                            modalImage ?
-                            <>
-                                <div className="flex flex-col lg:flex-row w-full lg:justify-evenly">
-                                    <div className="lg:flex-initial lg:w-[50%] lg:h-auto mb-4 lg:mb-0 lg:pr-2">
-                                        <Link to={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} rel="noreferrer" target="_blank">
-                                            <img src={`${import.meta.env.VITE_FRONTEND_URL}/${modalImage}`} alt={modalHeader} className={`${border}`} />
-                                        </Link>
-                                    </div>
-                                    <div className="lg:flex-initial lg:w-[50%] lg:h-auto lg:pl-2">
-                                        <ProjectModalInformation
-                                            text={text}
-                                            link={link}
-                                            modalH2={modalH2}
-                                            description={modalDescription}
-                                            details={modalDetails}
-                                            githubLink={modalGithubLink}
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <FetchProjectSkills
-                                        project={projectAlias}
-                                    />
-                                </div>
-                            </>
-                            :
-                            <>
-                                <ProjectModalInformation
-                                    text={text}
-                                    link={link}
-                                    modalH2={modalH2}
-                                    description={modalDescription}
-                                    details={modalDetails}
-                                    githubLink={modalGithubLink}
-                                />
-
-                                <FetchProjectSkills
-                                    project={projectAlias}
-                                />
-                            </>
-                        }
-                    </div>
-
-                    <ModalFooter 
-                        operation={handleModalClose} 
+                {
+                    prefersReducedMotion 
+                    ?
+                    <ProjectModalBox
+                        prefersReducedMotion={prefersReducedMotion}
+                        header={modalHeader}
+                        startDate={modalStartDate}
+                        endDate={modalEndDate}
+                        image={modalImage}
+                        modalH2={modalH2}
+                        description={modalDescription}
+                        details={modalDetails}
+                        githubLink={modalGithubLink}
+                        projectAlias={projectAlias}
+                        operation={handleModalClose}
                     />
-                </Box>
-                {/*</Fade>*/}
+                    :
+                    <Fade in={modalOpen}>
+                        <div>
+                            <ProjectModalBox
+                                prefersReducedMotion={prefersReducedMotion}
+                                header={modalHeader}
+                                startDate={modalStartDate}
+                                endDate={modalEndDate}
+                                image={modalImage}
+                                modalH2={modalH2}
+                                description={modalDescription}
+                                details={modalDetails}
+                                githubLink={modalGithubLink}
+                                projectAlias={projectAlias}
+                                operation={handleModalClose}
+                            />
+                        </div>
+                    </Fade>
+                }
             </Modal>
             <Box
                 sx={{
@@ -232,12 +213,10 @@ export const FetchProjects = (props) => {
                             m-4
                             area-border
                             ${projectBorder}
-                            
                             border-cyan-900
                             rounded-sm
                             shadow-sm
                             cursor-pointer
-                            
                             ${projectBg}
                         `}
                     >

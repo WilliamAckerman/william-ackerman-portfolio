@@ -1,5 +1,7 @@
+// CSS imports
 import './../index.css';
 import './../styles/Skills.css';
+
 import { useContext } from 'react';
 import {
     useQuery
@@ -8,6 +10,7 @@ import SkillIcon from "./SkillIcon.jsx";
 import { fetchProjectSkills } from "./../api/fetchProjectSkills.js";
 import { queryClient } from './../queryClient.js';
 
+// Display mode-related imports
 import { DisplayModeContext } from '../DisplayModeContext.js';
 import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
 

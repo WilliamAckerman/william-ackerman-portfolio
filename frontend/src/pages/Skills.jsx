@@ -1,26 +1,27 @@
-import './../App.css'
+// React imports
 import { useState, useContext } from 'react'
 
-import { styled } from '@mui/material/styles';
+// Material UI imports
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
+// Component imports
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
-
 import { FetchSkills } from '../components/FetchSkills.jsx';
 
+// Display mode-related imports
 import { DisplayModeContext } from '../DisplayModeContext.js';
 import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const CustomTabs = styled(Tabs)({
   margin: '0 auto'
 });
 
 const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }, { darkMode } = useContext(DisplayModeContext)) => ({
-  //textTransform: 'none',
   textAlign: 'center',
   minWidth: 0,
   [theme.breakpoints.up('sm')]: {
@@ -28,16 +29,14 @@ const CustomTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }
   },
   fontWeight: theme.typography.fontWeightRegular,
   marginRight: theme.spacing(1),
-  color: darkMode ? "#FFFFFF" : '#000000', // Formerly #FFFFFF
-  /*transition: 'ease-in-out',
-  transitionDuration: '0.2s',*/
+  color: darkMode ? "#FFFFFF" : '#000000',
   '&:hover': {
-    backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : 'rgba(0, 0, 0, 0.1)', // Formerly rgba(255, 255, 255, 0.1)
-    color: darkMode ? "#9ad1ffff" : '#4169e1', // Formerly #9ad1ffff
+    backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : 'rgba(0, 0, 0, 0.1)',
+    color: darkMode ? "#9ad1ffff" : '#4169e1',
     opacity: 1
   },
   '&.Mui-selected': {
-    color: darkMode ? "#9ad1ffff" : '#4169e1', // Formerly #9ad1ffff
+    color: darkMode ? "#9ad1ffff" : '#4169e1',
   },
 }));
 
@@ -66,10 +65,12 @@ const reducedMotionIndicator = {
 // reduced motion
 const customTabTransitions = {
   '& .MuiSvgIcon-root': {
-    customTransition
+    transition: 'ease-in-out',
+    transitionDuration: '0.2s'
   },
-  '& .MuiTabScrollButton-root:hover': {
-    customTransition
+  '& .MuiTabScrollButton-root': {
+    transition: 'ease-in-out',
+    transitionDuration: '0.2s'
   }
 }
 
@@ -84,7 +85,11 @@ const lightCustomTabs = {
   },
 
   '& .MuiTabScrollButton-root:hover': {
-    backgroundColor: "rgba(0,0,0,0.1)"
+    backgroundColor: "rgba(0,0,0,0.1)",
+
+    '& .MuiSvgIcon-root': {
+      color: '#4169e1',
+    }
   }
 }
 
@@ -99,7 +104,11 @@ const darkCustomTabs = {
   },
 
   '& .MuiTabScrollButton-root:hover': {
-    backgroundColor: "rgba(255,255,255,0.1)"
+    backgroundColor: "rgba(255,255,255,0.1)",
+
+    '& .MuiSvgIcon-root': {
+      color: '#9ad1ffff',
+    }
   }
 }
 
@@ -127,8 +136,11 @@ function a11yProps(index) {
 }
 
 function Skills() {
+
+  // Determines whether the user prefers reduced motion
   const prefersReducedMotion = useMediaQuery('(prefers-reduced-motion: reduce)')
-  //const queryClient = new QueryClient()
+
+  // Determines which tab the user is currently on
   const [tabValue, setTabValue] = useState(0)
 
   const handleTabChange = (event, newTabValue) => {
@@ -140,137 +152,148 @@ function Skills() {
 
   return (
     <>
+      {/* Navbar */}
       <Navbar activeLink="Skills" />
-          <div className={`page-main ${bg}`}>
-            <h1 className={`${text} main-header`}>
-              Skills
-            </h1>
 
-            <div className={`displayModeTransition main-caption ${boxBg} ${border}`}>
-              <p className={`${text}`}>
-                As a developer, I know that it is necessary to be well-versed in various 
-                technologies and skills. Whether it be a framework, database, or soft skill, 
-                I ensure that my skillset keeps developing as technological trends evolve.
-              </p>
-            </div>
-            <Box
-              sx={{
-                width: '100%',
-                maxWidth: '1400px',
-                margin: '0 auto'
-              }}
+      {/* Skills page */}
+      <div className={`page-main ${bg}`}>
+        <h1 className={`${text} main-header`}>
+          Skills
+        </h1>
+
+        {/* Page description text box */}
+        <div className={`displayModeTransition main-caption ${boxBg} ${border}`}>
+          <p className={`${text}`}>
+            As a developer, I know that it is necessary to be well-versed in various 
+            technologies and skills. Whether it be a framework, database, or soft skill, 
+            I ensure that my skillset keeps developing as technological trends evolve.
+          </p>
+        </div>
+
+        <Box
+          sx={{
+            width: '100%',
+            maxWidth: '1400px',
+            margin: '0 auto'
+          }}
+        >
+          <Box
+            sx={{
+              borderBottom: 1,
+              borderColor: darkMode ? "#FFFFFF" : 'divider'
+            }}
+          >
+            <CustomTabs 
+              value={tabValue} 
+              onChange={handleTabChange} 
+              aria-label="skill category tabs"
+              variant="scrollable"
+              allowScrollButtonsMobile
+              sx={
+                [
+                  darkMode ? darkCustomTabs : lightCustomTabs,
+                  !prefersReducedMotion ? customTabTransitions : reducedMotionIndicator,
+                  customTabStyles
+                ]
+              }
             >
-              <Box
-                sx={{
-                  borderBottom: 1,
-                  borderColor: darkMode ? "#FFFFFF" : 'divider'
-                }}
-              >
-                <CustomTabs 
-                  value={tabValue} 
-                  onChange={handleTabChange} 
-                  aria-label="skill category tabs"
-                  variant="scrollable"
-                  scrollButtons
-                  allowScrollButtonsMobile
-                  sx={
-                    [
-                      darkMode ? darkCustomTabs : lightCustomTabs,
-                      !prefersReducedMotion ? customTabTransitions : reducedMotionIndicator,
-                      customTabStyles
-                    ]
-                  }
-                  /*sx={{
-                    '& .MuiTabs-indicator': {
-                      backgroundColor: darkMode ? "#9ad1ffff" : '#4169e1', // Formerly #9ad1ffff
-                      margin: '0 auto',
-                    },
-                    // Styling for arrow buttons
-                    '& .MuiSvgIcon-root': {
-                      color: darkMode ? "#FFFFFF" : '#000000', // Formerly white
-                      transition: 'ease-in-out',
-                      transitionDuration: '0.2s',
-                    },
-                    '& .MuiTabScrollButton-root:hover': {
-                      backgroundColor: darkMode ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)",
-                      transition: 'ease-in-out',
-                      transitionDuration: '0.2s'
-                    }
-                  }}*/
-                >
-                  <CustomTab 
-                    label="All Skills" 
-                    {...a11yProps(0)} 
-                    sx={
-                      [!prefersReducedMotion ? customTransition : ""]
-                    }
-                  />
+              {/* "All Skills" tab */}
+              <CustomTab 
+                label="All Skills" 
+                {...a11yProps(0)} 
+                sx={
+                  [!prefersReducedMotion && customTransition]
+                }
+              />
 
-                  <CustomTab 
-                    label="Frontend" 
-                    {...a11yProps(1)} 
-                    sx={
-                      [!prefersReducedMotion ? customTransition : ""]
-                    }
-                  />
+              {/* "Frontend" tab */}
+              <CustomTab 
+                label="Frontend" 
+                {...a11yProps(1)} 
+                sx={
+                  [!prefersReducedMotion && customTransition]
+                }
+              />
 
-                  <CustomTab 
-                    label="Backend" 
-                    {...a11yProps(2)} 
-                    sx={
-                      [!prefersReducedMotion ? customTransition : ""]
-                    }
-                  />
+              {/* "Backend" tab */}
+              <CustomTab 
+                label="Backend" 
+                {...a11yProps(2)} 
+                sx={
+                  [!prefersReducedMotion && customTransition]
+                }
+              />
 
-                  <CustomTab 
-                    label="Database" 
-                    {...a11yProps(3)} 
-                    sx={
-                      [!prefersReducedMotion ? customTransition : ""]
-                    }
-                  />
+              {/* "Database" tab */}
+              <CustomTab 
+                label="Database" 
+                {...a11yProps(3)} 
+                sx={
+                  [!prefersReducedMotion && customTransition]
+                }
+              />
 
-                  <CustomTab 
-                    label="Tools" 
-                    {...a11yProps(4)} 
-                    sx={
-                      [!prefersReducedMotion ? customTransition : ""]
-                    }
-                  />
+              {/* "Tools" tab */}
+              <CustomTab 
+                label="Tools" 
+                {...a11yProps(4)} 
+                sx={
+                  [!prefersReducedMotion && customTransition]
+                }
+              />
 
-                  <CustomTab 
-                    label="Soft Skills" 
-                    {...a11yProps(5)} 
-                    sx={
-                      [!prefersReducedMotion ? customTransition : ""]
-                    }
-                  />
-                </CustomTabs>
-              </Box>
-              <CustomTabPanel value={tabValue} index={0}>
-                <FetchSkills type={"Frontend"} />
-                <FetchSkills type={"Backend"} />
-                <FetchSkills type={"Database"} />
-                <FetchSkills type={"Tools"} />
-                <FetchSkills type={"Soft Skills"} />
-              </CustomTabPanel>
-              <CustomTabPanel value={tabValue} index={1}>
-                <FetchSkills type={"Frontend"} />
-              </CustomTabPanel>
-              <CustomTabPanel value={tabValue} index={2}>
-                <FetchSkills type={"Backend"} />
-              </CustomTabPanel>
-              <CustomTabPanel value={tabValue} index={3}>
-                <FetchSkills type={"Database"} />
-              </CustomTabPanel>
-              <CustomTabPanel value={tabValue} index={4}>
-                <FetchSkills type={"Tools"} />
-              </CustomTabPanel>
-              <CustomTabPanel value={tabValue} index={5}>
-                <FetchSkills type={"Soft Skills"} />
-              </CustomTabPanel>
-            </Box>
-          </div>
+              {/* "Soft Skills" tab */}
+              <CustomTab 
+                label="Soft Skills" 
+                {...a11yProps(5)} 
+                sx={
+                  [!prefersReducedMotion && customTransition]
+                }
+              />
+            </CustomTabs>
+          </Box>
+
+          {/* "All Skills" tab */}
+          <CustomTabPanel value={tabValue} index={0}>
+            <h2 className={`secondary-header ${text}`}>
+              All Skills
+            </h2>
+            <FetchSkills type={"Frontend"} division={"all"} />
+            <FetchSkills type={"Backend"} division={"all"} />
+            <FetchSkills type={"Database"} division={"all"} />
+            <FetchSkills type={"Tools"} division={"all"} />
+            <FetchSkills type={"Soft Skills"} division={"all"} />
+          </CustomTabPanel>
+
+          {/* "Frontend" tab */}
+          <CustomTabPanel value={tabValue} index={1}>
+            <FetchSkills type={"Frontend"} />
+          </CustomTabPanel>
+
+          {/* "Backend" tab */}
+          <CustomTabPanel value={tabValue} index={2}>
+            <FetchSkills type={"Backend"} />
+          </CustomTabPanel>
+
+          {/* "Database" tab */}
+          <CustomTabPanel value={tabValue} index={3}>
+            <FetchSkills type={"Database"} />
+          </CustomTabPanel>
+
+          {/* "Tools" tab */}
+          <CustomTabPanel value={tabValue} index={4}>
+            <FetchSkills type={"Tools"} />
+          </CustomTabPanel>
+
+          {/* "Soft Skills" tab */}
+          <CustomTabPanel value={tabValue} index={5}>
+            <FetchSkills type={"Soft Skills"} />
+          </CustomTabPanel>
+        </Box>
+      </div>
+      {/* End of Skills page */}
+
+      {/* Footer */}
       <Footer />
     </>
   )

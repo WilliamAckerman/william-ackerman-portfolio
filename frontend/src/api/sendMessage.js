@@ -6,8 +6,7 @@ export const sendMessage = async ({ name, email, subject, message }, altcha) => 
         'message': message,
         'altcha': altcha
     }
-    //console.log("Altcha:")
-    //console.log(altcha)
+    
     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}${import.meta.env.VITE_BACKEND_API_ROUTE}/send-contact-message`, {
         method: 'POST',
         headers: {

@@ -55,5 +55,8 @@ Context:
 - https://www.youtube.com/watch?v=5LrDIWkK_Bc&t=346s
 - https://medium.com/lets-make-something-up/creating-light-dark-mode-on-a-react-app-with-context-589a5465f639
 
+TailwindCSS:
+- https://www.reddit.com/r/tailwindcss/comments/1ibo5b3/tailwindcss_40_textbgopacity/
+
 Misc.:
 - https://stackoverflow.com/questions/50228108/change-textfield-font-color-in-material-ui

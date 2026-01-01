@@ -1,16 +1,22 @@
+// CSS imports
 import './../index.css';
 import './../styles/Skills.css';
+
 import { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import Box from '@mui/material/Box';
 import SkillIcon from './SkillIcon.jsx';
 import { fetchSkills } from './../api/fetchSkills.js';
 
-import { DisplayModeContext } from '../DisplayModeContext.js';
-import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
+// Material UI import
+import Box from '@mui/material/Box';
+
+// Display mode-related imports
+import { DisplayModeContext } from './../DisplayModeContext.js';
+import { DisplayModeHook } from './../hooks/DisplayModeHook.jsx';
 
 export const FetchSkills = (props) => {
-    const type = props.type;
+    const type = props.type; // Determines the skill type to filter by
+    const division = props.division; // Allows for different formatting with the "All Skills" filter in the Skills page
     const { darkMode } = useContext(DisplayModeContext)
     const { text, boxBg, boxText, border } = DisplayModeHook()
 
@@ -19,12 +25,14 @@ export const FetchSkills = (props) => {
         queryFn: async () => await fetchSkills(type)
     })
 
+    // Displayed when loading skills
     if (isLoading) return (
         <p className={`text-center ${boxText}`}>
             Loading {type} skills...
         </p>
     )
 
+    // Triggers if an error occurs
     if (isError) {
         console.error("Error: ", error.message);
         return (
@@ -39,9 +47,14 @@ export const FetchSkills = (props) => {
             {
                 type != "featured" 
                 && 
+                (division == "all" ?
+                <h3 className={`${text} mb-2 font-normal text-xl sm:text-2xl md:text-3xl xl:text-4xl text-center`}>
+                    {type}
+                </h3>
+                :
                 <h2 className={`secondary-header ${text}`}>
                     {type}
-                </h2>
+                </h2>)
             }
             <Box
                 sx={{

@@ -1,19 +1,26 @@
-import { FaPrint } from "react-icons/fa";
+// CSS import
 import './../index.css';
+
+// React-related import
 import { useRef } from 'react';
+
+// React icon import
+import { FaPrint } from "react-icons/fa";
+
+// React-to-print import
 import { useReactToPrint } from 'react-to-print';
+
+// Material UI import
 import Button from '@mui/material/Button';
+
+// Component imports
 import ResumeContent from './ResumeContent.jsx';
 
-import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// Display mode hook import
+import { DisplayModeHook } from './../hooks/DisplayModeHook.jsx';
 
 function Resume() {
-    const prefersContrastMore = useMediaQuery('(prefers-contrast: more)')
-    const prefersContrastLess = useMediaQuery('(prefers-contrast: less)')
-    const prefersContrast = prefersContrastMore || prefersContrastLess
-
-    const resumeRef = useRef(null)
+    const resumeRef = useRef(null) // Ref for printable resume
     const printResume = useReactToPrint({
         contentRef: resumeRef,
         documentTitle: 'William_Ackerman_Resume',
@@ -23,6 +30,7 @@ function Resume() {
                     }`
     });
 
+    // Display mode-related variables
     const { boxBg, border } = DisplayModeHook()
 
     return (
@@ -54,6 +62,7 @@ function Resume() {
             </div>
         </div>
 
+        {/* Button that allows a user to print the printed resume or save it as a PDF */}
         <div className="flex items-center justify-center mx-auto mt-4">
             <Button variant="contained" color={`success`} onClick={printResume}><FaPrint className="mr-2" /> Print Resume/Save as PDF</Button>
         </div>

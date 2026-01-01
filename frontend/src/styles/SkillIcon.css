@@ -5,6 +5,6 @@
 
 @layer components {
     .skillIcon {
-        @apply text-2xl sm:text-3xl md:text-5xl;
+        @apply text-3xl md:text-5xl;
     }
 }

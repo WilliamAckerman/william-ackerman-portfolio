@@ -1,31 +1,43 @@
 import './../index.css';
 import { useContext } from 'react'
 import { FaSun, FaMoon } from "react-icons/fa";
-import { DisplayModeContext } from '../DisplayModeContext.js';
-import { DisplayModeHook } from '../hooks/DisplayModeHook.jsx'
+
+// Display mode-related imports
+import { DisplayModeContext } from './../DisplayModeContext.js';
+import { DisplayModeHook } from './../hooks/DisplayModeHook.jsx'
 
 const DisplayModeToggle = () => {
-    const { darkMode, toggleDisplayMode } = useContext(DisplayModeContext)
-    const { lightBg, darkBg, lightText, darkText, toggleBorder } = DisplayModeHook()
+    const { toggleDisplayMode } = useContext(DisplayModeContext)
+    const { lightText, darkText, toggleBorder, lightHeadFoot, darkHeadFoot, sunToggleBorder, moonToggleBorder } = DisplayModeHook()
+
+    {/*
+        toggleDisplayMode(true): Dark mode
+        toggleDisplayMode(false): Light mode
+    */}
 
     return (
         <>
-            <div 
-                className={`cursor-pointer p-2 rounded-tl-lg rounded-bl-lg ${!darkMode ? darkBg : lightBg} border border-solid ${toggleBorder}`}
+            {/* Light mode button */}
+            <button
+                className={`cursor-pointer p-2 rounded-tl-lg rounded-bl-lg ${lightHeadFoot} border-t border-b border-l border-r-hidden ${toggleBorder} ${sunToggleBorder}`}
                 onClick={() => toggleDisplayMode(false)}
             >
                 <FaSun 
-                    className={`mode-icon ${!darkMode ? darkText : lightText}`}
+                    className={`mode-icon ${lightText}`}
                 />
-            </div>
-            <div 
-                className={`cursor-pointer p-2 rounded-tr-lg rounded-br-lg ${darkMode ? darkBg : lightBg} border border-solid ${toggleBorder}`}
+                <span className="sr-only">Switch to light mode</span>
+            </button>
+
+            {/* Dark mode button */}
+            <button
+                className={`cursor-pointer p-2 rounded-tr-lg rounded-br-lg ${darkHeadFoot} border-t border-b border-r border-l-hidden ${toggleBorder} ${moonToggleBorder}`}
                 onClick={() => toggleDisplayMode(true)}
             >
                 <FaMoon 
-                    className={`mode-icon ${darkMode ? darkText : lightText}`}
+                    className={`mode-icon ${darkText}`}
                 />
-            </div>
+                <span className="sr-only">Switch to dark mode</span>
+            </button>
         </>
     )
 }
