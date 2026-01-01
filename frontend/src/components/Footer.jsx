@@ -74,7 +74,7 @@ const Footer = () => {
                 </div>
             </Box>
             <p className="mt-4 text-center"><Link to={"/privacypolicy"} className={`${link} text-center`}>Privacy Policy</Link></p>
-            <p className="mt-2 text-center">William Ackerman, 2025. All Rights Reserved.</p>
+            <p className="mt-2 text-center">William Ackerman, 2025-2026. All Rights Reserved.</p>
     </div>
     )
 }
