@@ -15,7 +15,7 @@ import { FetchProjects } from './../components/FetchProjects.jsx';
 import { FetchSkills } from './../components/FetchSkills.jsx';
 
 // Image import
-import Headshot from './../assets/images/Headshot.avif';
+//import Headshot from 'Headshot.avif';
 
 // Display mode-related imports
 import { DisplayModeHook } from './../hooks/DisplayModeHook.jsx';
@@ -70,7 +70,7 @@ function Home() {
 
             {/* Picture */}
             <div className="lg:p-4">
-              <img src={Headshot} alt="Headshot" className="max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" />
+              <img src={"/Headshot.avif"} alt="Headshot" className="max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" />
             </div>
           </div>
         </div>
