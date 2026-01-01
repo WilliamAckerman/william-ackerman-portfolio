@@ -70,7 +70,17 @@ function Home() {
 
             {/* Picture */}
             <div className="lg:p-4">
-              <img src={"/Headshot.avif"} alt="Headshot" className="max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" />
+              <picture>
+                <source srcSet="/Headshot.avif" type="image/avif" />
+                <source srcSet="/Headshot.webp" type="image/webp" />
+                <img 
+                  src={"/Headshot.jpg"} 
+                  alt="Headshot" 
+                  width={300} 
+                  height={300} 
+                  className="w-full max-w-[175px] md:max-w-[250px] lg:max-w-[300px] rounded-sm" 
+                />
+              </picture>
             </div>
           </div>
         </div>

@@ -132,7 +132,17 @@ function About() {
 
           {/* Photo section */}
           <div className="mb-4 lg:mb-0 mt-4 lg:mt-0 lg:p-4">
-            <img src={"/Headshot.avif"} alt="Headshot" className="max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" />
+            <picture>
+              <source srcSet="/Headshot.avif" type="image/avif" />
+              <source srcSet="/Headshot.webp" type="image/webp" />
+              <img 
+                src={"/Headshot.jpg"} 
+                alt="Headshot" 
+                width={300} 
+                height={300} 
+                className="w-full max-w-[175px] md:max-w-[300px] md:w-auto h-auto rounded-sm" 
+              />
+            </picture>
           </div>
         </div>
 
