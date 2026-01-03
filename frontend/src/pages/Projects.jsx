@@ -16,7 +16,7 @@ function Projects() {
       <Navbar activeLink="Projects" />
 
       {/* Projects page */}
-      <div className={`page-main ${bg}`}>
+      <main className={`page-main ${bg}`}>
         <h1 className={`${text} main-header`}>
           Projects
         </h1>
@@ -29,7 +29,7 @@ function Projects() {
 
         {/* Displays all projects */}
         <FetchProjects />
-      </div>
+      </main>
       {/* End of Projects page */}
 
       {/* Footer */}

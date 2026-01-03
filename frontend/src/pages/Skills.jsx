@@ -156,7 +156,7 @@ function Skills() {
       <Navbar activeLink="Skills" />
 
       {/* Skills page */}
-      <div className={`page-main ${bg}`}>
+      <main className={`page-main ${bg}`}>
         <h1 className={`${text} main-header`}>
           Skills
         </h1>
@@ -290,7 +290,7 @@ function Skills() {
             <FetchSkills type={"Soft Skills"} />
           </CustomTabPanel>
         </Box>
-      </div>
+      </main>
       {/* End of Skills page */}
 
       {/* Footer */}
