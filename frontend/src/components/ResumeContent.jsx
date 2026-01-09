@@ -157,10 +157,10 @@ export default function ResumeContent(props) {
                 }
                 <div className="mb-2">
                     { type == "print" ? 
-                    <p className="text-lg"><span className="font-bold ">Technologist</span> | <em>Aug 2025 — Present</em></p> 
+                    <p className="text-lg"><span className="font-bold ">Technologist (Part-Time)</span> | <em>Aug 2025 — Present</em></p> 
                     :
                     <h3 className={`${resumeText}`}>
-                        <span className="non-print-header">Technologist</span> | <em>Aug 2025 — Present</em>
+                        <span className="non-print-header">Technologist (Part-Time)</span> | <em>Aug 2025 — Present</em>
                     </h3>
                     }
                     <p className={`${resumeText}`}><span className="sub-header">Kelm Media Group</span>, Farmingdale, NY</p>
@@ -182,7 +182,7 @@ export default function ResumeContent(props) {
                     }
                     <p className={`${resumeText}`}><span className="sub-header">Kelm Media Group</span>, Farmingdale, NY</p>
                     <ul>
-                        <li className={`${resumeText}`}>Collaborated with team members to design and develop five responsive websites</li>
+                        <li className={`${resumeText}`}>Collaborated with team members to design and develop five websites</li>
                         <li className={`${resumeText}`}>Built user-friendly web pages using HTML, CSS, JavaScript, and Bootstrap</li>
                         <li className={`${resumeText}`}>Implemented database-driven features using MySQL and PHP</li>
                         <li className={`${resumeText}`}>Communicated regularly with colleagues to discuss project and feature progress</li>
@@ -237,7 +237,7 @@ export default function ResumeContent(props) {
                     <ul>
                         <li className={`${resumeText}`}>
                             Collaborated as part of an Agile team of five to develop a web 
-                            application allowing users to search for and view information on movies and shows
+                            application allowing users to search for and view information on movies and TV shows
                         </li>
                         <li className={`${resumeText}`}>Designed user-friendly interfaces using React, JavaScript, and CSS</li>
                         <li className={`${resumeText}`}>Utilized RESTful API calls and Cloud Firestore for database-driven features</li>
