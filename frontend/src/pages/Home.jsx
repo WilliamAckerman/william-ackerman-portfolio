@@ -55,7 +55,7 @@ function Home() {
             William Ackerman
           </h1>
           <h2 className={`${secondaryText} mb-4 text-xl sm:text-3xl md:text-4xl xl:text-5xl font-semibold text-center`}>
-            Web Developer
+            Full-Stack Web Developer
           </h2>
             
           <div className="flex items-center justify-evenly flex-col lg:flex-row max-w-[90%] lg:max-w-[80%] mx-auto xl:max-w-[1400px]">

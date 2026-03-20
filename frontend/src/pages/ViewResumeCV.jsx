@@ -66,7 +66,7 @@ function ViewResumeCV() {
           {/* Links to view resume as PDF */}
           <div className={`${boxBg} ${border} text-center mt-8 mb-4 p-4 mx-auto w-full sm:w-xl rounded-sm`}>
             <p className={`${boxText} mb-4`}>
-              To view a PDF of this resume, please visit the following link: <Link to={resumePDFLink} className={`${link}`} target="_blank" rel="noreferrer">Resume PDF</Link>.
+              To view a PDF version of my resume, please visit the following link: <Link to={resumePDFLink} className={`${link}`} target="_blank" rel="noreferrer">Resume PDF</Link>.
             </p>
             <p className={`${boxText}`}>
               To view a PDF of a 1-page version of my resume, please visit the following link: <Link to={onePageResumeLink} className={`${link}`} target="_blank" rel="noreferrer">1-Page Resume PDF</Link>.

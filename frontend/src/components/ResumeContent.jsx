@@ -56,7 +56,7 @@ export default function ResumeContent(props) {
                         </a>
                     </span>
                 </div>
-                <div
+                {/*<div
                     className={type == "print" ? "flex justify-between mb-0" : "flex justify-between mb-2 lg:mb-1"}
                 >
                     <span className="text-base">
@@ -70,13 +70,35 @@ export default function ResumeContent(props) {
                             rel="noreferrer"
                             className={`${resumeLink} general-link break-all`}
                         >
-                            https://william-ackerman-portfolio.vercel.app
+                            Portfolio
                         </a>
                     </span>
-                </div>
+                </div>*/}
                 <div
                     className={type == "print" ? "flex justify-left flex-col mb-0" : "flex justify-left flex-col lg:flex-row mt--1 lg:mt-0 mb-1 lg:mb-0"}
                 >
+
+                    {/* Portfolio */}
+                    <span className={type == "print" ? "text-base mb-0 mr-4" : "text-base mb-2 lg:mb-0 mr-4"}>
+                        <div className="icon-div">
+                            <FaLink className={`inline ${resumeText}`} />
+                            <span className="sr-only">Link icon</span>
+                        </div>
+                        <a 
+                            href="https://william-ackerman-portfolio.vercel.app"
+                            target="_blank"
+                            rel="noreferrer"
+                            className={`${resumeLink} general-link break-all`}
+                        >
+                            {
+                                type == "print" ?
+                                "https://william-ackerman-portfolio.vercel.app" :
+                                "Portfolio"
+                            }
+                        </a>
+                    </span>
+
+                    {/* LinkedIn */}
                     <span className={type == "print" ? "text-base mb-0 mr-4" : "text-base mb-2 lg:mb-0 mr-4"}>
                         <div className="icon-div">
                             <FaLinkedin className={`inline ${resumeText}`} />
@@ -88,9 +110,15 @@ export default function ResumeContent(props) {
                             rel="noreferrer"
                             className={`${resumeLink} general-link break-all`}
                         >
-                            https://www.linkedin.com/in/william-ackerman-6a4005290/
+                            {
+                                type == "print" ?
+                                "https://www.linkedin.com/in/william-ackerman-6a4005290/" :
+                                "LinkedIn"
+                            }
                         </a>
                     </span>
+
+                    {/* Github */}
                     <span className="text-base">
                         <div className="icon-div">
                             <FaGithub className={`inline ${resumeText}`} />
@@ -102,13 +130,17 @@ export default function ResumeContent(props) {
                             rel="noreferrer"
                             className={`${resumeLink} general-link break-all`}
                         >
-                            https://github.com/WilliamAckerman
+                            {
+                                type == "print" ?
+                                "https://github.com/WilliamAckerman" :
+                                "Github"
+                            }
                         </a>
                     </span>
                 </div>
                 <hr className={`mt-2 mb-2 ${resumeText}`} />
                 <p className={`text-base ${resumeText}`}>
-                    Web developer skilled in JavaScript and SQL. 
+                    Full-stack web developer skilled in JavaScript and SQL. 
                     Experienced in developing responsive, user-focused web applications with 
                     strong problem-solving skills and attention to detail.
                 </p>
@@ -136,9 +168,13 @@ export default function ResumeContent(props) {
                 </h3>
                 }
                 <p className={`${resumeText}`}>
-                    <span className="font-semibold">
+                    {/*<span className="font-semibold">
                         Bachelor of Science
-                    </span>, Computer Programming & Information Systems — May 2025
+                    </span>, Computer Programming & Information Systems{/* — May 2025*/}
+
+                    <span className="font-semibold">
+                        Bachelor of Science in Computer Programming & Information Systems
+                    </span>
                 </p>
                 
                 <p className={`${resumeText}`}>
@@ -209,7 +245,7 @@ export default function ResumeContent(props) {
                     }
                     <ul>
                         <li className={`${resumeText}`}>
-                            Worked on developing a portfolio website that helps market my skills as a web developer
+                            Worked on developing a portfolio website that helps market my skills as a full-stack web developer
                         </li>
                         <li className={`${resumeText}`}>
                             Implemented a Vite/React frontend, including TailwindCSS and Material UI for interface design
@@ -265,9 +301,9 @@ export default function ResumeContent(props) {
                     Core Skills
                 </h2>
                 }
-                <p className={`${resumeText} skillCategory`}><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, AJAX, jQuery, TailwindCSS, Material UI, Vite, Vercel</p>
+                <p className={`${resumeText} skillCategory`}><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, {/*AJAX, jQuery,*/}TailwindCSS, {/*Material UI, Vite,*/}Vercel</p>
                 <p className={`${resumeText} skillCategory`}><strong>Backend:</strong> PHP, Node.js, Express.js</p>
-                <p className={`${resumeText} skillCategory`}><strong>Database:</strong> MySQL, MongoDB, Cloud Firestore, Microsoft SQL Server</p>
+                <p className={`${resumeText} skillCategory`}><strong>Database:</strong> MySQL, MongoDB{/*, Cloud Firestore, Microsoft SQL Server*/}</p>
                 <p className={`${resumeText} skillCategory`}><strong>Tools:</strong> Responsive Design, RESTful APIs, Git/Github, Agile Development, Figma</p>
                 <p className={`${resumeText} skillCategory`}><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication, Leadership</p>
             </section>

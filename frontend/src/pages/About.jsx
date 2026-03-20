@@ -91,7 +91,7 @@ function About() {
             </h2>
 
             <p className={`${boxText}`}>
-              When I first started attending Farmingdale State College back in Fall 2021, I 
+              When I first started attending Farmingdale State College{/* back in Fall 2021*/}, I 
               didn't really see myself as a programmer; I would often just do what was expected 
               of me and move on with my life.
             </p>
