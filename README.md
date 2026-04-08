@@ -1,6 +1,6 @@
 # About this Project
 
-Privacy Policy effective date: January 1, 2026.
+Privacy Policy effective date: April 8, 2026.
 
 Hello, thank you for your interest in my portfolio website! There's a fair amount of features and technologies to cover.
 
