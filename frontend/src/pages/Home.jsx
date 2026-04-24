@@ -202,7 +202,7 @@ function Home() {
               </p>
 
               <p className={`${homeBoxText}`}>
-                <strong>Effective Date:</strong> April 8, 2026
+                <strong>Effective Date:</strong> April 23, 2026
               </p>
             </div>
           </section>

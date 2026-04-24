@@ -235,12 +235,37 @@ export default function ResumeContent(props) {
                     Projects
                 </h2>
                 }
+
                 <div className="mb-2">
                     { type == "print" ? 
-                    <p className="text-lg"><span className="font-bold ">Developer Portfolio - Personal Project</span> | <em>Oct 2025 — Jan 2026</em></p> 
+                    <p className="text-lg"><span className="font-bold">Savefile — Personal Project</span> | <em>Feb 2026 — Present</em></p>
                     :
                     <h3 className={`${resumeText}`}>
-                        <span className="non-print-header">Developer Portfolio - Personal Project</span> | <em>Oct 2025 — Jan 2026</em>
+                        <span className="non-print-header">Savefile — Personal Project</span> | <em>Feb 2026 — Present</em>
+                    </h3>
+                    }
+                    <ul>
+                        <li className={`${resumeText}`}>
+                            Develop a user-friendly Next.js/TypeScript web application that lets users view information on video games
+                        </li>
+                        <li className={`${resumeText}`}>
+                            Utilize a Python script to seed a MongoDB database with data sourced from the IGDB API
+                        </li>
+                        <li className={`${resumeText}`}>
+                            Integrate an Express/TypeScript RESTful API for backend operations
+                        </li>
+                        <li className={`${resumeText}`}>
+                            Implement a search feature for users to search for games based on specified criteria
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="mb-2">
+                    { type == "print" ? 
+                    <p className="text-lg"><span className="font-bold ">Developer Portfolio — Personal Project</span> | <em>Oct 2025 — Jan 2026</em></p> 
+                    :
+                    <h3 className={`${resumeText}`}>
+                        <span className="non-print-header">Developer Portfolio — Personal Project</span> | <em>Oct 2025 — Jan 2026</em>
                     </h3>
                     }
                     <ul>
@@ -264,10 +289,10 @@ export default function ResumeContent(props) {
 
                 <div className="mb-2">
                     { type == "print" ? 
-                    <p className="text-lg"><span className="font-bold">TeleShow - Senior Project</span> | <span className="font-bold">Farmingdale State College</span> | <em>Feb 2025 — May 2025</em></p> 
+                    <p className="text-lg"><span className="font-bold">TeleShow — Senior Project</span> | <span className="font-bold">Farmingdale State College</span> | <em>Feb 2025 — May 2025</em></p> 
                     :
                     <h3 className={`${resumeText}`}>
-                        <span className="non-print-header">TeleShow - Senior Project</span> | <span className="font-bold">Farmingdale State College</span> | <em>Feb 2025 — May 2025</em>
+                        <span className="non-print-header">TeleShow — Senior Project</span> | <span className="font-bold">Farmingdale State College</span> | <em>Feb 2025 — May 2025</em>
                     </h3>
                     }
                     <ul>
@@ -301,8 +326,8 @@ export default function ResumeContent(props) {
                     Core Skills
                 </h2>
                 }
-                <p className={`${resumeText} skillCategory`}><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React, Bootstrap, {/*AJAX, jQuery,*/}TailwindCSS, {/*Material UI, Vite,*/}Vercel</p>
-                <p className={`${resumeText} skillCategory`}><strong>Backend:</strong> PHP, Node.js, Express.js</p>
+                <p className={`${resumeText} skillCategory`}><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), TypeScript, React, Next.js, Bootstrap, {/*AJAX, jQuery,*/}TailwindCSS, {/*Material UI, Vite,*/}Vercel</p>
+                <p className={`${resumeText} skillCategory`}><strong>Backend:</strong> PHP, Express.js, Python, Node.js</p>
                 <p className={`${resumeText} skillCategory`}><strong>Database:</strong> MySQL, MongoDB{/*, Cloud Firestore, Microsoft SQL Server*/}</p>
                 <p className={`${resumeText} skillCategory`}><strong>Tools:</strong> Responsive Design, RESTful APIs, Git/Github, Agile Development, Figma</p>
                 <p className={`${resumeText} skillCategory`}><strong>Soft Skills:</strong> Attention to Detail, Problem Solving, Team Collaboration, Adaptability, Communication, Leadership</p>

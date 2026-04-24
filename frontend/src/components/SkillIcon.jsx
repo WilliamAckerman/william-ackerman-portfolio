@@ -31,7 +31,12 @@ import {
     SiRender,
     SiVite,
     SiTailwindcss,
-    SiMui
+    SiMui,
+    SiTypescript,
+    SiNextdotjs,
+    SiPython,
+    SiJest,
+    SiTestinglibrary
 } from "react-icons/si";
 import {
     RiTeamFill
@@ -88,7 +93,12 @@ const SkillIcon = (props) => {
         FaDatabase: FaDatabase,
         FaProjectDiagram: FaProjectDiagram,
         MdDevices: MdDevices,
-        TbApi: TbApi
+        TbApi: TbApi,
+        SiTypescript: SiTypescript,
+        SiNextdotjs: SiNextdotjs,
+        SiPython: SiPython,
+        SiJest: SiJest,
+        SiTestinglibrary: SiTestinglibrary
     }
 
     // Determines what icon to render
