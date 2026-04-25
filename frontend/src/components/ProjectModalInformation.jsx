@@ -7,6 +7,7 @@ export default function ProjectModalInformation(props) {
     const description = props.description
     const details = props.details
     const githubLink = props.githubLink
+    const projectLink = props.projectLink;
 
     return (
         <>
@@ -24,8 +25,29 @@ export default function ProjectModalInformation(props) {
                 {details}
             </ul>
 
+            {
+                projectLink &&
+                <div className={githubLink ? "mb-2" : ""}>
+                    <h2 className={`${modalH2}`}>
+                        Project Link
+                    </h2>
+                    <Link
+                        to={projectLink}
+                        rel="noreferrer"
+                        target="_blank"
+                        className={`
+                            ${link}
+                            underline
+                            hover:no-underline
+                        `}
+                    >
+                        Project Link
+                    </Link>
+                </div>
+            }
+
             {githubLink &&
-                <>
+                <div>
                     <h2 className={`${modalH2}`}>
                         Github Link
                     </h2>
@@ -41,7 +63,7 @@ export default function ProjectModalInformation(props) {
                     >
                         Github Link
                     </Link>
-                </>
+                </div>
             }
         </>
     )

@@ -45,6 +45,7 @@ export default function ProjectModalBox(props) {
     const description = props.description
     const details = props.details
     const githubLink = props.githubLink
+    const projectLink = props.projectLink;
     const projectAlias = props.projectAlias
     const { bg, border, text, link } = DisplayModeHook()
 
@@ -84,6 +85,7 @@ export default function ProjectModalBox(props) {
                                     description={description}
                                     details={details}
                                     githubLink={githubLink}
+                                    projectLink={projectLink}
                                 />
                             </div>
                         </div>
@@ -102,6 +104,7 @@ export default function ProjectModalBox(props) {
                             description={description}
                             details={details}
                             githubLink={githubLink}
+                            projectLink={projectLink}
                         />
 
                         <FetchProjectSkills

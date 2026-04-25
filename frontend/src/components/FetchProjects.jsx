@@ -40,6 +40,7 @@ export const FetchProjects = (props) => {
     const [modalEndDate, setModalEndDate] = useState("") // Determines the end date to display in the modal's header. If there is none, display "Present" instead
     const [modalDetails, setModalDetails] = useState([]) // Determines the project details to display in the modal
     const [modalGithubLink, setModalGithubLink] = useState(null) // Determines the Github link to display in the modal, if there is one
+    const [modalProjectLink, setModalProjectLink] = useState(null);
     const [projectAlias, setProjectAlias] = useState("") // Determines the project alias - this is used to fetch skills relevant to a project
     const [modalImage, setModalImage] = useState(null) // Determines the image to be displayed in the modal, if any
 
@@ -63,7 +64,7 @@ export const FetchProjects = (props) => {
     ]
 
     // Handles opening the modal
-    const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, alias, imageLink) => {
+    const handleModalOpen = (id, header, description, startDate, endDate, details, githubLink, projectLink, alias, imageLink) => {
         setModalHeader(header)
         setModalDescription(description)
 
@@ -91,6 +92,7 @@ export const FetchProjects = (props) => {
         }
 
         setModalGithubLink(githubLink ? githubLink : null)
+        setModalProjectLink(projectLink ? projectLink : null);
         setModalImage(imageLink ? imageLink : null)
 
         setModalOpen(true) // Finally, open the modal
@@ -148,6 +150,7 @@ export const FetchProjects = (props) => {
                         description={modalDescription}
                         details={modalDetails}
                         githubLink={modalGithubLink}
+                        projectLink={modalProjectLink}
                         projectAlias={projectAlias}
                         operation={handleModalClose}
                     />
@@ -164,6 +167,7 @@ export const FetchProjects = (props) => {
                                 description={modalDescription}
                                 details={modalDetails}
                                 githubLink={modalGithubLink}
+                                projectLink={modalProjectLink}
                                 projectAlias={projectAlias}
                                 operation={handleModalClose}
                             />
@@ -199,6 +203,7 @@ export const FetchProjects = (props) => {
                             new Date(project.end_date), 
                             project.details, 
                             project.github_link, 
+                            project.project_link,
                             project.alias, 
                             project.image_link
                         )}
